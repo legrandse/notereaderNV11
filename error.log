@@ -1,0 +1,14 @@
+/home/pi/rpiWebServer/notereader2/notereader.js:27
+                headers: { 'Authorization': Bearer ${AUTH_TOKEN} },
+                                                   ^
+
+SyntaxError: Unexpected identifier '$'
+    at wrapSafe (node:internal/modules/cjs/loader:1378:20)
+    at Module._compile (node:internal/modules/cjs/loader:1428:41)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+    at node:internal/main/run_main_module:28:49
+
+Node.js v20.18.0
