@@ -9,7 +9,7 @@ app.use(express.json());
 // Configuration
 const COM_PORT = '/dev/ttyACM0';
 const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
-const AUTH_TOKEN = 'c13dffba-a4c0-4322-b5f0-83803770dd20';
+const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
 const EMAIL_FROM = 'info@sallelafraternite.be';
 const EMAIL_TO = 'legrandse@gmail.com';
 const EMAIL_SUBJECT = 'Validator Error Notification';
@@ -25,7 +25,7 @@ let eSSP; // Déclaration globale pour l'objet eSSP
 function initializeValidator(comPort, fixedKey = '0123456701234567') {
     let eSSP = new sspLib({
         id: 0,
-        debug: true,
+        debug: false,
         timeout: 3000,
         fixedKey: fixedKey
     });

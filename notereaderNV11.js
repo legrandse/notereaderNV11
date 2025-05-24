@@ -9,7 +9,7 @@ app.use(express.json());
 // Configuration
 const COM_PORT = '/dev/ttyACM0';
 const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
-const AUTH_TOKEN = 'c13dffba-a4c0-4322-b5f0-83803770dd20';
+const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
 const EMAIL_FROM = 'info@sallelafraternite.be';
 const EMAIL_TO = 'legrandse@gmail.com';
 const EMAIL_SUBJECT = 'Validator Error Notification';
@@ -17,6 +17,7 @@ const NOTE_VALUES = { 1: 5, 2: 10, 3: 20, 4: 50, 5: 100, 6: 200, 7: 500 };
 
 let noteInProcessing = false;
 let amountValue = null;
+let isPayoutInProgress = false;
 let eSSP; // Déclaration globale pour l'objet eSSP
 
 /**
@@ -122,7 +123,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
                 });
         }
     });
-
+/*
     eSSP.on('CREDIT_NOTE', result => {
         const noteId = result.channel;
         if (NOTE_VALUES[noteId]) {
@@ -136,58 +137,60 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
             console.log(`Unknown note ID: ${noteId}`);
         }
     });
+*/
+eSSP.on('CREDIT_NOTE', result => {
+    const noteId = result.channel;
+    if (NOTE_VALUES[noteId]) {
+        const noteValue = NOTE_VALUES[noteId];
+        noteInProcessing = false;
+
+        const jetonValue = amountValue || 0;
+        const rendu = noteValue - jetonValue;
+       
+
+        postWithRetry({ 'status': { 'note': noteValue, 'value': 'credited' } })
+            .then(() => {
+                if (rendu > 0) {
+                    const denomination = 10; // La valeur de chaque billet de rendu
+                    const payoutCount = Math.floor(rendu / denomination);
+                    const reste = rendu % denomination;
+
+                    console.log(`💶 ${noteValue}€ reçu. Jetons: ${jetonValue}€. Rendu: ${rendu}€ -> ${payoutCount} x ${denomination}€`);
+
+                    if (reste > 0) {
+                        console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
+                        // Optionnel : envoyer info à l'API ou par mail
+                    }
+
+                    setTimeout(() => {
+                        handlePayoutRequest(payoutCount);
+                    }, 2000); // ⏱ délai de 5 secondes
+                }
+            })
+            .catch(error => {
+                console.error(`Final failure: ${error.message}`);
+            });
+    } else {
+        console.log(`Unknown note ID: ${noteId}`);
+    }
+});
+
 
     // Ouverture de la connexion au validateur
     eSSP.open(comPort);
 
     return eSSP;
+
+
+
+
+
+
+    
 }
 
-/**
- * Configure le routage des billets à destination de la cashbox
- * @param {object} eSSP - Instance du périphérique eSSP
- * @param {number} value - Valeur de la dénomination en centimes (e.g., 1000 pour 10€)
- * @param {string} countryCode - Code pays à 3 lettres (ISO 4217, e.g., 'EUR')
- * @param {string} route - Routage ('cashbox' ou 'payout')
- */
-function setDenominationRoute(eSSP, value, countryCode, route = 'payout') {
-    eSSP.command('SET_DENOMINATION_ROUTE', {
-        route: route,
-        value: value,
-        country_code: countryCode
-    })
-        .then(result => {
-            console.log(`Routage configuré : ${value / 100} ${countryCode} vers ${route}`);
-        })
-        .catch(error => {
-            console.error(`Erreur lors de la configuration du routage pour ${value / 100} ${countryCode} :`, error);
-        });
-}
 
-// Exemple d'utilisation pour configurer les billets de 10€ vers la cashbox
-function configureRoutes(eSSP) {
-    const valueInCents = 1000; // 10€ en centimes
-    const countryCode = 'EUR'; // Code ISO pour l'euro
 
-    setDenominationRoute(eSSP, valueInCents, countryCode, 'payout');
-}
-
-/**
- * Active le dispositif de paiement pour permettre le stockage des billets
- * @param {object} eSSP - Instance du périphérique eSSP
- */
-function enablePayoutDevice(eSSP) {
-    eSSP.command('ENABLE_PAYOUT_DEVICE', {
-        GIVE_VALUE_ON_STORED: true,
-        NO_HOLD_NOTE_ON_PAYOUT: true
-    })
-        .then(result => {
-            console.log('Payout device activé avec succès :', result);
-        })
-        .catch(error => {
-            console.error('Erreur lors de l\'activation du payout device :', error);
-        });
-}
 
 
 /**
@@ -277,34 +280,92 @@ app.post('/enable', authenticateToken, (req, res) => {
 });
 
 app.post('/disable', authenticateToken, (req, res) => {
+    if (isPayoutInProgress) {
+        return res.status(403).json({ error: 'Cannot disable while payout in progress' });
+    }
     eSSP.disable()
         .then(result => res.json({ status: 'Validator disabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
 });
 
+app.post('/collect', authenticateToken, (req, res) => {
+    eSSP.command('EMPTY_ALL') 
+        .then(result => res.json({ status: 'Emptying cashbox', result }))
+        .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
+});
+
+/*app.post('/payout', authenticateToken, (req, res) => {
+    eSSP.command('PAYOUT_NOTE')
+        .then(result => {
+            res.json({ status: 'Payout command sent', result });
+        })
+        .catch(err => {
+            console.error('Erreur lors du paiement :', err);
+            res.status(500).json({ error: 'Failed to send Payout command', details: err });
+        });
+});*/
+/*
 app.post('/payout', authenticateToken, (req, res) => {
+    const { value } = req.body;
+    if (!value || typeof value !== 'number' || value <= 0) {
+        return res.status(400).json({ error: 'Invalid value parameter' });
+    }
+
+    let count = 0;
+
+    const dispenseNext = () => {
+        if (count >= value) {
+            console.log(`✅ Finished dispensing ${value} note(s)`);
+            eSSP.disable()
+                .then(() => console.log('Validator disabled after final payout'))
+                .catch(err => console.error('Failed to disable validator:', err));
+            return;
+        }
+
+        console.log(`🔁 Dispensing note ${count + 1} of ${value}`);
+        eSSP.command('PAYOUT_NOTE')
+            .then(() => {
+                // On attend DISPENSED avant de relancer
+            })
+            .catch(err => {
+                console.error(`Error during payout #${count + 1}:`, err);
+                eSSP.disable();
+            });
+    };
+
+    const onDispensed = () => {
+        count++;
+        console.log(`✅ Note ${count} dispensed`);
+        dispenseNext();
+    };
+
+    eSSP.on('DISPENSED', onDispensed);
+
+    // Start sequence
     eSSP.enable()
-    // Activer le dispositif de paiement
-    .then(() => {
-        return eSSP.command('ENABLE_PAYOUT_DEVICE', {
+        .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
             GIVE_VALUE_ON_STORED: true,
             NO_HOLD_NOTE_ON_PAYOUT: false,
-          });
-    })
-    .then(() => {
-        // Une fois le payout device activé, demander le paiement
-        return eSSP.command('PAYOUT_NOTE');
-    })
-    .then(result => {
-        // Succès
-        res.json({ status: 'Payout initiated', result });
-    })
-    .catch(error => {
-        // Gestion des erreurs
-        console.error('Erreur lors du paiement :', error);
-        res.status(500).json({ error: 'Failed to initiate payout', details: error });
-    });
+        }))
+        .then(() => {
+            res.json({ status: 'Payout process started', requested: value });
+            dispenseNext(); // Première exécution
+        })
+        .catch(err => {
+            eSSP.off('DISPENSED', onDispensed);
+            console.error('Erreur lors de la préparation du payout :', err);
+            res.status(500).json({ error: 'Failed to initiate payout process', details: err });
+        });
+
+    // Nettoyage de l'écouteur au bout d’un certain temps (failsafe)
+    setTimeout(() => {
+        eSSP.off('DISPENSED', onDispensed);
+        console.warn('⏱ DISPENSED listener removed after timeout (failsafe)');
+    }, value * 10000); // ex: 10s par note max
 });
+*/
+
+
 
 
 
@@ -329,6 +390,114 @@ app.post('/reset', authenticateToken, (req, res) => {
             res.status(500).json({ error: 'Failed to reset validator', details: error });
         });
 });
+/*
+function handlePayoutRequest(count) {
+    let dispensed = 0;
+
+    const onDispensed = () => {
+        dispensed++;
+        console.log(`✅ Note ${dispensed}/${count} dispensed`);
+
+        if (dispensed >= count) {
+            eSSP.off('DISPENSED', onDispensed);
+            eSSP.disable().then(() => {
+                console.log('✅ Payout terminé. Validator désactivé');
+            }).catch(console.error);
+            return;
+        }
+
+        // Attendre 1 seconde avant la prochaine commande
+        setTimeout(() => {
+            eSSP.command('PAYOUT_NOTE').catch(console.error);
+        }, 1000);
+    };
+
+    eSSP.on('DISPENSED', onDispensed);
+
+    eSSP.enable()
+        .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
+            GIVE_VALUE_ON_STORED: true,
+            NO_HOLD_NOTE_ON_PAYOUT: false,
+        }))
+        .then(() => {
+            console.log(`⏳ Début du rendu de ${count} note(s)...`);
+            return eSSP.command('PAYOUT_NOTE');
+        })
+        .catch(err => {
+            console.error('Erreur lors du payout initial:', err);
+            eSSP.off('DISPENSED', onDispensed);
+        });
+
+    // Failsafe
+    setTimeout(() => {
+        eSSP.off('DISPENSED', onDispensed);
+        console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
+    }, count * 10000);
+}*/
+function handlePayoutRequest(count) {
+    let dispensed = 0;
+   // isPayoutInProgress = true;
+
+eSSP.disable()
+    .then(() => {
+       // isPayoutInProgress = false;
+        console.log('✅ Payout terminé. Validator désactivé');
+    })
+
+    const onDispensed = () => {
+        dispensed++;
+        console.log(`✅ Note ${dispensed}/${count} dispensed`);
+    
+        // 👇 Ajout ici : on loggue chaque note rendue
+        postWithRetry({ status: { note: 10, value: 'debited' } })
+            .then(() => {
+                console.log('📨 Débit enregistré dans le serveur');
+            })
+            .catch((err) => {
+                console.error('⚠️ Échec de l’envoi du débit:', err.message);
+            });
+    
+        if (dispensed >= count) {
+            eSSP.off('DISPENSED', onDispensed);
+            eSSP.disable()
+                .then(() => {
+                    console.log('✅ Payout terminé. Validator désactivé');
+                })
+                .catch(console.error);
+            return;
+        }
+    
+        // Attendre 1 seconde avant la prochaine commande
+        setTimeout(() => {
+            eSSP.command('PAYOUT_NOTE').catch(console.error);
+        }, 1000);
+    };
+    
+
+    // Important: s’assurer qu’aucun ancien listener traîne
+    eSSP.off('DISPENSED', onDispensed); 
+    eSSP.on('DISPENSED', onDispensed);
+
+    eSSP.enable()
+        .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
+            GIVE_VALUE_ON_STORED: true,
+            NO_HOLD_NOTE_ON_PAYOUT: false,
+        }))
+        .then(() => {
+            console.log(`⏳ Début du rendu de ${count} billet(s)...`);
+            return eSSP.command('PAYOUT_NOTE'); // premier billet
+        })
+        .catch(err => {
+            eSSP.off('DISPENSED', onDispensed);
+            console.error('Erreur lors du payout initial:', err);
+        });
+
+    // Failsafe timeout
+    setTimeout(() => {
+        eSSP.off('DISPENSED', onDispensed);
+        console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
+    }, count * 10000);
+}
 
 
 
