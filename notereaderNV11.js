@@ -43,12 +43,9 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
             })
             .then(() => eSSP.command('SET_CHANNEL_INHIBITS', { channels: [1, 1, 1, 1, 0, 0, 0, 0] }))
             
-            /*.then(()=> eSSP.command('GET_DENOMINATION_ROUTE', {
-                isHopper: false, // true/false
-                value: 1000,
-                country_code: 'EUR',
-              }))*/
+            
             .then(() => eSSP.command('SET_DENOMINATION_ROUTE', { route:'payout', value:1000, country_code:'EUR' }))
+            //.then(() => eSSP.command('GET_DENOMINATION_ROUTE', {isHopper: false,  value: 1000, country_code: 'EUR' }))
             .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
                 GIVE_VALUE_ON_STORED: true,
                 NO_HOLD_NOTE_ON_PAYOUT: false,
@@ -85,7 +82,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
     });
 
     eSSP.on('STACKER_FULL', result => {
-        const data = { 'status': { 'message': `${result.info.description}`, 'value': 'error' } };
+        const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
         postWithRetry(data)
             .catch(error => {
@@ -94,7 +91,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
     });
 
     eSSP.on('CASHBOX_REMOVED', result => {
-        const data = { 'status': { 'message': `${result.info.description}`, 'value': 'error' } };
+        const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
         postWithRetry(data)
             .catch(error => {
@@ -103,7 +100,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
     });
 
     eSSP.on('UNSAFE_NOTE_JAM', result => {
-        const data = { 'status': { 'message': `${result.info.description}`, 'value': 'error' } };
+        const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
         postWithRetry(data)
             .catch(error => {
@@ -138,6 +135,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
         }
     });
 */
+/*
 eSSP.on('CREDIT_NOTE', result => {
     const noteId = result.channel;
     if (NOTE_VALUES[noteId]) {
@@ -146,7 +144,7 @@ eSSP.on('CREDIT_NOTE', result => {
 
         const jetonValue = amountValue || 0;
         const rendu = noteValue - jetonValue;
-       
+        //console.log(`rendu: ${rendu}`);
 
         postWithRetry({ 'status': { 'note': noteValue, 'value': 'credited' } })
             .then(() => {
@@ -161,7 +159,7 @@ eSSP.on('CREDIT_NOTE', result => {
                         console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
                         // Optionnel : envoyer info à l'API ou par mail
                     }
-
+                    const notePosition = eSSP.command('GET_NOTE_POSITIONS', {});
                     setTimeout(() => {
                         handlePayoutRequest(payoutCount);
                     }, 2000); // ⏱ délai de 5 secondes
@@ -174,6 +172,53 @@ eSSP.on('CREDIT_NOTE', result => {
         console.log(`Unknown note ID: ${noteId}`);
     }
 });
+*/
+    eSSP.on('CREDIT_NOTE', result => {
+    const processCreditNote = async () => {
+        const noteId = result.channel;
+        if (NOTE_VALUES[noteId]) {
+            const noteValue = NOTE_VALUES[noteId];
+            noteInProcessing = false;
+
+            const jetonValue = amountValue || 0;
+            const rendu = noteValue - jetonValue;
+
+            try {
+                await postWithRetry({ status: { note: noteValue, value: 'credited' } });
+
+                // ✅ On vérifie l’état des slots quelle que soit la valeur du billet
+                const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+
+                if (rendu >= 10) {
+                    const denomination = 10;
+                    const payoutCount = Math.floor(rendu / denomination);
+                    const reste = rendu % denomination;
+
+                    console.log(`💶 ${noteValue}€ reçu. Jetons: ${jetonValue}€. Rendu: ${rendu}€ -> ${payoutCount} x ${denomination}€`);
+
+                    if (reste > 0) {
+                        console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
+                    }
+
+                    setTimeout(() => {
+                        handlePayoutRequest(payoutCount);
+                    }, 2000);
+                } else {
+                    console.log(`✅ Aucun rendu nécessaire. Le billet de ${noteValue}€ correspond exactement au montant dû.`);
+                }
+            } catch (error) {
+                console.error(`Final failure: ${error.message}`);
+            }
+        } else {
+            console.log(`Unknown note ID: ${noteId}`);
+        }
+    };
+
+    processCreditNote();
+});
+
+
+
 
 
     // Ouverture de la connexion au validateur
@@ -189,7 +234,29 @@ eSSP.on('CREDIT_NOTE', result => {
     
 }
 
+async function checkNoteSlotsStatus() {
+    try {
+        const resultSlots = await eSSP.command('GET_NOTE_POSITIONS');
+        console.log('📦 Résultat brut GET_NOTE_POSITIONS:', JSON.stringify(resultSlots, null, 2));
 
+        const slots = resultSlots.info.slot;
+        const usedSlotCount = Object.keys(slots).length;
+
+        const MAX_SLOTS = 31;
+        const remainingSlots = MAX_SLOTS - usedSlotCount;
+
+        console.log(`🔍 ${remainingSlots} positions libres (sur ${MAX_SLOTS})`);
+        console.log('➡️ Condition de test:', remainingSlots, remainingSlots >= 26);
+        console.log('🔎 Type de remainingSlots:', typeof remainingSlots, remainingSlots);
+
+        await sendSlotStatusToLaravel(usedSlotCount, remainingSlots, remainingSlots >= 26);
+
+        return { usedSlotCount, remainingSlots };
+    } catch (error) {
+        console.error(`Erreur lors de la vérification des slots : ${error.message}`);
+        return { usedSlotCount: null, remainingSlots: null };
+    }
+}
 
 
 
@@ -263,11 +330,7 @@ function authenticateToken(req, res, next) {
  * Initialisation du validateur
  */
 eSSP = initializeValidator(COM_PORT);
-// Activer le payout device
-//enablePayoutDevice(eSSP);
 
-// Configurer le routage des billets de 10€ vers la cashbox
-//configureRoutes(eSSP);
 
 
 // Routes HTTP protégées par le middleware d'authentification
@@ -280,90 +343,33 @@ app.post('/enable', authenticateToken, (req, res) => {
 });
 
 app.post('/disable', authenticateToken, (req, res) => {
-    if (isPayoutInProgress) {
+    /*if (isPayoutInProgress) {
         return res.status(403).json({ error: 'Cannot disable while payout in progress' });
-    }
+    }*/
     eSSP.disable()
         .then(result => res.json({ status: 'Validator disabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
 });
 
-app.post('/collect', authenticateToken, (req, res) => {
-    eSSP.command('EMPTY_ALL') 
-        .then(result => res.json({ status: 'Emptying cashbox', result }))
-        .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
-});
+app.post('/collect', authenticateToken, async (req, res) => {
+    try {
+        const emptyResult = await eSSP.command('SMART_EMPTY');
+      /*  const notePositions = await eSSP.command('GET_NOTE_POSITIONS');
+        const slotToLaravel =  await sendSlotStatusToLaravel(0, 30, 0);
 
-/*app.post('/payout', authenticateToken, (req, res) => {
-    eSSP.command('PAYOUT_NOTE')
-        .then(result => {
-            res.json({ status: 'Payout command sent', result });
-        })
-        .catch(err => {
-            console.error('Erreur lors du paiement :', err);
-            res.status(500).json({ error: 'Failed to send Payout command', details: err });
+        res.json({ 
+            status: 'Emptying cashbox',
+            result: emptyResult,
+            notePositions 
+        });*/
+    } catch (error) {
+        res.status(500).json({ 
+            error: 'Failed to process cashbox collection',
+            details: error 
         });
-});*/
-/*
-app.post('/payout', authenticateToken, (req, res) => {
-    const { value } = req.body;
-    if (!value || typeof value !== 'number' || value <= 0) {
-        return res.status(400).json({ error: 'Invalid value parameter' });
     }
-
-    let count = 0;
-
-    const dispenseNext = () => {
-        if (count >= value) {
-            console.log(`✅ Finished dispensing ${value} note(s)`);
-            eSSP.disable()
-                .then(() => console.log('Validator disabled after final payout'))
-                .catch(err => console.error('Failed to disable validator:', err));
-            return;
-        }
-
-        console.log(`🔁 Dispensing note ${count + 1} of ${value}`);
-        eSSP.command('PAYOUT_NOTE')
-            .then(() => {
-                // On attend DISPENSED avant de relancer
-            })
-            .catch(err => {
-                console.error(`Error during payout #${count + 1}:`, err);
-                eSSP.disable();
-            });
-    };
-
-    const onDispensed = () => {
-        count++;
-        console.log(`✅ Note ${count} dispensed`);
-        dispenseNext();
-    };
-
-    eSSP.on('DISPENSED', onDispensed);
-
-    // Start sequence
-    eSSP.enable()
-        .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
-            GIVE_VALUE_ON_STORED: true,
-            NO_HOLD_NOTE_ON_PAYOUT: false,
-        }))
-        .then(() => {
-            res.json({ status: 'Payout process started', requested: value });
-            dispenseNext(); // Première exécution
-        })
-        .catch(err => {
-            eSSP.off('DISPENSED', onDispensed);
-            console.error('Erreur lors de la préparation du payout :', err);
-            res.status(500).json({ error: 'Failed to initiate payout process', details: err });
-        });
-
-    // Nettoyage de l'écouteur au bout d’un certain temps (failsafe)
-    setTimeout(() => {
-        eSSP.off('DISPENSED', onDispensed);
-        console.warn('⏱ DISPENSED listener removed after timeout (failsafe)');
-    }, value * 10000); // ex: 10s par note max
 });
-*/
+
 
 
 
@@ -372,132 +378,119 @@ app.post('/payout', authenticateToken, (req, res) => {
 app.post('/reset', authenticateToken, (req, res) => {
     console.log("Attempting to reset the validator...");
 
-    eSSP.command('RESET') // Envoyer la commande RESET
+    eSSP.command('RESET')
         .then(result => {
             console.log("Validator reset command sent successfully.", result);
             res.json({ status: 'Validator reset', result });
 
             console.log("Waiting for the validator to restart...");
-            
-            // Réinitialiser la connexion après un délai pour permettre au périphérique de redémarrer
+
             setTimeout(() => {
-                console.log("Reinitializing validator connection...");
-                eSSP = initializeValidator(COM_PORT); // Réinitialiser complètement
-            }, 5000); // Délai de 5 secondes
+                console.log("Cleaning up previous validator instance...");
+
+                // Nettoyer les listeners de l'ancienne instance
+                eSSP.removeAllListeners();
+                eSSP.close && eSSP.close(); // Si une méthode close() existe, sinon ignore
+
+                // Réinitialiser complètement
+                eSSP = initializeValidator(COM_PORT);
+            }, 5000);
         })
         .catch(error => {
             console.error('Failed to reset validator:', error);
             res.status(500).json({ error: 'Failed to reset validator', details: error });
         });
 });
-/*
-function handlePayoutRequest(count) {
-    let dispensed = 0;
 
-    const onDispensed = () => {
-        dispensed++;
-        console.log(`✅ Note ${dispensed}/${count} dispensed`);
 
-        if (dispensed >= count) {
-            eSSP.off('DISPENSED', onDispensed);
-            eSSP.disable().then(() => {
-                console.log('✅ Payout terminé. Validator désactivé');
-            }).catch(console.error);
-            return;
-        }
-
-        // Attendre 1 seconde avant la prochaine commande
-        setTimeout(() => {
-            eSSP.command('PAYOUT_NOTE').catch(console.error);
-        }, 1000);
-    };
-
-    eSSP.on('DISPENSED', onDispensed);
-
-    eSSP.enable()
-        .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
-            GIVE_VALUE_ON_STORED: true,
-            NO_HOLD_NOTE_ON_PAYOUT: false,
-        }))
-        .then(() => {
-            console.log(`⏳ Début du rendu de ${count} note(s)...`);
-            return eSSP.command('PAYOUT_NOTE');
-        })
-        .catch(err => {
-            console.error('Erreur lors du payout initial:', err);
-            eSSP.off('DISPENSED', onDispensed);
-        });
-
-    // Failsafe
-    setTimeout(() => {
-        eSSP.off('DISPENSED', onDispensed);
-        console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
-    }, count * 10000);
-}*/
 function handlePayoutRequest(count) {
     let dispensed = 0;
    // isPayoutInProgress = true;
 
-eSSP.disable()
-    .then(() => {
-       // isPayoutInProgress = false;
-        console.log('✅ Payout terminé. Validator désactivé');
-    })
-
-    const onDispensed = () => {
-        dispensed++;
-        console.log(`✅ Note ${dispensed}/${count} dispensed`);
-    
-        // 👇 Ajout ici : on loggue chaque note rendue
-        postWithRetry({ status: { note: 10, value: 'debited' } })
+       /* eSSP.disable()
             .then(() => {
-                console.log('📨 Débit enregistré dans le serveur');
+            // isPayoutInProgress = false;
+                console.log('✅ Payout terminé. Validator désactivé');
             })
-            .catch((err) => {
-                console.error('⚠️ Échec de l’envoi du débit:', err.message);
-            });
-    
-        if (dispensed >= count) {
-            eSSP.off('DISPENSED', onDispensed);
-            eSSP.disable()
+*/
+            const onDispensed = () => {
+                dispensed++;
+                console.log(`✅ Note ${dispensed}/${count} dispensed`);
+            
+                // 👇 Ajout ici : on loggue chaque note rendue
+                postWithRetry({ status: { note: 10, value: 'debited' } })
+                    .then(() => {
+                        console.log('📨 Débit enregistré dans le serveur');
+                    })
+                    .catch((err) => {
+                        console.error('⚠️ Échec de l’envoi du débit:', err.message);
+                    });
+            
+                if (dispensed >= count) {
+                    eSSP.off('DISPENSED', onDispensed);
+                    eSSP.disable()
+                        .then(() => {
+                            console.log('✅ Payout terminé. Validator désactivé');
+                        })
+                        .catch(console.error);
+                    return;
+                }
+            
+                // Attendre 1 seconde avant la prochaine commande
+                setTimeout(() => {
+                    eSSP.command('PAYOUT_NOTE').catch(console.error);
+                }, 1000);
+            };
+            
+
+            // Important: s’assurer qu’aucun ancien listener traîne
+            eSSP.off('DISPENSED', onDispensed); 
+            eSSP.on('DISPENSED', onDispensed);
+
+            eSSP.enable()
+                .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
+                    GIVE_VALUE_ON_STORED: true,
+                    NO_HOLD_NOTE_ON_PAYOUT: false,
+                }))
                 .then(() => {
-                    console.log('✅ Payout terminé. Validator désactivé');
+                    console.log(`⏳ Début du rendu de ${count} billet(s)...`);
+                    return eSSP.command('PAYOUT_NOTE'); // premier billet
                 })
-                .catch(console.error);
-            return;
+                .catch(err => {
+                    eSSP.off('DISPENSED', onDispensed);
+                    console.error('Erreur lors du payout initial:', err);
+                });
+
+            // Failsafe timeout
+            setTimeout(() => {
+                eSSP.off('DISPENSED', onDispensed);
+                console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
+            }, count * 30000);
         }
-    
-        // Attendre 1 seconde avant la prochaine commande
-        setTimeout(() => {
-            eSSP.command('PAYOUT_NOTE').catch(console.error);
-        }, 1000);
-    };
-    
 
-    // Important: s’assurer qu’aucun ancien listener traîne
-    eSSP.off('DISPENSED', onDispensed); 
-    eSSP.on('DISPENSED', onDispensed);
-
-    eSSP.enable()
-        .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
-            GIVE_VALUE_ON_STORED: true,
-            NO_HOLD_NOTE_ON_PAYOUT: false,
-        }))
-        .then(() => {
-            console.log(`⏳ Début du rendu de ${count} billet(s)...`);
-            return eSSP.command('PAYOUT_NOTE'); // premier billet
-        })
-        .catch(err => {
-            eSSP.off('DISPENSED', onDispensed);
-            console.error('Erreur lors du payout initial:', err);
+async function sendSlotStatusToLaravel(used, remaining, alertSent) {
+    try {
+        const response = await fetch('http://smartcoins.local/api/slot-status', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer VOTRE_TOKEN', // Si besoin
+            },
+            body: JSON.stringify({
+                used_slots: used,
+                remaining_slots: remaining,
+                alert_sent: alertSent,
+            }),
         });
 
-    // Failsafe timeout
-    setTimeout(() => {
-        eSSP.off('DISPENSED', onDispensed);
-        console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
-    }, count * 10000);
+        const result = await response.json();
+        console.log('✅ Enregistré dans Laravel :', result.message);
+    } catch (error) {
+        console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
+    }
 }
+
+
 
 
 
@@ -507,3 +500,4 @@ const PORT = 8002;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
+
