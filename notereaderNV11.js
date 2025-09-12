@@ -353,22 +353,30 @@ app.post('/disable', authenticateToken, (req, res) => {
 
 app.post('/collect', authenticateToken, async (req, res) => {
     try {
+        // D'abord activer le périphérique
+        await eSSP.enable();
+
+        // Ensuite lancer la commande d'évacuation
         const emptyResult = await eSSP.command('SMART_EMPTY');
-      /*  const notePositions = await eSSP.command('GET_NOTE_POSITIONS');
-        const slotToLaravel =  await sendSlotStatusToLaravel(0, 30, 0);
+
+        /* Si tu veux garder les infos sur les billets
+        const notePositions = await eSSP.command('GET_NOTE_POSITIONS');
+        const slotToLaravel = await sendSlotStatusToLaravel(0, 30, 0);
+        */
 
         res.json({ 
             status: 'Emptying cashbox',
             result: emptyResult,
-            notePositions 
-        });*/
+            // notePositions
+        });
     } catch (error) {
         res.status(500).json({ 
             error: 'Failed to process cashbox collection',
-            details: error 
+            details: error.message || error
         });
     }
 });
+
 
 
 
@@ -500,4 +508,5 @@ const PORT = 8002;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
+
 
