@@ -14,7 +14,8 @@ const EMAIL_FROM = 'info@sallelafraternite.be';
 const EMAIL_TO = 'legrandse@gmail.com';
 const EMAIL_SUBJECT = 'Validator Error Notification';
 const NOTE_VALUES = { 1: 5, 2: 10, 3: 20, 4: 50, 5: 100, 6: 200, 7: 500 };
-
+let isStacking = false;
+let lastCommand = null; // on garde la dernière commande envoyée
 let noteInProcessing = false;
 let amountValue = null;
 let isPayoutInProgress = false;
@@ -122,34 +123,24 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
     });
 /*
     eSSP.on('CREDIT_NOTE', result => {
+        
+    const processCreditNote = async () => {
         const noteId = result.channel;
         if (NOTE_VALUES[noteId]) {
             const noteValue = NOTE_VALUES[noteId];
             noteInProcessing = false;
-            postWithRetry({ 'status': { 'note': noteValue, 'value': 'credited' } })
-                .catch(error => {
-                    console.error(`Final failure: ${error.message}`);
-                });
-        } else {
-            console.log(`Unknown note ID: ${noteId}`);
-        }
-    });
-*/
-/*
-eSSP.on('CREDIT_NOTE', result => {
-    const noteId = result.channel;
-    if (NOTE_VALUES[noteId]) {
-        const noteValue = NOTE_VALUES[noteId];
-        noteInProcessing = false;
 
-        const jetonValue = amountValue || 0;
-        const rendu = noteValue - jetonValue;
-        //console.log(`rendu: ${rendu}`);
+            const jetonValue = amountValue || 0;
+            const rendu = noteValue - jetonValue;
 
-        postWithRetry({ 'status': { 'note': noteValue, 'value': 'credited' } })
-            .then(() => {
-                if (rendu > 0) {
-                    const denomination = 10; // La valeur de chaque billet de rendu
+            try {
+                await postWithRetry({ status: { note: noteValue, value: 'credited' } });
+
+                // ✅ On vérifie l’état des slots quelle que soit la valeur du billet
+                const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+
+                if (rendu >= 10) {
+                    const denomination = 10;
                     const payoutCount = Math.floor(rendu / denomination);
                     const reste = rendu % denomination;
 
@@ -157,23 +148,31 @@ eSSP.on('CREDIT_NOTE', result => {
 
                     if (reste > 0) {
                         console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
-                        // Optionnel : envoyer info à l'API ou par mail
                     }
-                    const notePosition = eSSP.command('GET_NOTE_POSITIONS', {});
+
                     setTimeout(() => {
                         handlePayoutRequest(payoutCount);
-                    }, 2000); // ⏱ délai de 5 secondes
+                    }, 2000);
+                } else {
+                    console.log(`✅ Aucun rendu nécessaire. Le billet de ${noteValue}€ correspond exactement au montant dû.`);
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error(`Final failure: ${error.message}`);
-            });
-    } else {
-        console.log(`Unknown note ID: ${noteId}`);
-    }
+            }
+        } else {
+            console.log(`Unknown note ID: ${noteId}`);
+        }
+    };
+
+    processCreditNote();
 });
 */
-    eSSP.on('CREDIT_NOTE', result => {
+eSSP.on('CREDIT_NOTE', result => {
+    if (isStacking) {
+        console.log("⚠️ CREDIT_NOTE ignoré car séquence STACK en cours");
+        return;
+    }
+
     const processCreditNote = async () => {
         const noteId = result.channel;
         if (NOTE_VALUES[noteId]) {
@@ -221,6 +220,7 @@ eSSP.on('CREDIT_NOTE', result => {
 
 
 
+
     // Ouverture de la connexion au validateur
     eSSP.open(comPort);
 
@@ -242,7 +242,7 @@ async function checkNoteSlotsStatus() {
         const slots = resultSlots.info.slot;
         const usedSlotCount = Object.keys(slots).length;
 
-        const MAX_SLOTS = 31;
+        const MAX_SLOTS = 30;
         const remainingSlots = MAX_SLOTS - usedSlotCount;
 
         console.log(`🔍 ${remainingSlots} positions libres (sur ${MAX_SLOTS})`);
@@ -336,7 +336,9 @@ eSSP = initializeValidator(COM_PORT);
 // Routes HTTP protégées par le middleware d'authentification
 app.post('/enable', authenticateToken, (req, res) => {
     const { amount } = req.body;
+    const { stacking } = req.body;
     amountValue = amount;
+    isStacking = stacking;
     eSSP.enable()
         .then(result => res.json({ status: 'Validator enabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to enable validator', details: error }));
@@ -351,31 +353,237 @@ app.post('/disable', authenticateToken, (req, res) => {
         .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
 });
 
+function waitForEvent(emitter, eventName, timeoutMs = 10000) {
+    return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => {
+            emitter.removeListener(eventName, onEvent);
+            reject(new Error(`Timeout waiting for event: ${eventName}`));
+        }, timeoutMs);
+
+        function onEvent(data) {
+            clearTimeout(timer);
+            resolve(data);
+        }
+
+        emitter.once(eventName, onEvent);
+    });
+}
+
 app.post('/collect', authenticateToken, async (req, res) => {
     try {
-        // D'abord activer le périphérique
+        lastCommand = 'SMART_EMPTY';
         await eSSP.enable();
+        await new Promise(r => setTimeout(r, 500));
 
-        // Ensuite lancer la commande d'évacuation
+        console.log("➡️ Envoi SMART_EMPTY...");
         const emptyResult = await eSSP.command('SMART_EMPTY');
 
-        /* Si tu veux garder les infos sur les billets
-        const notePositions = await eSSP.command('GET_NOTE_POSITIONS');
-        const slotToLaravel = await sendSlotStatusToLaravel(0, 30, 0);
-        */
+        const finalResult = await waitForEvent(eSSP, 'SMART_EMPTIED', 10000);
 
-        res.json({ 
-            status: 'Emptying cashbox',
+        await eSSP.disable();
+        console.log('✅ eSSP disabled after SMART_EMPTIED');
+
+        res.json({
+            status: 'Cashbox emptied successfully',
             result: emptyResult,
-            // notePositions
+            event: finalResult
         });
     } catch (error) {
-        res.status(500).json({ 
+        console.error('❌ Collect error:', error);
+        res.status(500).json({
+            error: 'Failed to process cashbox collection',
+            details: error.message || error
+        });
+    } finally {
+        lastCommand = null; // 🔑 toujours reset
+    }
+});
+
+app.post('/stack', authenticateToken, async (req, res) => {
+try {
+        
+        await eSSP.enable();
+        
+    } catch (error) {
+        console.error('❌ Collect error:', error);
+        res.status(500).json({
             error: 'Failed to process cashbox collection',
             details: error.message || error
         });
     }
 });
+
+/*
+app.post('/stack', authenticateToken, async (req, res) => {
+    const STACK_TIMEOUT_MS = 15000;
+
+    try {
+        isStacking = true;
+        lastCommand = 'STACK_NOTE';
+
+        // Nettoyage initial : tenter un disable pour repartir d'un état propre
+        try { await eSSP.disable(); await new Promise(r => setTimeout(r, 300)); }
+        catch (e) { console.warn("⚠️ disable initial impossible (peut déjà être disabled) :", e.message || e); }
+
+        const finalResult = await new Promise(async (resolve, reject) => {
+            let timeout;
+
+            const cleanup = () => {
+                clearTimeout(timeout);
+                eSSP.off('NOTE_STORED_IN_PAYOUT', onStored);
+                eSSP.off('NOTE_TRANSFERED_TO_STACKER', onTransferred);
+                eSSP.off('NOTE_REJECTED', onReject);
+            };
+
+            // Handler NOTE_STORED_IN_PAYOUT
+            async function onStored(result) {
+                try {
+                    const noteValue = NOTE_VALUES[result?.channel] || result?.channel || 'unknown';
+                    console.log(`✅ NOTE_STORED_IN_PAYOUT received (channel=${result?.channel}), note=${noteValue}`);
+
+                    // Essayer de récupérer les positions pour confirmer
+                    let positions = null;
+                    try {
+                        positions = await eSSP.command('GET_NOTE_POSITIONS');
+                        console.log('📦 GET_NOTE_POSITIONS:', JSON.stringify(positions, null, 2));
+                    } catch (errPos) {
+                        console.warn('⚠️ GET_NOTE_POSITIONS failed after stored:', errPos.message || errPos);
+                    }
+
+                    // Désactiver proprement
+                    try {
+                        await eSSP.disable();
+                        console.log("✅ Validator disabled après NOTE_STORED_IN_PAYOUT");
+                    } catch (err) {
+                        console.error("⚠️ Erreur lors du disable après stored:", err.message || err);
+                    }
+
+                    cleanup();
+                    isStacking = false;
+                    lastCommand = null;
+                    resolve({ status: 'STORED_IN_PAYOUT', note: noteValue, positions: positions?.info || null });
+                } catch (err) {
+                    cleanup();
+                    isStacking = false;
+                    lastCommand = null;
+                    reject(err);
+                }
+            }
+
+            // Handler NOTE_TRANSFERED_TO_STACKER
+            async function onTransferred(result) {
+                try {
+                    const noteValue = NOTE_VALUES[result?.channel] || result?.channel || 'unknown';
+                    console.warn(`⚠️ NOTE_TRANSFERED_TO_STACKER (channel=${result?.channel}), note=${noteValue}`);
+
+                    try {
+                        await eSSP.disable();
+                        console.log("✅ Validator disabled après NOTE_TRANSFERED_TO_STACKER");
+                    } catch (err) {
+                        console.error("⚠️ Erreur lors du disable après transfer:", err.message || err);
+                    }
+
+                    cleanup();
+                    isStacking = false;
+                    lastCommand = null;
+                    resolve({ status: 'TRANSFERRED_TO_STACKER', note: noteValue });
+                } catch (err) {
+                    cleanup();
+                    isStacking = false;
+                    lastCommand = null;
+                    reject(err);
+                }
+            }
+
+            // Handler NOTE_REJECTED (défensif : résultat peut être mal formé)
+            function onReject(result) {
+                try {
+                    // Safeguard: result peut être undefined / sans info
+                    const reason = result?.info?.description
+                        ?? result?.info
+                        ?? result?.description
+                        ?? JSON.stringify(result)
+                        ?? 'Unknown reason';
+
+                    console.warn(`⚠️ NOTE_REJECTED received: ${reason}`);
+
+                    // Laisser un petit délai pour permettre au validateur de recracher physiquement la note
+                    setTimeout(async () => {
+                        try {
+                            await eSSP.disable();
+                            console.log("✅ Validator disabled après NOTE_REJECTED");
+                        } catch (err) {
+                            console.error("⚠️ Erreur disable après reject:", err.message || err);
+                        }
+
+                        cleanup();
+                        isStacking = false;
+                        lastCommand = null;
+                        resolve({ status: 'REJECTED', reason });
+                    }, 1500);
+                } catch (err) {
+                    cleanup();
+                    isStacking = false;
+                    lastCommand = null;
+                    reject(err);
+                }
+            }
+
+            // Brancher les écouteurs AVANT d'envoyer la commande
+            eSSP.once('NOTE_STORED_IN_PAYOUT', onStored);
+            eSSP.once('NOTE_TRANSFERED_TO_STACKER', onTransferred);
+            eSSP.once('NOTE_REJECTED', onReject);
+
+            // Timeout failsafe
+            timeout = setTimeout(async () => {
+                console.warn('⏱ Timeout waiting for final stack event');
+                cleanup();
+                // Tentative de diagnostic : récupérer les positions si possible
+                let positions = null;
+                try {
+                    positions = await eSSP.command('GET_NOTE_POSITIONS');
+                    console.log('📦 GET_NOTE_POSITIONS (on timeout):', JSON.stringify(positions, null, 2));
+                } catch (errPos) {
+                    console.warn('⚠️ GET_NOTE_POSITIONS failed on timeout:', errPos.message || errPos);
+                }
+
+                // Essayer de disable pour remettre l'appareil en état propre
+                try { await eSSP.disable(); console.log('✅ Validator disabled after timeout'); } 
+                catch (err) { console.error('⚠️ Disable failed after timeout:', err.message || err); }
+
+                isStacking = false;
+                lastCommand = null;
+                resolve({ status: 'TIMEOUT', details: 'No final event', positions: positions?.info || null });
+            }, STACK_TIMEOUT_MS);
+
+            // On envoie la commande seulement après attachement des listeners
+            try {
+                await eSSP.enable();
+                console.log("➡️ Envoi STACK_NOTE...");
+                await eSSP.command('STACK_NOTE');
+            } catch (errCmd) {
+                cleanup();
+                isStacking = false;
+                lastCommand = null;
+                reject(errCmd);
+            }
+        });
+
+        res.json(finalResult);
+
+    } catch (error) {
+        console.error("❌ Error in /stack:", error && (error.stack || error.message) || error);
+        try { await eSSP.disable(); } catch (e) { console.error("⚠️ Disable failed in outer catch:", e.message || e); }
+        isStacking = false;
+        lastCommand = null;
+        res.status(500).json({ error: 'Failed to process stacking note', details: error.message || error });
+    }
+});
+
+*/
+
+
+
 
 
 
