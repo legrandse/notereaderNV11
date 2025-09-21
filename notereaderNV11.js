@@ -386,7 +386,7 @@ app.post('/collect', authenticateToken, async (req, res) => {
         res.json({
             status: 'Cashbox emptied successfully',
             result: emptyResult,
-            event: finalResult
+           // event: finalResult
         });
     } catch (error) {
         console.error('❌ Collect error:', error);
