@@ -27,7 +27,7 @@ let eSSP; // Déclaration globale pour l'objet eSSP
 function initializeValidator(comPort, fixedKey = '0123456701234567') {
     let eSSP = new sspLib({
         id: 0,
-        debug: true,
+        debug: false,
         timeout: 3000,
         fixedKey: fixedKey
     });
@@ -169,6 +169,14 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
 */
 eSSP.on('CREDIT_NOTE', result => {
     if (isStacking) {
+        checkNoteSlotsStatus()
+            .then(({ usedSlotCount, remainingSlots }) => {
+                console.log(`Slots: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
+            })
+            .catch((error) => {
+                console.error(`Final failure: ${error.message}`);
+            });
+
         console.log("⚠️ CREDIT_NOTE ignoré car séquence STACK en cours");
         return;
     }
@@ -369,6 +377,7 @@ function waitForEvent(emitter, eventName, timeoutMs = 10000) {
     });
 }
 
+/*
 app.post('/collect', authenticateToken, async (req, res) => {
     try {
         lastCommand = 'SMART_EMPTY';
@@ -377,12 +386,7 @@ app.post('/collect', authenticateToken, async (req, res) => {
 
         console.log("➡️ Envoi SMART_EMPTY...");
         const emptyResult = await eSSP.command('SMART_EMPTY');
-/*
-        const finalResult = await waitForEvent(eSSP, 'SMART_EMPTIED', 10000);
 
-        await eSSP.disable();
-        console.log('✅ eSSP disabled after SMART_EMPTIED');
-*/
         res.json({
             status: 'Cashbox emptied successfully',
             result: emptyResult,
@@ -398,6 +402,45 @@ app.post('/collect', authenticateToken, async (req, res) => {
         lastCommand = null; // 🔑 toujours reset
     }
 });
+*/
+app.post('/collect', authenticateToken, async (req, res) => {
+    try {
+        lastCommand = 'SMART_EMPTY';
+        await eSSP.enable();
+        await new Promise(r => setTimeout(r, 500));
+
+        console.log("➡️ Envoi SMART_EMPTY...");
+        const emptyResult = await eSSP.command('SMART_EMPTY');
+        /*
+        const finalResult = await waitForEvent(eSSP, 'SMART_EMPTIED', 10000);
+
+        await eSSP.disable();
+        console.log('✅ eSSP disabled after SMART_EMPTIED');
+        */
+        res.json({
+            status: 'Cashbox emptied successfully',
+            result: emptyResult,
+            // event: finalResult
+        });
+
+    } catch (error) {
+        console.error('❌ Collect error:', error);
+        res.status(500).json({
+            error: 'Failed to process cashbox collection',
+            details: error.message || error
+        });
+    } finally {
+        lastCommand = null; // 🔑 toujours reset
+
+        try {
+            const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+            console.log(`📊 Slots après collect: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
+        } catch (err) {
+            console.error(`⚠️ Impossible de lire l’état des slots: ${err.message}`);
+        }
+    }
+});
+
 
 app.post('/stack', authenticateToken, async (req, res) => {
 try {
