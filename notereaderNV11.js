@@ -377,12 +377,12 @@ app.post('/collect', authenticateToken, async (req, res) => {
 
         console.log("➡️ Envoi SMART_EMPTY...");
         const emptyResult = await eSSP.command('SMART_EMPTY');
-
+/*
         const finalResult = await waitForEvent(eSSP, 'SMART_EMPTIED', 10000);
 
         await eSSP.disable();
         console.log('✅ eSSP disabled after SMART_EMPTIED');
-
+*/
         res.json({
             status: 'Cashbox emptied successfully',
             result: emptyResult,
@@ -403,6 +403,10 @@ app.post('/stack', authenticateToken, async (req, res) => {
 try {
         
         await eSSP.enable();
+        res.json({
+            status: 'Waiting for stacking notes',
+            
+        });
         
     } catch (error) {
         console.error('❌ Collect error:', error);
