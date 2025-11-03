@@ -1,76 +1,97 @@
+/**
+ * Système NV11 + Smart Hopper - Raspberry Pi 5
+ * Compatible Node.js 20+ et serialport@10+
+ */
+
 const express = require('express');
-const sspLib = require('@tidemx/encrypted-smiley-secure-protocol');
+const { SerialPort } = require('serialport');
+const sspLib = require('@tidemx/encrypted-smiley-secure-protocol'); // ou node-NV11 si tu préfères
 const axios = require('axios');
 const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.json());
 
-// Configuration
-const COM_PORT = '/dev/ttyACM0';
+// === Configuration générale ===
+const NV11_PORT = '/dev/ttyACM0';
+const HOPPER_PORT = '/dev/ttyUSB0';
 const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
 const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
-const EMAIL_FROM = 'info@sallelafraternite.be';
 const EMAIL_TO = 'legrandse@gmail.com';
-const EMAIL_SUBJECT = 'Validator Error Notification';
+
 const NOTE_VALUES = { 1: 5, 2: 10, 3: 20, 4: 50, 5: 100, 6: 200, 7: 500 };
+
+// === Variables d’état ===
 let isStacking = false;
-let lastCommand = null; // on garde la dernière commande envoyée
 let noteInProcessing = false;
 let amountValue = null;
 let isPayoutInProgress = false;
-let eSSP; // Déclaration globale pour l'objet eSSP
+let totalPaid = 0;
 
-/**
- * Fonction pour initialiser le validateur
- */
-function initializeValidator(comPort, fixedKey = '0123456701234567') {
-    let eSSP = new sspLib({
-        id: 0,
-        debug: false,
-        timeout: 3000,
-        fixedKey: fixedKey
-    });
 
-    eSSP.on('OPEN', () => {
-        console.log('Validator connection open');
-        eSSP
-            .command('SYNC')
-            .then(() => eSSP.command('HOST_PROTOCOL_VERSION', { version: 6 }))
-            .then(() => eSSP.initEncryption())
-            .then(() => eSSP.command('GET_SERIAL_NUMBER'))
-            .then(result => {
-                console.log('Serial Number:', result.info.serial_number);
-            })
-            .then(() => eSSP.command('SET_CHANNEL_INHIBITS', { channels: [1, 1, 1, 1, 0, 0, 0, 0] }))
-            
-            
-            .then(() => eSSP.command('SET_DENOMINATION_ROUTE', { route:'payout', value:1000, country_code:'EUR' }))
-            //.then(() => eSSP.command('GET_DENOMINATION_ROUTE', {isHopper: false,  value: 1000, country_code: 'EUR' }))
-            .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
-                GIVE_VALUE_ON_STORED: true,
-                NO_HOLD_NOTE_ON_PAYOUT: false,
-              }))
-            .then(() => eSSP.disable())
-            .then(result => {
-                if (result.status === 'OK') {
-                    console.log('Device is initialized and channels are enabled');
-                }
-            })
+// === Initialisation des ports ===
+//const nv11Serial = new SerialPort({ path: NV11_PORT, baudRate: 9600 });
+//const hopperSerial = new SerialPort({ path: HOPPER_PORT, baudRate: 9600 });
 
-            .catch(err => {
-                console.error('Error during initialization:', err);
-            })
-            
-            
-    });
-    
-    
-    // Gestionnaires d'événements supplémentaires
-    eSSP.on('NOTE_REJECTED', result => {
+// === Création des instances NV11 ===
+const NV11 = new sspLib({
+  id: 0,
+  debug: true,
+  timeout: 3000,
+  fixedKey: '0123456701234567',
+  port: NV11_PORT,
+});
+
+const Hopper = new sspLib({
+  id: 16,
+  debug: false,
+  timeout: 5000,
+  fixedKey: '0123456701234567',
+  port: HOPPER_PORT,
+});
+
+// === NV11 ===
+NV11.on('OPEN', async () => {
+  console.log(`✅ NV11 connecté (${NV11_PORT})`);
+  try {
+    await NV11.command('SYNC');
+    await NV11.command('HOST_PROTOCOL_VERSION', { version: 6 });
+    await NV11.initEncryption();
+    const serial = await NV11.command('GET_SERIAL_NUMBER');
+    console.log('NV11 Serial:', serial.info.serial_number);
+    await NV11.command('SET_CHANNEL_INHIBITS', { channels: [1, 1, 1, 1, 0, 0, 0, 0] });
+    await NV11.command('ENABLE_PAYOUT_DEVICE', { 
+      GIVE_VALUE_ON_STORED: true,
+      NO_HOLD_NOTE_ON_PAYOUT: false, });
+    await NV11.disable();
+    console.log('✅ NV11 prêt');
+  } catch (err) {
+    console.error('❌ Erreur NV11:', err.message);
+  }
+});
+
+// === Smart Hopper ===
+Hopper.on('OPEN', async () => {
+  console.log(`✅ Smart Hopper connecté (${HOPPER_PORT})`);
+  try {
+    await Hopper.command('SYNC');
+    await Hopper.command('HOST_PROTOCOL_VERSION', { version: 6 });
+    await Hopper.initEncryption();
+    await Hopper.command('COIN_MECH_OPTIONS', { ccTalk: false });
+    await Hopper.command('SET_COIN_MECH_GLOBAL_INHIBIT', { enable: true });
+    await Hopper.disable();
+    console.log('✅ Hopper prêt');
+  } catch (err) {
+    console.error('❌ Erreur Hopper:', err.message);
+  }
+});
+
+
+// Gestionnaires d'événements supplémentaires
+    NV11.on('NOTE_REJECTED', result => {
         let data = { 'status': { 'message': 'Note rejected', 'value': 'warning' } };
         noteInProcessing = false;
-        eSSP.command('LAST_REJECT_CODE').then(result => {
+        NV11.command('LAST_REJECT_CODE').then(result => {
             console.log("Resultat de LAST_REJECT_CODE:", result);
             data.status.message = result.info.description;
             postWithRetry(data)
@@ -82,7 +103,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
         });
     });
 
-    eSSP.on('STACKER_FULL', result => {
+    NV11.on('STACKER_FULL', result => {
         const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
         postWithRetry(data)
@@ -91,7 +112,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
             });
     });
 
-    eSSP.on('CASHBOX_REMOVED', result => {
+    NV11.on('CASHBOX_REMOVED', result => {
         const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
         postWithRetry(data)
@@ -100,7 +121,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
             });
     });
 
-    eSSP.on('UNSAFE_NOTE_JAM', result => {
+    NV11.on('UNSAFE_NOTE_JAM', result => {
         const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
         postWithRetry(data)
@@ -109,7 +130,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
             });
     });
 
-    eSSP.on('READ_NOTE', result => {
+    NV11.on('READ_NOTE', result => {
         if (!noteInProcessing) {
             noteInProcessing = true; // Marquer que la note est en traitement
             postWithRetry({ 'status': { 'message': 'Note in processing', 'value': 'process' } })
@@ -121,54 +142,9 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
                 });
         }
     });
-/*
-    eSSP.on('CREDIT_NOTE', result => {
-        
-    const processCreditNote = async () => {
-        const noteId = result.channel;
-        if (NOTE_VALUES[noteId]) {
-            const noteValue = NOTE_VALUES[noteId];
-            noteInProcessing = false;
-
-            const jetonValue = amountValue || 0;
-            const rendu = noteValue - jetonValue;
-
-            try {
-                await postWithRetry({ status: { note: noteValue, value: 'credited' } });
-
-                // ✅ On vérifie l’état des slots quelle que soit la valeur du billet
-                const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
-
-                if (rendu >= 10) {
-                    const denomination = 10;
-                    const payoutCount = Math.floor(rendu / denomination);
-                    const reste = rendu % denomination;
-
-                    console.log(`💶 ${noteValue}€ reçu. Jetons: ${jetonValue}€. Rendu: ${rendu}€ -> ${payoutCount} x ${denomination}€`);
-
-                    if (reste > 0) {
-                        console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
-                    }
-
-                    setTimeout(() => {
-                        handlePayoutRequest(payoutCount);
-                    }, 2000);
-                } else {
-                    console.log(`✅ Aucun rendu nécessaire. Le billet de ${noteValue}€ correspond exactement au montant dû.`);
-                }
-            } catch (error) {
-                console.error(`Final failure: ${error.message}`);
-            }
-        } else {
-            console.log(`Unknown note ID: ${noteId}`);
-        }
-    };
-
-    processCreditNote();
-});
-*/
-eSSP.on('CREDIT_NOTE', result => {
-    if (isStacking) {
+// === Gestion d’un billet inséré (CREDIT_NOTE) ===
+NV11.on('CREDIT_NOTE', result => {
+  if (isStacking) {
         checkNoteSlotsStatus()
             .then(({ usedSlotCount, remainingSlots }) => {
                 console.log(`Slots: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
@@ -181,47 +157,115 @@ eSSP.on('CREDIT_NOTE', result => {
         return;
     }
 
-    const processCreditNote = async () => {
-        const noteId = result.channel;
-        if (NOTE_VALUES[noteId]) {
-            const noteValue = NOTE_VALUES[noteId];
-            noteInProcessing = false;
+  const processCreditNote = async () => {
+    try {
+      const noteId = result.channel;
+      if (!NOTE_VALUES[noteId]) {
+        console.log(`❓ Billet inconnu, channel=${noteId}`);
+        return;
+      }
 
-            const jetonValue = amountValue || 0;
-            const rendu = noteValue - jetonValue;
+      const noteValue = NOTE_VALUES[noteId];
+      noteInProcessing = false;
 
-            try {
-                await postWithRetry({ status: { note: noteValue, value: 'credited' } });
+      totalPaid += noteValue;
+      console.log(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
 
-                // ✅ On vérifie l’état des slots quelle que soit la valeur du billet
-                const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+      // ✅ On notifie le serveur (optionnel)
+      await postWithRetry({ status: { note: noteValue, value: 'credited' } });
 
-                if (rendu >= 10) {
-                    const denomination = 10;
-                    const payoutCount = Math.floor(rendu / denomination);
-                    const reste = rendu % denomination;
+      // ✅ Vérification de l’état du validateur
+      const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+      console.log(`Slots NV11: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
 
-                    console.log(`💶 ${noteValue}€ reçu. Jetons: ${jetonValue}€. Rendu: ${rendu}€ -> ${payoutCount} x ${denomination}€`);
+      // === Vérifie si le montant dû est atteint ===
+      if (totalPaid >= amountValue) {
+        const rendu = +(totalPaid - amountValue).toFixed(2);
 
-                    if (reste > 0) {
-                        console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
-                    }
-
-                    setTimeout(() => {
-                        handlePayoutRequest(payoutCount);
-                    }, 2000);
-                } else {
-                    console.log(`✅ Aucun rendu nécessaire. Le billet de ${noteValue}€ correspond exactement au montant dû.`);
-                }
-            } catch (error) {
-                console.error(`Final failure: ${error.message}`);
-            }
+        if (rendu > 0) {
+          console.log(`💶 Rendu à effectuer: ${rendu}€`);
+          await handleRenduMixte(rendu);  // 🔁 billets + pièces
         } else {
-            console.log(`Unknown note ID: ${noteId}`);
+          console.log('✅ Paiement exact, aucun rendu.');
         }
-    };
 
-    processCreditNote();
+        // 🔄 Réinitialise l’état pour la prochaine transaction
+        totalPaid = 0;
+        amountValue = null;
+      }
+
+    } catch (error) {
+      console.error(`❌ Erreur processCreditNote: ${error.message}`);
+    }
+  };
+
+  processCreditNote();
+});
+
+    
+//SMART HOPPER Function
+// Fonction pour votre logique métier
+function handleCoinInserted(amount, currency) {
+  console.log(`💰 Traitement pièce: ${amount} ${currency}`);
+  
+  // ===== VOTRE CODE ICI =====
+  try {
+    postWithRetry({ 
+      status: { 
+        note: amount, 
+        value: 'credited',
+        //currency: currency,
+       // timestamp: new Date().toISOString()
+      } 
+    });
+  } catch (error) {
+    console.error(`Erreur envoi: ${error.message}`);
+  }
+}
+
+
+
+// === Gestion d’une pièce insérée ===
+Hopper.on('COIN_CREDIT', async (event) => {
+  try {
+    // Vérifie la structure de l'événement
+    if (!event.value || !Array.isArray(event.value)) {
+      console.warn('❌ Format inattendu de COIN_CREDIT:', event);
+      return;
+    }
+
+    for (const coin of event.value) {
+      const amount = coin.value / 100; // conversion centimes → euros
+      const currency = coin.country_code || 'EUR';
+
+      console.log(`🪙 Pièce détectée: ${amount.toFixed(2)} ${currency}`);
+
+      // ✅ Notifie le serveur (API Laravel)
+      handleCoinInserted(amount, currency);
+
+      // 🔢 Met à jour le total payé
+      totalPaid += amount;
+      console.log(`💰 Total payé: ${totalPaid.toFixed(2)}€ / dû: ${amountValue}€`);
+
+      // 💡 Vérifie si le montant dû est atteint
+      if (totalPaid >= amountValue) {
+        const rendu = +(totalPaid - amountValue).toFixed(2);
+
+        if (rendu > 0) {
+          console.log(`💶 Rendu à effectuer: ${rendu}€`);
+          await handleRenduMixte(rendu); // ⚙️ billet(s) + pièce(s)
+        } else {
+          console.log('✅ Paiement exact, aucun rendu.');
+        }
+
+        // 🔄 Reset pour la prochaine transaction
+        totalPaid = 0;
+        amountValue = null;
+      }
+    }
+  } catch (error) {
+    console.error('❌ Erreur COIN_CREDIT:', error.message);
+  }
 });
 
 
@@ -229,72 +273,9 @@ eSSP.on('CREDIT_NOTE', result => {
 
 
 
-    // Ouverture de la connexion au validateur
-    eSSP.open(comPort);
-
-    return eSSP;
-
-
-
-
-
-
-    
-}
-
-async function checkNoteSlotsStatus() {
-    try {
-        const resultSlots = await eSSP.command('GET_NOTE_POSITIONS');
-        console.log('📦 Résultat brut GET_NOTE_POSITIONS:', JSON.stringify(resultSlots, null, 2));
-
-        const slots = resultSlots.info.slot;
-        const usedSlotCount = Object.keys(slots).length;
-
-        const MAX_SLOTS = 30;
-        const remainingSlots = MAX_SLOTS - usedSlotCount;
-
-        console.log(`🔍 ${remainingSlots} positions libres (sur ${MAX_SLOTS})`);
-        console.log('➡️ Condition de test:', remainingSlots, remainingSlots >= 26);
-        console.log('🔎 Type de remainingSlots:', typeof remainingSlots, remainingSlots);
-
-        await sendSlotStatusToLaravel(usedSlotCount, remainingSlots, remainingSlots >= 26);
-
-        return { usedSlotCount, remainingSlots };
-    } catch (error) {
-        console.error(`Erreur lors de la vérification des slots : ${error.message}`);
-        return { usedSlotCount: null, remainingSlots: null };
-    }
-}
-
-
-
-/**
- * Fonction pour envoyer un email
- */
-function sendEmail(subject, body) {
-    const transporter = nodemailer.createTransport({
-        service: 'Mailjet',
-        auth: {
-            user: 'aedf6b569bcf7aec922a6481a4bea307',
-            pass: 'f388fa510c2f4b473ecee01437db9fb3'
-        }
-    });
-
-    const mailOptions = {
-        from: EMAIL_FROM,
-        to: EMAIL_TO,
-        subject: subject,
-        text: body
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error(`Failed to send email: ${error}`);
-        } else {
-            console.log(`Email sent: ${info.response}`);
-        }
-    });
-}
+// Ouverture de la connexion au validateur
+    NV11.open(NV11_PORT);
+    Hopper.open(HOPPER_PORT);
 
 /**
  * Fonction pour faire une requête POST avec retry et timeout
@@ -334,31 +315,194 @@ function authenticateToken(req, res, next) {
     next();
 }
 
+
+
+async function checkNoteSlotsStatus() {
+    try {
+        const resultSlots = await NV11.command('GET_NOTE_POSITIONS');
+        console.log('📦 Résultat brut GET_NOTE_POSITIONS:', JSON.stringify(resultSlots, null, 2));
+
+        const slots = resultSlots.info.slot;
+        const usedSlotCount = Object.keys(slots).length;
+
+        const MAX_SLOTS = 30;
+        const remainingSlots = MAX_SLOTS - usedSlotCount;
+
+        console.log(`🔍 ${remainingSlots} positions libres (sur ${MAX_SLOTS})`);
+        console.log('➡️ Condition de test:', remainingSlots, remainingSlots >= 26);
+        console.log('🔎 Type de remainingSlots:', typeof remainingSlots, remainingSlots);
+
+        await sendSlotStatusToLaravel(usedSlotCount, remainingSlots, remainingSlots >= 26);
+
+        return { usedSlotCount, remainingSlots };
+    } catch (error) {
+        console.error(`Erreur lors de la vérification des slots : ${error.message}`);
+        return { usedSlotCount: null, remainingSlots: null };
+    }
+}
+
 /**
- * Initialisation du validateur
+ * Calcule la répartition du rendu entre billets et pièces
+ * @param {number} montant - Montant total à rendre en euros
+ * @returns {Object} { billets10, reste }
  */
-eSSP = initializeValidator(COM_PORT);
+function calculerRenduMixte(montant) {
+  const billets10 = Math.floor(montant / 10);
+  const reste = +(montant % 10).toFixed(2);
+  return { billets10, reste };
+}
+
+/**
+ * Gère le rendu via NV11 (billets) + Hopper (pièces)
+ */
+async function handleRenduMixte(rendu) {
+  const { billets10, reste } = calculerRenduMixte(rendu);
+  console.log(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
+
+  try {
+    // === 1️⃣ Rendu billets ===
+    if (billets10 > 0) {
+      console.log(`🧾 NV11 : rendu ${billets10} billet(s) de 10€`);
+      setTimeout(() => {
+                       // handlePayoutRequest(payoutCount);
+                        handlePayoutRequest(billets10);
+                    }, 2000);
+      
+      
+      console.log('✅ Billets rendus');
+    }
+
+    // === 2️⃣ Rendu pièces ===
+    if (reste > 0) {
+      console.log(`🪙 Hopper : rendu ${reste}€ en pièces...`);
+      await Hopper.command('PAYOUT_AMOUNT', {
+        amount: reste * 100,
+        country_code: 'EUR',
+        test: false,
+      });
+      console.log('✅ Pièces rendues');
+    }
+
+    console.log('🎉 Rendu mixte terminé');
+  } catch (err) {
+    console.error('❌ Erreur handleRenduMixte:', err.message);
+  }
+}
 
 
 
+
+
+
+function handlePayoutRequest(count) {
+    let dispensed = 0;
+   // isPayoutInProgress = true;
+
+       /* NV11.disable()
+            .then(() => {
+            // isPayoutInProgress = false;
+                console.log('✅ Payout terminé. Validator désactivé');
+            })
+*/
+            const onDispensed = () => {
+                dispensed++;
+                console.log(`✅ Note ${dispensed}/${count} dispensed`);
+            
+                // 👇 Ajout ici : on loggue chaque note rendue
+                postWithRetry({ status: { note: 10, value: 'debited' } })
+                    .then(() => {
+                        console.log('📨 Débit enregistré dans le serveur');
+                    })
+                    .catch((err) => {
+                        console.error('⚠️ Échec de l’envoi du débit:', err.message);
+                    });
+            
+                if (dispensed >= count) {
+                    NV11.off('DISPENSED', onDispensed);
+                    NV11.disable()
+                        .then(() => {
+                            console.log('✅ Payout terminé. Validator désactivé');
+                        })
+                        .catch(console.error);
+                    return;
+                }
+            
+                // Attendre 1 seconde avant la prochaine commande
+                setTimeout(() => {
+                    NV11.command('PAYOUT_NOTE').catch(console.error);
+                }, 1000);
+            };
+            
+
+            // Important: s’assurer qu’aucun ancien listener traîne
+            NV11.off('DISPENSED', onDispensed); 
+            NV11.on('DISPENSED', onDispensed);
+
+            NV11.enable()
+                .then(() => NV11.command('ENABLE_PAYOUT_DEVICE', {
+                    GIVE_VALUE_ON_STORED: true,
+                    NO_HOLD_NOTE_ON_PAYOUT: false,
+                }))
+                .then(() => {
+                    console.log(`⏳ Début du rendu de ${count} billet(s)...`);
+                    return NV11.command('PAYOUT_NOTE'); // premier billet
+                })
+                .catch(err => {
+                    NV11.off('DISPENSED', onDispensed);
+                    console.error('Erreur lors du payout initial:', err);
+                });
+
+            // Failsafe timeout
+            setTimeout(() => {
+                NV11.off('DISPENSED', onDispensed);
+                console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
+            }, count * 30000);
+        }
+
+async function sendSlotStatusToLaravel(used, remaining, alertSent) {
+    try {
+        const response = await fetch('http://smartcoins.local/api/slot-status', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer VOTRE_TOKEN', // Si besoin
+            },
+            body: JSON.stringify({
+                used_slots: used,
+                remaining_slots: remaining,
+                alert_sent: alertSent,
+            }),
+        });
+
+        const result = await response.json();
+        console.log('✅ Enregistré dans Laravel :', result.message);
+    } catch (error) {
+        console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
+    }
+}
+
+
+//API routes
 // Routes HTTP protégées par le middleware d'authentification
 app.post('/enable', authenticateToken, (req, res) => {
     const { amount } = req.body;
     const { stacking } = req.body;
     amountValue = amount;
     isStacking = stacking;
-    eSSP.enable()
-        .then(result => res.json({ status: 'Validator enabled', result }))
+    NV11.enable()
+        .then(result => res.json({ status: 'NV11 enabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to enable validator', details: error }));
+    Hopper.enable();
 });
 
 app.post('/disable', authenticateToken, (req, res) => {
     /*if (isPayoutInProgress) {
         return res.status(403).json({ error: 'Cannot disable while payout in progress' });
     }*/
-    eSSP.disable()
+    NV11.disable()
         .then(result => res.json({ status: 'Validator disabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
+    Hopper.disable();
 });
 
 function waitForEvent(emitter, eventName, timeoutMs = 10000) {
@@ -377,45 +521,20 @@ function waitForEvent(emitter, eventName, timeoutMs = 10000) {
     });
 }
 
-/*
+
 app.post('/collect', authenticateToken, async (req, res) => {
     try {
         lastCommand = 'SMART_EMPTY';
-        await eSSP.enable();
+        await NV11.enable();
         await new Promise(r => setTimeout(r, 500));
 
         console.log("➡️ Envoi SMART_EMPTY...");
-        const emptyResult = await eSSP.command('SMART_EMPTY');
-
-        res.json({
-            status: 'Cashbox emptied successfully',
-            result: emptyResult,
-           // event: finalResult
-        });
-    } catch (error) {
-        console.error('❌ Collect error:', error);
-        res.status(500).json({
-            error: 'Failed to process cashbox collection',
-            details: error.message || error
-        });
-    } finally {
-        lastCommand = null; // 🔑 toujours reset
-    }
-});
-*/
-app.post('/collect', authenticateToken, async (req, res) => {
-    try {
-        lastCommand = 'SMART_EMPTY';
-        await eSSP.enable();
-        await new Promise(r => setTimeout(r, 500));
-
-        console.log("➡️ Envoi SMART_EMPTY...");
-        const emptyResult = await eSSP.command('SMART_EMPTY');
+        const emptyResult = await NV11.command('SMART_EMPTY');
         /*
-        const finalResult = await waitForEvent(eSSP, 'SMART_EMPTIED', 10000);
+        const finalResult = await waitForEvent(NV11, 'SMART_EMPTIED', 10000);
 
-        await eSSP.disable();
-        console.log('✅ eSSP disabled after SMART_EMPTIED');
+        await NV11.disable();
+        console.log('✅ NV11 disabled after SMART_EMPTIED');
         */
         res.json({
             status: 'Cashbox emptied successfully',
@@ -445,7 +564,7 @@ app.post('/collect', authenticateToken, async (req, res) => {
 app.post('/stack', authenticateToken, async (req, res) => {
 try {
         
-        await eSSP.enable();
+        await NV11.enable();
         res.json({
             status: 'Waiting for stacking notes',
             
@@ -460,188 +579,13 @@ try {
     }
 });
 
-/*
-app.post('/stack', authenticateToken, async (req, res) => {
-    const STACK_TIMEOUT_MS = 15000;
-
-    try {
-        isStacking = true;
-        lastCommand = 'STACK_NOTE';
-
-        // Nettoyage initial : tenter un disable pour repartir d'un état propre
-        try { await eSSP.disable(); await new Promise(r => setTimeout(r, 300)); }
-        catch (e) { console.warn("⚠️ disable initial impossible (peut déjà être disabled) :", e.message || e); }
-
-        const finalResult = await new Promise(async (resolve, reject) => {
-            let timeout;
-
-            const cleanup = () => {
-                clearTimeout(timeout);
-                eSSP.off('NOTE_STORED_IN_PAYOUT', onStored);
-                eSSP.off('NOTE_TRANSFERED_TO_STACKER', onTransferred);
-                eSSP.off('NOTE_REJECTED', onReject);
-            };
-
-            // Handler NOTE_STORED_IN_PAYOUT
-            async function onStored(result) {
-                try {
-                    const noteValue = NOTE_VALUES[result?.channel] || result?.channel || 'unknown';
-                    console.log(`✅ NOTE_STORED_IN_PAYOUT received (channel=${result?.channel}), note=${noteValue}`);
-
-                    // Essayer de récupérer les positions pour confirmer
-                    let positions = null;
-                    try {
-                        positions = await eSSP.command('GET_NOTE_POSITIONS');
-                        console.log('📦 GET_NOTE_POSITIONS:', JSON.stringify(positions, null, 2));
-                    } catch (errPos) {
-                        console.warn('⚠️ GET_NOTE_POSITIONS failed after stored:', errPos.message || errPos);
-                    }
-
-                    // Désactiver proprement
-                    try {
-                        await eSSP.disable();
-                        console.log("✅ Validator disabled après NOTE_STORED_IN_PAYOUT");
-                    } catch (err) {
-                        console.error("⚠️ Erreur lors du disable après stored:", err.message || err);
-                    }
-
-                    cleanup();
-                    isStacking = false;
-                    lastCommand = null;
-                    resolve({ status: 'STORED_IN_PAYOUT', note: noteValue, positions: positions?.info || null });
-                } catch (err) {
-                    cleanup();
-                    isStacking = false;
-                    lastCommand = null;
-                    reject(err);
-                }
-            }
-
-            // Handler NOTE_TRANSFERED_TO_STACKER
-            async function onTransferred(result) {
-                try {
-                    const noteValue = NOTE_VALUES[result?.channel] || result?.channel || 'unknown';
-                    console.warn(`⚠️ NOTE_TRANSFERED_TO_STACKER (channel=${result?.channel}), note=${noteValue}`);
-
-                    try {
-                        await eSSP.disable();
-                        console.log("✅ Validator disabled après NOTE_TRANSFERED_TO_STACKER");
-                    } catch (err) {
-                        console.error("⚠️ Erreur lors du disable après transfer:", err.message || err);
-                    }
-
-                    cleanup();
-                    isStacking = false;
-                    lastCommand = null;
-                    resolve({ status: 'TRANSFERRED_TO_STACKER', note: noteValue });
-                } catch (err) {
-                    cleanup();
-                    isStacking = false;
-                    lastCommand = null;
-                    reject(err);
-                }
-            }
-
-            // Handler NOTE_REJECTED (défensif : résultat peut être mal formé)
-            function onReject(result) {
-                try {
-                    // Safeguard: result peut être undefined / sans info
-                    const reason = result?.info?.description
-                        ?? result?.info
-                        ?? result?.description
-                        ?? JSON.stringify(result)
-                        ?? 'Unknown reason';
-
-                    console.warn(`⚠️ NOTE_REJECTED received: ${reason}`);
-
-                    // Laisser un petit délai pour permettre au validateur de recracher physiquement la note
-                    setTimeout(async () => {
-                        try {
-                            await eSSP.disable();
-                            console.log("✅ Validator disabled après NOTE_REJECTED");
-                        } catch (err) {
-                            console.error("⚠️ Erreur disable après reject:", err.message || err);
-                        }
-
-                        cleanup();
-                        isStacking = false;
-                        lastCommand = null;
-                        resolve({ status: 'REJECTED', reason });
-                    }, 1500);
-                } catch (err) {
-                    cleanup();
-                    isStacking = false;
-                    lastCommand = null;
-                    reject(err);
-                }
-            }
-
-            // Brancher les écouteurs AVANT d'envoyer la commande
-            eSSP.once('NOTE_STORED_IN_PAYOUT', onStored);
-            eSSP.once('NOTE_TRANSFERED_TO_STACKER', onTransferred);
-            eSSP.once('NOTE_REJECTED', onReject);
-
-            // Timeout failsafe
-            timeout = setTimeout(async () => {
-                console.warn('⏱ Timeout waiting for final stack event');
-                cleanup();
-                // Tentative de diagnostic : récupérer les positions si possible
-                let positions = null;
-                try {
-                    positions = await eSSP.command('GET_NOTE_POSITIONS');
-                    console.log('📦 GET_NOTE_POSITIONS (on timeout):', JSON.stringify(positions, null, 2));
-                } catch (errPos) {
-                    console.warn('⚠️ GET_NOTE_POSITIONS failed on timeout:', errPos.message || errPos);
-                }
-
-                // Essayer de disable pour remettre l'appareil en état propre
-                try { await eSSP.disable(); console.log('✅ Validator disabled after timeout'); } 
-                catch (err) { console.error('⚠️ Disable failed after timeout:', err.message || err); }
-
-                isStacking = false;
-                lastCommand = null;
-                resolve({ status: 'TIMEOUT', details: 'No final event', positions: positions?.info || null });
-            }, STACK_TIMEOUT_MS);
-
-            // On envoie la commande seulement après attachement des listeners
-            try {
-                await eSSP.enable();
-                console.log("➡️ Envoi STACK_NOTE...");
-                await eSSP.command('STACK_NOTE');
-            } catch (errCmd) {
-                cleanup();
-                isStacking = false;
-                lastCommand = null;
-                reject(errCmd);
-            }
-        });
-
-        res.json(finalResult);
-
-    } catch (error) {
-        console.error("❌ Error in /stack:", error && (error.stack || error.message) || error);
-        try { await eSSP.disable(); } catch (e) { console.error("⚠️ Disable failed in outer catch:", e.message || e); }
-        isStacking = false;
-        lastCommand = null;
-        res.status(500).json({ error: 'Failed to process stacking note', details: error.message || error });
-    }
-});
-
-*/
-
-
-
-
-
-
-
 
 
 
 app.post('/reset', authenticateToken, (req, res) => {
     console.log("Attempting to reset the validator...");
 
-    eSSP.command('RESET')
+    NV11.command('RESET')
         .then(result => {
             console.log("Validator reset command sent successfully.", result);
             res.json({ status: 'Validator reset', result });
@@ -652,11 +596,11 @@ app.post('/reset', authenticateToken, (req, res) => {
                 console.log("Cleaning up previous validator instance...");
 
                 // Nettoyer les listeners de l'ancienne instance
-                eSSP.removeAllListeners();
-                eSSP.close && eSSP.close(); // Si une méthode close() existe, sinon ignore
+                NV11.removeAllListeners();
+                NV11.close && NV11.close(); // Si une méthode close() existe, sinon ignore
 
                 // Réinitialiser complètement
-                eSSP = initializeValidator(COM_PORT);
+                NV11 = initializeValidator(COM_PORT);
             }, 5000);
         })
         .catch(error => {
@@ -666,102 +610,26 @@ app.post('/reset', authenticateToken, (req, res) => {
 });
 
 
-function handlePayoutRequest(count) {
-    let dispensed = 0;
-   // isPayoutInProgress = true;
 
-       /* eSSP.disable()
-            .then(() => {
-            // isPayoutInProgress = false;
-                console.log('✅ Payout terminé. Validator désactivé');
-            })
-*/
-            const onDispensed = () => {
-                dispensed++;
-                console.log(`✅ Note ${dispensed}/${count} dispensed`);
-            
-                // 👇 Ajout ici : on loggue chaque note rendue
-                postWithRetry({ status: { note: 10, value: 'debited' } })
-                    .then(() => {
-                        console.log('📨 Débit enregistré dans le serveur');
-                    })
-                    .catch((err) => {
-                        console.error('⚠️ Échec de l’envoi du débit:', err.message);
-                    });
-            
-                if (dispensed >= count) {
-                    eSSP.off('DISPENSED', onDispensed);
-                    eSSP.disable()
-                        .then(() => {
-                            console.log('✅ Payout terminé. Validator désactivé');
-                        })
-                        .catch(console.error);
-                    return;
-                }
-            
-                // Attendre 1 seconde avant la prochaine commande
-                setTimeout(() => {
-                    eSSP.command('PAYOUT_NOTE').catch(console.error);
-                }, 1000);
-            };
-            
-
-            // Important: s’assurer qu’aucun ancien listener traîne
-            eSSP.off('DISPENSED', onDispensed); 
-            eSSP.on('DISPENSED', onDispensed);
-
-            eSSP.enable()
-                .then(() => eSSP.command('ENABLE_PAYOUT_DEVICE', {
-                    GIVE_VALUE_ON_STORED: true,
-                    NO_HOLD_NOTE_ON_PAYOUT: false,
-                }))
-                .then(() => {
-                    console.log(`⏳ Début du rendu de ${count} billet(s)...`);
-                    return eSSP.command('PAYOUT_NOTE'); // premier billet
-                })
-                .catch(err => {
-                    eSSP.off('DISPENSED', onDispensed);
-                    console.error('Erreur lors du payout initial:', err);
-                });
-
-            // Failsafe timeout
-            setTimeout(() => {
-                eSSP.off('DISPENSED', onDispensed);
-                console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
-            }, count * 30000);
-        }
-
-async function sendSlotStatusToLaravel(used, remaining, alertSent) {
-    try {
-        const response = await fetch('http://smartcoins.local/api/slot-status', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // 'Authorization': 'Bearer VOTRE_TOKEN', // Si besoin
-            },
-            body: JSON.stringify({
-                used_slots: used,
-                remaining_slots: remaining,
-                alert_sent: alertSent,
-            }),
-        });
-
-        const result = await response.json();
-        console.log('✅ Enregistré dans Laravel :', result.message);
-    } catch (error) {
-        console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
-    }
-}
-
-
-
-
-
-
-// Démarrer le serveur
-const PORT = 8002;
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+process.on('SIGINT', async () => {
+  console.log('\n🧹 Fermeture propre...');
+  try {
+    await NV11.disable();
+    await Hopper.disable();
+  } catch (err) {
+    console.warn('Erreur lors de la désactivation :', err.message);
+  } finally {
+    NV11.close();
+    Hopper.close();
+    process.exit(0);
+  }
 });
+
+
+// === Lancement du serveur HTTP ===
+app.listen(8002, () => {
+  console.log('🚀 Serveur NV11 démarré sur le port 8002');
+});
+
 
 
