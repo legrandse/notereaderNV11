@@ -60,6 +60,7 @@ NV11.on('OPEN', async () => {
     const serial = await NV11.command('GET_SERIAL_NUMBER');
     console.log('NV11 Serial:', serial.info.serial_number);
     await NV11.command('SET_CHANNEL_INHIBITS', { channels: [1, 1, 1, 1, 0, 0, 0, 0] });
+    await NV11.command('SET_DENOMINATION_ROUTE', { route:'payout', value:1000, country_code:'EUR' });
     await NV11.command('ENABLE_PAYOUT_DEVICE', { 
       GIVE_VALUE_ON_STORED: true,
       NO_HOLD_NOTE_ON_PAYOUT: false, });
@@ -359,35 +360,67 @@ async function handleRenduMixte(rendu) {
   const { billets10, reste } = calculerRenduMixte(rendu);
   console.log(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
 
+  if (isPayoutInProgress) {
+    console.warn('⚠️ Rendu déjà en cours, commande ignorée.');
+    return;
+  }
+
+  isPayoutInProgress = true;
+
   try {
     // === 1️⃣ Rendu billets ===
     if (billets10 > 0) {
       console.log(`🧾 NV11 : rendu ${billets10} billet(s) de 10€`);
+      console.log('⌛ Commande de rendu billets programmée dans 2s...');
       setTimeout(() => {
-                       // handlePayoutRequest(payoutCount);
-                        handlePayoutRequest(billets10);
-                    }, 2000);
-      
-      
-      console.log('✅ Billets rendus');
+        handlePayoutRequest(billets10);
+      }, 2000);
     }
 
     // === 2️⃣ Rendu pièces ===
     if (reste > 0) {
-      console.log(`🪙 Hopper : rendu ${reste}€ en pièces...`);
+      const hopperAmount = Math.round(reste * 100);
+      console.log(`🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
+    
+      // Crée une promesse qui se résout quand l'événement DISPENSED est reçu
+      const dispensePromise = new Promise((resolve, reject) => {
+        const onDispensed = async (data) => {
+          console.log(`✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
+          Hopper.off('DISPENSED', onDispensed);
+          Hopper.off('ERROR', onError);
+          try {
+            await postWithRetry({ status: { note: reste, value: 'debited' } });
+            console.log('📨 Statut envoyé après DISPENSED');
+            resolve();
+          } catch (err) {
+            console.error('⚠️ Erreur lors de postWithRetry après DISPENSED:', err.message);
+            reject(err);
+          }
+        };
+    
+        const onError = (err) => {
+          Hopper.off('DISPENSED', onDispensed);
+          Hopper.off('ERROR', onError);
+          console.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
+          reject(err);
+        };
+    
+        Hopper.on('DISPENSED', onDispensed);
+        Hopper.on('ERROR', onError);
+      });
+    
+      // Lancement du payout
       await Hopper.command('PAYOUT_AMOUNT', {
-        amount: reste * 100,
+        amount: hopperAmount,
         country_code: 'EUR',
         test: false,
       });
-      console.log('✅ Pièces rendues');
+    
+      // Attend la résolution (ou l’erreur)
+      await dispensePromise;
     }
-
-    console.log('🎉 Rendu mixte terminé');
-  } catch (err) {
-    console.error('❌ Erreur handleRenduMixte:', err.message);
-  }
 }
+
 
 
 
@@ -630,6 +663,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
