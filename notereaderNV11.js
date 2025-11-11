@@ -15,7 +15,9 @@ app.use(express.json());
 // === Configuration générale ===
 const NV11_PORT = '/dev/ttyACM0';
 const HOPPER_PORT = '/dev/ttyUSB0';
-const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
+//const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
+const SERVER_URL = 'https://smartcoins.ngrok.app/cash/endpoint';
+const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/cash/get-levels';
 const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
 const EMAIL_TO = 'legrandse@gmail.com';
 
@@ -36,7 +38,7 @@ let totalPaid = 0;
 // === Création des instances NV11 ===
 const NV11 = new sspLib({
   id: 0,
-  debug: true,
+  debug: false,
   timeout: 3000,
   fixedKey: '0123456701234567',
   port: NV11_PORT,
@@ -44,7 +46,7 @@ const NV11 = new sspLib({
 
 const Hopper = new sspLib({
   id: 16,
-  debug: false,
+  debug: true,
   timeout: 5000,
   fixedKey: '0123456701234567',
   port: HOPPER_PORT,
@@ -80,12 +82,42 @@ Hopper.on('OPEN', async () => {
     await Hopper.initEncryption();
     await Hopper.command('COIN_MECH_OPTIONS', { ccTalk: false });
     await Hopper.command('SET_COIN_MECH_GLOBAL_INHIBIT', { enable: true });
+
+    // --- Récupération des niveaux ---
+    const levels = await Hopper.command('GET_ALL_LEVELS');
+
+    // --- Log détaillé ---
+    console.log('📊 Niveaux actuels du Hopper :');
+    if (levels?.info?.counter) {
+      const counters = levels.info.counter;
+      Object.entries(counters).forEach(([key, data]) => {
+        const value = (data.value / 100).toFixed(2); // pour l’afficher en euros
+        const level = data.denomination_level;
+        const country = data.country_code || 'N/A';
+        console.log(`  → Canal ${key}: ${value} ${country}, niveau = ${level}`);
+      });
+    } else {
+      console.log('  ⚠️ Format inattendu pour les niveaux:', levels);
+    }
+
+    // --- Envoi au serveur ---
+    await postWithRetry({
+      status: {
+        message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
+        value: 'info'
+      }
+    }, SERVER_URL_HOPPER).catch(error => {
+      console.error(`Erreur lors de l'envoi: ${error.message}`);
+    });
+
     await Hopper.disable();
     console.log('✅ Hopper prêt');
   } catch (err) {
     console.error('❌ Erreur Hopper:', err.message);
   }
 });
+
+
 
 
 // Gestionnaires d'événements supplémentaires
@@ -95,7 +127,7 @@ Hopper.on('OPEN', async () => {
         NV11.command('LAST_REJECT_CODE').then(result => {
             console.log("Resultat de LAST_REJECT_CODE:", result);
             data.status.message = result.info.description;
-            postWithRetry(data)
+            postWithRetry(data,SERVER_URL)
                 .catch(error => {
                     console.error(`Erreur lors de l'envoi: ${data.status.message}`);
                 });
@@ -107,7 +139,7 @@ Hopper.on('OPEN', async () => {
     NV11.on('STACKER_FULL', result => {
         const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
-        postWithRetry(data)
+        postWithRetry(data, SERVER_URL)
             .catch(error => {
                 console.error(`Erreur lors de l'envoi: ${data.status.message}`);
             });
@@ -116,7 +148,7 @@ Hopper.on('OPEN', async () => {
     NV11.on('CASHBOX_REMOVED', result => {
         const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
-        postWithRetry(data)
+        postWithRetry(data, SERVER_URL)
             .catch(error => {
                 console.error(`Erreur lors de l'envoi: ${data.status.message}`);
             });
@@ -125,7 +157,7 @@ Hopper.on('OPEN', async () => {
     NV11.on('UNSAFE_NOTE_JAM', result => {
         const data = { status: { message: `${result.info.description}`, value: 'error' } };
         noteInProcessing = false;
-        postWithRetry(data)
+        postWithRetry(data, SERVER_URL)
             .catch(error => {
                 console.error(`Erreur lors de l'envoi: ${data.status.message}`);
             });
@@ -134,7 +166,7 @@ Hopper.on('OPEN', async () => {
     NV11.on('READ_NOTE', result => {
         if (!noteInProcessing) {
             noteInProcessing = true; // Marquer que la note est en traitement
-            postWithRetry({ 'status': { 'message': 'Note in processing', 'value': 'process' } })
+            postWithRetry({ 'status': { 'message': 'Note in processing', 'value': 'process' } },SERVER_URL)
                 .then(() => {
                     console.log("Data successfully sent for 'Note in processing'");
                 })
@@ -173,7 +205,7 @@ NV11.on('CREDIT_NOTE', result => {
       console.log(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
 
       // ✅ On notifie le serveur (optionnel)
-      await postWithRetry({ status: { note: noteValue, value: 'credited' } });
+      await postWithRetry({ status: { note: noteValue, value: 'credited' } },SERVER_URL);
 
       // ✅ Vérification de l’état du validateur
       const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
@@ -218,7 +250,7 @@ function handleCoinInserted(amount, currency) {
         //currency: currency,
        // timestamp: new Date().toISOString()
       } 
-    });
+    },SERVER_URL);
   } catch (error) {
     console.error(`Erreur envoi: ${error.message}`);
   }
@@ -281,10 +313,10 @@ Hopper.on('COIN_CREDIT', async (event) => {
 /**
  * Fonction pour faire une requête POST avec retry et timeout
  */
-function postWithRetry(data, retries = 3, timeout = 5000) {
+function postWithRetry(data, url, retries = 3, timeout = 5000) {
     return new Promise((resolve, reject) => {
         const attemptPost = (retryCount) => {
-            axios.post(SERVER_URL, data, {
+            axios.post(url, data, {
                 headers: { 'Authorization': `Bearer ${AUTH_TOKEN}` },
                 timeout: timeout
             })
@@ -360,10 +392,10 @@ async function handleRenduMixte(rendu) {
   const { billets10, reste } = calculerRenduMixte(rendu);
   console.log(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
 
-  if (isPayoutInProgress) {
+  /*if (isPayoutInProgress) {
     console.warn('⚠️ Rendu déjà en cours, commande ignorée.');
     return;
-  }
+  }*/
 
   isPayoutInProgress = true;
 
@@ -374,50 +406,77 @@ async function handleRenduMixte(rendu) {
       console.log('⌛ Commande de rendu billets programmée dans 2s...');
       setTimeout(() => {
         handlePayoutRequest(billets10);
-      }, 2000);
+      }, 1000);
     }
 
     // === 2️⃣ Rendu pièces ===
     if (reste > 0) {
-      const hopperAmount = Math.round(reste * 100);
-      console.log(`🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
-    
-      // Crée une promesse qui se résout quand l'événement DISPENSED est reçu
-      const dispensePromise = new Promise((resolve, reject) => {
-        const onDispensed = async (data) => {
-          console.log(`✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
-          Hopper.off('DISPENSED', onDispensed);
-          Hopper.off('ERROR', onError);
-          try {
-            await postWithRetry({ status: { note: reste, value: 'debited' } });
-            console.log('📨 Statut envoyé après DISPENSED');
-            resolve();
-          } catch (err) {
-            console.error('⚠️ Erreur lors de postWithRetry après DISPENSED:', err.message);
-            reject(err);
-          }
-        };
-    
-        const onError = (err) => {
-          Hopper.off('DISPENSED', onDispensed);
-          Hopper.off('ERROR', onError);
-          console.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
-          reject(err);
-        };
-    
-        Hopper.on('DISPENSED', onDispensed);
-        Hopper.on('ERROR', onError);
-      });
-    
-      // Lancement du payout
-      await Hopper.command('PAYOUT_AMOUNT', {
-        amount: hopperAmount,
-        country_code: 'EUR',
-        test: false,
-      });
-    
-      // Attend la résolution (ou l’erreur)
-      await dispensePromise;
+  const hopperAmount = Math.round(reste * 100);
+  console.log(`🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
+
+  // Crée une promesse qui se résout quand l'événement DISPENSED est reçu
+  const dispensePromise = new Promise((resolve, reject) => {
+    const onDispensed = async (data) => {
+      console.log(`✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
+
+      // Nettoyage des listeners
+      Hopper.off('DISPENSED', onDispensed);
+      Hopper.off('ERROR', onError);
+
+      try {
+        // --- Récupération des niveaux ---
+        const levels = await Hopper.command('GET_ALL_LEVELS');
+        console.log('📊 Niveaux Hopper après rendu:', levels.info.counter);
+
+        // --- Envoi au serveur principal (post-rendu) ---
+        await postWithRetry(
+          { status: { note: reste, value: 'debited' } },
+          SERVER_URL
+        );
+        console.log('📨 Statut de débit envoyé à Laravel');
+
+        // --- Envoi d’un rapport détaillé au serveur Hopper ---
+        await postWithRetry(
+          {
+            status: {
+              message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
+              value: 'info',
+            },
+          },
+          SERVER_URL_HOPPER
+        );
+        console.log('📊 Niveaux Hopper envoyés au serveur secondaire');
+
+        resolve();
+      } catch (err) {
+        console.error('⚠️ Erreur dans onDispensed:', err.message);
+        reject(err);
+      }
+    };
+
+    const onError = (err) => {
+      Hopper.off('DISPENSED', onDispensed);
+      Hopper.off('ERROR', onError);
+      console.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
+      reject(err);
+    };
+
+    Hopper.on('DISPENSED', onDispensed);
+    Hopper.on('ERROR', onError);
+  });
+
+  // --- Lancement du payout ---
+  await Hopper.command('PAYOUT_AMOUNT', {
+    amount: hopperAmount,
+    country_code: 'EUR',
+    test: false,
+  });
+
+  // --- Attente de la fin réelle du payout ---
+  await dispensePromise;
+}
+} catch (error) {
+        console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
     }
 }
 
@@ -442,7 +501,7 @@ function handlePayoutRequest(count) {
                 console.log(`✅ Note ${dispensed}/${count} dispensed`);
             
                 // 👇 Ajout ici : on loggue chaque note rendue
-                postWithRetry({ status: { note: 10, value: 'debited' } })
+                postWithRetry({ status: { note: 10, value: 'debited' } },SERVER_URL)
                     .then(() => {
                         console.log('📨 Débit enregistré dans le serveur');
                     })
@@ -592,6 +651,85 @@ app.post('/collect', authenticateToken, async (req, res) => {
         }
     }
 });
+
+
+app.post('/collectHopper', authenticateToken, async (req, res) => {
+    try {
+        lastCommand = 'SMART_EMPTY';
+        await Hopper.enable();
+        await new Promise(r => setTimeout(r, 500));
+
+        console.log("➡️ Envoi SMART_EMPTY...");
+        const emptyResult = await Hopper.command('SMART_EMPTY');
+        /*
+        const finalResult = await waitForEvent(NV11, 'SMART_EMPTIED', 10000);
+
+        await NV11.disable();
+        console.log('✅ NV11 disabled after SMART_EMPTIED');
+        */
+        res.json({
+            status: 'Cashbox emptied successfully',
+            result: emptyResult,
+            // event: finalResult
+        });
+
+    } catch (error) {
+        console.error('❌ Collect error:', error);
+        res.status(500).json({
+            error: 'Failed to process cashbox collection',
+            details: error.message || error
+        });
+    } finally {
+        lastCommand = null; // 🔑 toujours reset
+
+        try {
+            const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+            console.log(`📊 Slots après collect: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
+        } catch (err) {
+            console.error(`⚠️ Impossible de lire l’état des slots: ${err.message}`);
+        }
+    }
+});
+
+
+app.post('/hopperStack', authenticateToken, async (req, res) => {
+  const { amount } = req.body;
+  const { denomination } = req.body;
+  console.log('✅ Denomination:', denomination);
+
+  try {
+    const quantity = amount;
+    // isStacking = stacking; // à réactiver si besoin
+
+    // --- Activation du hopper ---
+    const enableResult = await Hopper.enable();
+    console.log('✅ Hopper activé:', enableResult);
+
+    // --- Réglage du niveau pour une dénomination donnée ---
+    const setLevelResult = await Hopper.command('SET_DENOMINATION_LEVEL', {
+      value: quantity,
+      denomination: denomination*100,
+      country_code: 'EUR'
+    });
+    console.log('⚙️ Niveau défini pour €:', setLevelResult);
+
+    // --- Réponse HTTP ---
+    res.json({
+      status: 'ok',
+      message: 'Hopper enabled and denomination level set',
+      enableResult,
+      setLevelResult
+    });
+
+  } catch (error) {
+    console.error('❌ Erreur /hopperStack:', error);
+    res.status(500).json({
+      error: 'Failed to enable hopper or set denomination level',
+      details: error.message
+    });
+  }
+});
+
 
 
 app.post('/stack', authenticateToken, async (req, res) => {

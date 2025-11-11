@@ -122,52 +122,7 @@ function initializeValidator(comPort, fixedKey = '0123456701234567') {
                 });
         }
     });
-/*
-    eSSP.on('CREDIT_NOTE', result => {
-        
-    const processCreditNote = async () => {
-        const noteId = result.channel;
-        if (NOTE_VALUES[noteId]) {
-            const noteValue = NOTE_VALUES[noteId];
-            noteInProcessing = false;
 
-            const jetonValue = amountValue || 0;
-            const rendu = noteValue - jetonValue;
-
-            try {
-                await postWithRetry({ status: { note: noteValue, value: 'credited' } });
-
-                // ✅ On vérifie l’état des slots quelle que soit la valeur du billet
-                const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
-
-                if (rendu >= 10) {
-                    const denomination = 10;
-                    const payoutCount = Math.floor(rendu / denomination);
-                    const reste = rendu % denomination;
-
-                    console.log(`💶 ${noteValue}€ reçu. Jetons: ${jetonValue}€. Rendu: ${rendu}€ -> ${payoutCount} x ${denomination}€`);
-
-                    if (reste > 0) {
-                        console.warn(`⚠️ Impossible de rendre ${reste}€ (non divisible par ${denomination})`);
-                    }
-
-                    setTimeout(() => {
-                        handlePayoutRequest(payoutCount);
-                    }, 2000);
-                } else {
-                    console.log(`✅ Aucun rendu nécessaire. Le billet de ${noteValue}€ correspond exactement au montant dû.`);
-                }
-            } catch (error) {
-                console.error(`Final failure: ${error.message}`);
-            }
-        } else {
-            console.log(`Unknown note ID: ${noteId}`);
-        }
-    };
-
-    processCreditNote();
-});
-*/
 eSSP.on('CREDIT_NOTE', result => {
     if (isStacking) {
         checkNoteSlotsStatus()
@@ -378,32 +333,7 @@ function waitForEvent(emitter, eventName, timeoutMs = 10000) {
     });
 }
 
-/*
-app.post('/collect', authenticateToken, async (req, res) => {
-    try {
-        lastCommand = 'SMART_EMPTY';
-        await eSSP.enable();
-        await new Promise(r => setTimeout(r, 500));
 
-        console.log("➡️ Envoi SMART_EMPTY...");
-        const emptyResult = await eSSP.command('SMART_EMPTY');
-
-        res.json({
-            status: 'Cashbox emptied successfully',
-            result: emptyResult,
-           // event: finalResult
-        });
-    } catch (error) {
-        console.error('❌ Collect error:', error);
-        res.status(500).json({
-            error: 'Failed to process cashbox collection',
-            details: error.message || error
-        });
-    } finally {
-        lastCommand = null; // 🔑 toujours reset
-    }
-});
-*/
 app.post('/collect', authenticateToken, async (req, res) => {
     try {
         lastCommand = 'SMART_EMPTY';
