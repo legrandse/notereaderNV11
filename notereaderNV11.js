@@ -18,6 +18,7 @@ const HOPPER_PORT = '/dev/ttyUSB0';
 //const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
 const SERVER_URL = 'https://smartcoins.ngrok.app/cash/endpoint';
 const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/cash/get-levels';
+const SERVER_URL_NV11 = 'https://smartcoins.ngrok.app/cash/slot-status';
 const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
 const EMAIL_TO = 'legrandse@gmail.com';
 
@@ -66,6 +67,18 @@ NV11.on('OPEN', async () => {
     await NV11.command('ENABLE_PAYOUT_DEVICE', { 
       GIVE_VALUE_ON_STORED: true,
       NO_HOLD_NOTE_ON_PAYOUT: false, });
+    const resultSlots = await NV11.command('GET_NOTE_POSITIONS');
+      console.log('📦 Résultat brut GET_NOTE_POSITIONS:', JSON.stringify(resultSlots, null, 2));
+      const slots = resultSlots.info.slot;
+    // --- Envoi au serveur ---
+    await postWithRetry({
+      status: {
+        message: `Stored levels: ${JSON.stringify(resultSlots, null, 2)}`,
+        value: 'info'
+      }
+    }, SERVER_URL_NV11).catch(error => {
+      console.error(`Erreur lors de l'envoi: ${error.message}`);
+    });
     await NV11.disable();
     console.log('✅ NV11 prêt');
   } catch (err) {
@@ -87,7 +100,7 @@ Hopper.on('OPEN', async () => {
     const levels = await Hopper.command('GET_ALL_LEVELS');
 
     // --- Log détaillé ---
-    console.log('📊 Niveaux actuels du Hopper :');
+  /*console.log('📊 Niveaux actuels du Hopper :');
     if (levels?.info?.counter) {
       const counters = levels.info.counter;
       Object.entries(counters).forEach(([key, data]) => {
@@ -99,7 +112,7 @@ Hopper.on('OPEN', async () => {
     } else {
       console.log('  ⚠️ Format inattendu pour les niveaux:', levels);
     }
-
+  */
     // --- Envoi au serveur ---
     await postWithRetry({
       status: {
@@ -801,6 +814,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
