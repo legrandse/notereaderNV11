@@ -553,7 +553,7 @@ function handlePayoutRequest(count) {
 
 async function sendSlotStatusToLaravel(used, remaining, alertSent) {
     try {
-        const response = await fetch('http://smartcoins.local/api/slot-status', {
+        const response = await fetch('http://smartcoins.local/api/cash/slot-status', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -801,6 +801,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
