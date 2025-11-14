@@ -16,9 +16,9 @@ app.use(express.json());
 const NV11_PORT = '/dev/ttyACM0';
 const HOPPER_PORT = '/dev/ttyUSB0';
 //const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
-const SERVER_URL = 'https://smartcoins.ngrok.app/cash/endpoint';
-const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/cash/get-levels';
-const SERVER_URL_NV11 = 'https://smartcoins.ngrok.app/cash/slot-status';
+const SERVER_URL = 'https://smartcoins.ngrok.app/api/cash/endpoint';
+const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/api/cash/get-levels';
+const SERVER_URL_NV11 = 'https://smartcoins.ngrok.app/api/cash/slot-status';
 const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
 const EMAIL_TO = 'legrandse@gmail.com';
 
@@ -39,7 +39,7 @@ let totalPaid = 0;
 // === Création des instances NV11 ===
 const NV11 = new sspLib({
   id: 0,
-  debug: false,
+  debug: true,
   timeout: 3000,
   fixedKey: '0123456701234567',
   port: NV11_PORT,
@@ -47,7 +47,7 @@ const NV11 = new sspLib({
 
 const Hopper = new sspLib({
   id: 16,
-  debug: true,
+  debug: false,
   timeout: 5000,
   fixedKey: '0123456701234567',
   port: HOPPER_PORT,
@@ -67,18 +67,8 @@ NV11.on('OPEN', async () => {
     await NV11.command('ENABLE_PAYOUT_DEVICE', { 
       GIVE_VALUE_ON_STORED: true,
       NO_HOLD_NOTE_ON_PAYOUT: false, });
-    const resultSlots = await NV11.command('GET_NOTE_POSITIONS');
-      console.log('📦 Résultat brut GET_NOTE_POSITIONS:', JSON.stringify(resultSlots, null, 2));
-      const slots = resultSlots.info.slot;
-    // --- Envoi au serveur ---
-    await postWithRetry({
-      status: {
-        message: `Stored levels: ${JSON.stringify(resultSlots, null, 2)}`,
-        value: 'info'
-      }
-    }, SERVER_URL_NV11).catch(error => {
-      console.error(`Erreur lors de l'envoi: ${error.message}`);
-    });
+    await checkNoteSlotsStatus();
+    
     await NV11.disable();
     console.log('✅ NV11 prêt');
   } catch (err) {
@@ -179,7 +169,7 @@ Hopper.on('OPEN', async () => {
     NV11.on('READ_NOTE', result => {
         if (!noteInProcessing) {
             noteInProcessing = true; // Marquer que la note est en traitement
-            postWithRetry({ 'status': { 'message': 'Note in processing', 'value': 'process' } },SERVER_URL)
+            postWithRetry({ 'status': { 'message': 'Tratement du billet en cours...', 'value': 'process' } },SERVER_URL)
                 .then(() => {
                     console.log("Data successfully sent for 'Note in processing'");
                 })
@@ -269,6 +259,18 @@ function handleCoinInserted(amount, currency) {
   }
 }
 
+NV11.on('DISPENSING', result => {
+        //if (!noteInProcessing) {
+         //   noteInProcessing = true; // Marquer que la note est en traitement
+            postWithRetry({ 'status': { 'message': 'Rendu de monnaie en cours...', 'value': 'process' } },SERVER_URL)
+                .then(() => {
+                    console.log("Data successfully sent for 'Note in processing'");
+                })
+                .catch(error => {
+                    console.error(`Final failure to send 'Note in processing' data: ${error.message}`);
+                });
+        //}
+    });
 
 
 // === Gestion d’une pièce insérée ===
@@ -531,7 +533,7 @@ function handlePayoutRequest(count) {
                         .catch(console.error);
                     return;
                 }
-            
+               checkNoteSlotsStatus();
                 // Attendre 1 seconde avant la prochaine commande
                 setTimeout(() => {
                     NV11.command('PAYOUT_NOTE').catch(console.error);
