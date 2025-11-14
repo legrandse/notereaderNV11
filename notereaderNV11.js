@@ -178,6 +178,23 @@ Hopper.on('OPEN', async () => {
                 });
         }
     });
+
+    NV11.on('DISPENSING', result => {
+        //if (!noteInProcessing) {
+         //   noteInProcessing = true; // Marquer que la note est en traitement
+            postWithRetry({ 'status': { 'message': 'Rendu de monnaie en cours...', 'value': 'process' } },SERVER_URL)
+                .then(() => {
+                    console.log("Data successfully sent for 'Note in processing'");
+                })
+                .catch(error => {
+                    console.error(`Final failure to send 'Note in processing' data: ${error.message}`);
+                });
+        //}
+    });
+
+
+
+
 // === Gestion d’un billet inséré (CREDIT_NOTE) ===
 NV11.on('CREDIT_NOTE', result => {
   if (isStacking) {
@@ -259,18 +276,6 @@ function handleCoinInserted(amount, currency) {
   }
 }
 
-NV11.on('DISPENSING', result => {
-        //if (!noteInProcessing) {
-         //   noteInProcessing = true; // Marquer que la note est en traitement
-            postWithRetry({ 'status': { 'message': 'Rendu de monnaie en cours...', 'value': 'process' } },SERVER_URL)
-                .then(() => {
-                    console.log("Data successfully sent for 'Note in processing'");
-                })
-                .catch(error => {
-                    console.error(`Final failure to send 'Note in processing' data: ${error.message}`);
-                });
-        //}
-    });
 
 
 // === Gestion d’une pièce insérée ===
@@ -816,6 +821,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
