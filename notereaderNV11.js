@@ -198,14 +198,14 @@ Hopper.on('OPEN', async () => {
 // === Gestion d’un billet inséré (CREDIT_NOTE) ===
 NV11.on('CREDIT_NOTE', result => {
   if (isStacking) {
-        checkNoteSlotsStatus()
+       /* checkNoteSlotsStatus()
             .then(({ usedSlotCount, remainingSlots }) => {
                 console.log(`Slots: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
             })
             .catch((error) => {
                 console.error(`Final failure: ${error.message}`);
             });
-
+  */
         console.log("⚠️ CREDIT_NOTE ignoré car séquence STACK en cours");
         return;
     }
@@ -228,8 +228,8 @@ NV11.on('CREDIT_NOTE', result => {
       await postWithRetry({ status: { note: noteValue, value: 'credited' } },SERVER_URL);
 
       // ✅ Vérification de l’état du validateur
-      const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
-      console.log(`Slots NV11: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
+      //const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+      //console.log(`Slots NV11: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
 
       // === Vérifie si le montant dû est atteint ===
       if (totalPaid >= amountValue) {
@@ -538,7 +538,7 @@ function handlePayoutRequest(count) {
                         .catch(console.error);
                     return;
                 }
-               checkNoteSlotsStatus();
+               //checkNoteSlotsStatus();
                 // Attendre 1 seconde avant la prochaine commande
                 setTimeout(() => {
                     NV11.command('PAYOUT_NOTE').catch(console.error);
@@ -596,7 +596,7 @@ async function sendSlotStatusToLaravel(used, remaining, alertSent) {
 
 //API routes
 // Routes HTTP protégées par le middleware d'authentification
-app.post('/enable', authenticateToken, (req, res) => {
+/*app.post('/enable', authenticateToken, (req, res) => {
     const { amount } = req.body;
     const { stacking } = req.body;
     amountValue = amount;
@@ -605,7 +605,49 @@ app.post('/enable', authenticateToken, (req, res) => {
         .then(result => res.json({ status: 'NV11 enabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to enable validator', details: error }));
     Hopper.enable();
+});*/
+app.post('/enable', authenticateToken, async (req, res) => {
+    try {
+        const { amount, stacking } = req.body;
+
+        // Conversion propre de la valeur (2 décimales garanties)
+        amountValue = Number(
+            parseFloat(amount.toString().replace(',', '.')).toFixed(2)
+        );
+        noteInProcessing = false;
+        isStacking = stacking;
+
+        console.log(`💰 Nouvelle transaction — montant dû: ${amountValue}€ • stacking: ${isStacking}`);
+
+        // === 1️⃣ Activation NV11 ===
+        const nv11Result = await NV11.enable();
+        console.log("✅ NV11 activé");
+
+        // === 2️⃣ Activation Hopper ===
+        const hopperResult = await Hopper.enable();
+        console.log("🟦 Hopper activé");
+
+        // === 3️⃣ Vérification immédiate des slots ===
+        const slots = await checkNoteSlotsStatus();
+        console.log("📦 Slots NV11 lus:", slots);
+
+        // === 4️⃣ Réponse API ===
+        return res.json({
+            status: 'Systems enabled',
+            nv11: nv11Result,
+            hopper: hopperResult,
+            slots
+        });
+
+    } catch (error) {
+        console.error("❌ /enable error:", error);
+        return res.status(500).json({
+            error: 'Failed to enable devices',
+            details: error.message
+        });
+    }
 });
+
 
 app.post('/disable', authenticateToken, (req, res) => {
     /*if (isPayoutInProgress) {
@@ -702,12 +744,12 @@ app.post('/collectHopper', authenticateToken, async (req, res) => {
     } finally {
         lastCommand = null; // 🔑 toujours reset
 
-        try {
+      /*  try {
             const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
             console.log(`📊 Slots après collect: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
         } catch (err) {
             console.error(`⚠️ Impossible de lire l’état des slots: ${err.message}`);
-        }
+        }*/
     }
 });
 
@@ -821,6 +863,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
