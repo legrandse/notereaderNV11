@@ -8,9 +8,22 @@ const { SerialPort } = require('serialport');
 const sspLib = require('@tidemx/encrypted-smiley-secure-protocol'); // ou node-NV11 si tu préfères
 const axios = require('axios');
 const nodemailer = require('nodemailer');
-
 const app = express();
 app.use(express.json());
+
+const winston = require('winston');
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.File({ filename: 'logs/app.log' }),
+    new winston.transports.Console()
+  ]
+});
+
+logger.info("Serveur démarré");
+logger.error("Erreur !");
+
+
+
 
 // === Configuration générale ===
 const NV11_PORT = '/dev/ttyACM0';
@@ -28,8 +41,11 @@ const NOTE_VALUES = { 1: 5, 2: 10, 3: 20, 4: 50, 5: 100, 6: 200, 7: 500 };
 let isStacking = false;
 let noteInProcessing = false;
 let amountValue = null;
+//let amountValueHopper = null;
 let isPayoutInProgress = false;
 let totalPaid = 0;
+//let totalPaidHopper = 0;
+let lastRendu = 0;
 
 
 // === Initialisation des ports ===
@@ -39,7 +55,7 @@ let totalPaid = 0;
 // === Création des instances NV11 ===
 const NV11 = new sspLib({
   id: 0,
-  debug: true,
+  debug: false,
   timeout: 3000,
   fixedKey: '0123456701234567',
   port: NV11_PORT,
@@ -47,7 +63,7 @@ const NV11 = new sspLib({
 
 const Hopper = new sspLib({
   id: 16,
-  debug: false,
+  debug: true,
   timeout: 5000,
   fixedKey: '0123456701234567',
   port: HOPPER_PORT,
@@ -180,8 +196,8 @@ Hopper.on('OPEN', async () => {
     });
 
     NV11.on('DISPENSING', result => {
-        //if (!noteInProcessing) {
-         //   noteInProcessing = true; // Marquer que la note est en traitement
+        if (!noteInProcessing) {
+            noteInProcessing = true; // Marquer que la note est en traitement
             postWithRetry({ 'status': { 'message': 'Rendu de monnaie en cours...', 'value': 'process' } },SERVER_URL)
                 .then(() => {
                     console.log("Data successfully sent for 'Note in processing'");
@@ -189,7 +205,7 @@ Hopper.on('OPEN', async () => {
                 .catch(error => {
                     console.error(`Final failure to send 'Note in processing' data: ${error.message}`);
                 });
-        //}
+        }
     });
 
 
@@ -198,14 +214,14 @@ Hopper.on('OPEN', async () => {
 // === Gestion d’un billet inséré (CREDIT_NOTE) ===
 NV11.on('CREDIT_NOTE', result => {
   if (isStacking) {
-       /* checkNoteSlotsStatus()
+        checkNoteSlotsStatus()
             .then(({ usedSlotCount, remainingSlots }) => {
                 console.log(`Slots: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
             })
             .catch((error) => {
                 console.error(`Final failure: ${error.message}`);
             });
-  */
+
         console.log("⚠️ CREDIT_NOTE ignoré car séquence STACK en cours");
         return;
     }
@@ -223,13 +239,13 @@ NV11.on('CREDIT_NOTE', result => {
 
       totalPaid += noteValue;
       console.log(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
-
+      logger.info(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
       // ✅ On notifie le serveur (optionnel)
       await postWithRetry({ status: { note: noteValue, value: 'credited' } },SERVER_URL);
 
       // ✅ Vérification de l’état du validateur
-      //const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
-      //console.log(`Slots NV11: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
+      const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
+      console.log(`Slots NV11: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
 
       // === Vérifie si le montant dû est atteint ===
       if (totalPaid >= amountValue) {
@@ -237,9 +253,11 @@ NV11.on('CREDIT_NOTE', result => {
 
         if (rendu > 0) {
           console.log(`💶 Rendu à effectuer: ${rendu}€`);
+          logger.info(`💶 Rendu à effectuer: ${rendu}€`);
           await handleRenduMixte(rendu);  // 🔁 billets + pièces
         } else {
           console.log('✅ Paiement exact, aucun rendu.');
+          logger.info('✅ Paiement exact, aucun rendu.');
         }
 
         // 🔄 Réinitialise l’état pour la prochaine transaction
@@ -260,7 +278,7 @@ NV11.on('CREDIT_NOTE', result => {
 // Fonction pour votre logique métier
 function handleCoinInserted(amount, currency) {
   console.log(`💰 Traitement pièce: ${amount} ${currency}`);
-  
+  logger.info(`💰 Traitement pièce: ${amount} ${currency}`);
   // ===== VOTRE CODE ICI =====
   try {
     postWithRetry({ 
@@ -292,20 +310,21 @@ Hopper.on('COIN_CREDIT', async (event) => {
       const currency = coin.country_code || 'EUR';
 
       console.log(`🪙 Pièce détectée: ${amount.toFixed(2)} ${currency}`);
-
+      logger.info(`🪙 Pièce détectée: ${amount.toFixed(2)} ${currency}`);
       // ✅ Notifie le serveur (API Laravel)
       handleCoinInserted(amount, currency);
 
       // 🔢 Met à jour le total payé
       totalPaid += amount;
       console.log(`💰 Total payé: ${totalPaid.toFixed(2)}€ / dû: ${amountValue}€`);
-
+      logger.info(`💰 Total payé: ${totalPaid.toFixed(2)}€ / dû: ${amountValue}€`);
       // 💡 Vérifie si le montant dû est atteint
       if (totalPaid >= amountValue) {
         const rendu = +(totalPaid - amountValue).toFixed(2);
 
         if (rendu > 0) {
           console.log(`💶 Rendu à effectuer: ${rendu}€`);
+          logger.info(`💶 Rendu à effectuer: ${rendu}€`);
           await handleRenduMixte(rendu); // ⚙️ billet(s) + pièce(s)
         } else {
           console.log('✅ Paiement exact, aucun rendu.');
@@ -411,7 +430,7 @@ function calculerRenduMixte(montant) {
 async function handleRenduMixte(rendu) {
   const { billets10, reste } = calculerRenduMixte(rendu);
   console.log(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
-
+  logger.info(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
   /*if (isPayoutInProgress) {
     console.warn('⚠️ Rendu déjà en cours, commande ignorée.');
     return;
@@ -423,81 +442,89 @@ async function handleRenduMixte(rendu) {
     // === 1️⃣ Rendu billets ===
     if (billets10 > 0) {
       console.log(`🧾 NV11 : rendu ${billets10} billet(s) de 10€`);
-      console.log('⌛ Commande de rendu billets programmée dans 2s...');
+      console.log('⌛ Commande de rendu billets programmée dans 1s...');
+      logger.info(`🧾 NV11 : rendu ${billets10} billet(s) de 10€`);
+      logger.info('⌛ Commande de rendu billets programmée dans 1s...');
       setTimeout(() => {
         handlePayoutRequest(billets10);
       }, 1000);
     }
-
+    
     // === 2️⃣ Rendu pièces ===
     if (reste > 0) {
-  const hopperAmount = Math.round(reste * 100);
-  console.log(`🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
+      const hopperAmount = Math.round(reste * 100);
+      console.log(`🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
+      logger.info(`🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
+      // Crée une promesse qui se résout quand l'événement DISPENSED est reçu
+      const dispensePromise = new Promise((resolve, reject) => {
+        const onDispensed = async (data) => {
+          console.log(`✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
 
-  // Crée une promesse qui se résout quand l'événement DISPENSED est reçu
-  const dispensePromise = new Promise((resolve, reject) => {
-    const onDispensed = async (data) => {
-      console.log(`✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
+          // Nettoyage des listeners
+          Hopper.off('DISPENSED', onDispensed);
+          Hopper.off('ERROR', onError);
 
-      // Nettoyage des listeners
-      Hopper.off('DISPENSED', onDispensed);
-      Hopper.off('ERROR', onError);
+          try {
+            // --- Récupération des niveaux ---
+            const levels = await Hopper.command('GET_ALL_LEVELS');
+            console.log('📊 Niveaux Hopper après rendu:', levels.info.counter);
 
-      try {
-        // --- Récupération des niveaux ---
-        const levels = await Hopper.command('GET_ALL_LEVELS');
-        console.log('📊 Niveaux Hopper après rendu:', levels.info.counter);
+            // --- Envoi au serveur principal (post-rendu) ---
+            await postWithRetry(
+              { status: { note: reste, value: 'debited' } },
+              SERVER_URL
+            );
+            console.log('📨 Statut de débit envoyé à Laravel');
 
-        // --- Envoi au serveur principal (post-rendu) ---
-        await postWithRetry(
-          { status: { note: reste, value: 'debited' } },
-          SERVER_URL
-        );
-        console.log('📨 Statut de débit envoyé à Laravel');
+            // --- Envoi d’un rapport détaillé au serveur Hopper ---
+            await postWithRetry(
+              {
+                status: {
+                  message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
+                  value: 'info',
+                },
+              },
+              SERVER_URL_HOPPER
+            );
+            console.log('📊 Niveaux Hopper envoyés au serveur secondaire');
+            
+            resolve();
+          } catch (err) {
+            console.error('⚠️ Erreur dans onDispensed:', err.message);
+            reject(err);
+          }
+        };
 
-        // --- Envoi d’un rapport détaillé au serveur Hopper ---
-        await postWithRetry(
-          {
-            status: {
-              message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
-              value: 'info',
-            },
-          },
-          SERVER_URL_HOPPER
-        );
-        console.log('📊 Niveaux Hopper envoyés au serveur secondaire');
+        const onError = (err) => {
+          Hopper.off('DISPENSED', onDispensed);
+          Hopper.off('ERROR', onError);
+          console.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
+          reject(err);
+        };
 
-        resolve();
-      } catch (err) {
-        console.error('⚠️ Erreur dans onDispensed:', err.message);
-        reject(err);
-      }
-    };
+        Hopper.on('DISPENSED', onDispensed);
+        Hopper.on('ERROR', onError);
+        
+      });
 
-    const onError = (err) => {
-      Hopper.off('DISPENSED', onDispensed);
-      Hopper.off('ERROR', onError);
-      console.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
-      reject(err);
-    };
+      // --- Lancement du payout ---
+      await Hopper.command('PAYOUT_AMOUNT', {
+        amount: hopperAmount,
+        country_code: 'EUR',
+        test: false,
+      });
 
-    Hopper.on('DISPENSED', onDispensed);
-    Hopper.on('ERROR', onError);
-  });
-
-  // --- Lancement du payout ---
-  await Hopper.command('PAYOUT_AMOUNT', {
-    amount: hopperAmount,
-    country_code: 'EUR',
-    test: false,
-  });
-
-  // --- Attente de la fin réelle du payout ---
-  await dispensePromise;
-}
-} catch (error) {
-        console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
+      // --- Attente de la fin réelle du payout ---
+      await dispensePromise;
+      //noteInProcessing = false;
     }
+    console.log('🎉 Rendu mixte terminé');
+    //resetTransaction();
+
+
+  } catch (error) {
+          console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
+      }
 }
 
 
@@ -519,7 +546,7 @@ function handlePayoutRequest(count) {
             const onDispensed = () => {
                 dispensed++;
                 console.log(`✅ Note ${dispensed}/${count} dispensed`);
-            
+                logger.info(`✅ Note ${dispensed}/${count} dispensed`);
                 // 👇 Ajout ici : on loggue chaque note rendue
                 postWithRetry({ status: { note: 10, value: 'debited' } },SERVER_URL)
                     .then(() => {
@@ -538,7 +565,7 @@ function handlePayoutRequest(count) {
                         .catch(console.error);
                     return;
                 }
-               //checkNoteSlotsStatus();
+               checkNoteSlotsStatus();
                 // Attendre 1 seconde avant la prochaine commande
                 setTimeout(() => {
                     NV11.command('PAYOUT_NOTE').catch(console.error);
@@ -563,13 +590,15 @@ function handlePayoutRequest(count) {
                     NV11.off('DISPENSED', onDispensed);
                     console.error('Erreur lors du payout initial:', err);
                 });
-
+            
             // Failsafe timeout
             setTimeout(() => {
                 NV11.off('DISPENSED', onDispensed);
                 console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
             }, count * 30000);
         }
+
+
 
 async function sendSlotStatusToLaravel(used, remaining, alertSent) {
     try {
@@ -593,61 +622,34 @@ async function sendSlotStatusToLaravel(used, remaining, alertSent) {
     }
 }
 
+function resetTransaction() {
+  totalPaid = 0;
+  amountValue = 0;
+  isPayoutInProgress = false;
+  noteInProcessing = false;
+  // Ne JAMAIS laisser un reste traîner
+  lastRendu = 0;
+}
+
+
+
+
 
 //API routes
 // Routes HTTP protégées par le middleware d'authentification
-/*app.post('/enable', authenticateToken, (req, res) => {
+app.post('/enable', authenticateToken, (req, res) => {
     const { amount } = req.body;
     const { stacking } = req.body;
-    amountValue = amount;
+    amountValue = Number(
+    parseFloat(amount.toString().replace(',', '.')).toFixed(2)
+    );
+    
     isStacking = stacking;
     NV11.enable()
         .then(result => res.json({ status: 'NV11 enabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to enable validator', details: error }));
     Hopper.enable();
-});*/
-app.post('/enable', authenticateToken, async (req, res) => {
-    try {
-        const { amount, stacking } = req.body;
-
-        // Conversion propre de la valeur (2 décimales garanties)
-        amountValue = Number(
-            parseFloat(amount.toString().replace(',', '.')).toFixed(2)
-        );
-        noteInProcessing = false;
-        isStacking = stacking;
-
-        console.log(`💰 Nouvelle transaction — montant dû: ${amountValue}€ • stacking: ${isStacking}`);
-
-        // === 1️⃣ Activation NV11 ===
-        const nv11Result = await NV11.enable();
-        console.log("✅ NV11 activé");
-
-        // === 2️⃣ Activation Hopper ===
-        const hopperResult = await Hopper.enable();
-        console.log("🟦 Hopper activé");
-
-        // === 3️⃣ Vérification immédiate des slots ===
-        const slots = await checkNoteSlotsStatus();
-        console.log("📦 Slots NV11 lus:", slots);
-
-        // === 4️⃣ Réponse API ===
-        return res.json({
-            status: 'Systems enabled',
-            nv11: nv11Result,
-            hopper: hopperResult,
-            slots
-        });
-
-    } catch (error) {
-        console.error("❌ /enable error:", error);
-        return res.status(500).json({
-            error: 'Failed to enable devices',
-            details: error.message
-        });
-    }
 });
-
 
 app.post('/disable', authenticateToken, (req, res) => {
     /*if (isPayoutInProgress) {
@@ -659,7 +661,7 @@ app.post('/disable', authenticateToken, (req, res) => {
     Hopper.disable();
 });
 
-function waitForEvent(emitter, eventName, timeoutMs = 10000) {
+/*function waitForEvent(emitter, eventName, timeoutMs = 10000) {
     return new Promise((resolve, reject) => {
         const timer = setTimeout(() => {
             emitter.removeListener(eventName, onEvent);
@@ -673,7 +675,7 @@ function waitForEvent(emitter, eventName, timeoutMs = 10000) {
 
         emitter.once(eventName, onEvent);
     });
-}
+}*/
 
 
 app.post('/collect', authenticateToken, async (req, res) => {
@@ -744,12 +746,12 @@ app.post('/collectHopper', authenticateToken, async (req, res) => {
     } finally {
         lastCommand = null; // 🔑 toujours reset
 
-      /*  try {
+        try {
             const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
             console.log(`📊 Slots après collect: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
         } catch (err) {
             console.error(`⚠️ Impossible de lire l’état des slots: ${err.message}`);
-        }*/
+        }
     }
 });
 
@@ -863,7 +865,6 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
-
 
 
 
