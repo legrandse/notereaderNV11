@@ -274,3 +274,124 @@
 {"level":"info","message":"✅ Note 1/3 dispensed"}
 {"level":"info","message":"✅ Note 2/3 dispensed"}
 {"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 33€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 33€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 30€ / dû: 33€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 32.00€ / dû: 33€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 33.00€ / dû: 33€"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 33€"}
+{"level":"info","message":"💶 Rendu à effectuer: 17€"}
+{"level":"info","message":"💶 Rendu total 17€ -> 1x10€ + 7€ en pièces"}
+{"level":"info","message":"🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"🪙 Hopper : rendu 7€ (700 cts) en pièces..."}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 5.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 7.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 8.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 9.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 10.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 11.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 12.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 14.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 16.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 17.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 18.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 19.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 20.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 21.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 22.00€ / dû: 22€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 11€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 10.50€ / dû: 11€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 11.00€ / dû: 11€"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 22€"}
+{"level":"info","message":"💶 Rendu à effectuer: 28€"}
+{"level":"info","message":"💶 Rendu total 28€ -> 2x10€ + 8€ en pièces"}
+{"level":"info","message":"🧾 NV11 : rendu 2 billet(s) de 10€"}
+{"level":"info","message":"⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"🪙 Hopper : rendu 8€ (800 cts) en pièces..."}
+{"level":"info","message":"✅ Note 1/2 dispensed"}
+{"level":"info","message":"✅ Note 2/2 dispensed"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 22€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 20.50€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 21.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 21.50€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 22.00€ / dû: 22€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: null€"}
+{"level":"info","message":"💶 Rendu à effectuer: 0.5€"}
+{"level":"info","message":"💶 Rendu total 0.5€ -> 0x10€ + 0.5€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 0.5€ (50 cts) en pièces..."}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50.5€ / dû: 33€"}
+{"level":"info","message":"💶 Rendu à effectuer: 17.5€"}
+{"level":"info","message":"💶 Rendu total 17.5€ -> 1x10€ + 7.5€ en pièces"}
+{"level":"info","message":"🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"🪙 Hopper : rendu 7.5€ (750 cts) en pièces..."}
+{"level":"info","message":"✅ Note 1/1 dispensed"}

@@ -565,11 +565,14 @@ function handlePayoutRequest(count) {
                         .catch(console.error);
                     return;
                 }
-               checkNoteSlotsStatus();
+                
+                
                 // Attendre 1 seconde avant la prochaine commande
                 setTimeout(() => {
                     NV11.command('PAYOUT_NOTE').catch(console.error);
                 }, 1000);
+
+                
             };
             
 
@@ -643,12 +646,13 @@ app.post('/enable', authenticateToken, (req, res) => {
     amountValue = Number(
     parseFloat(amount.toString().replace(',', '.')).toFixed(2)
     );
-    
+    noteInProcessing = false;
     isStacking = stacking;
     NV11.enable()
         .then(result => res.json({ status: 'NV11 enabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to enable validator', details: error }));
     Hopper.enable();
+    
 });
 
 app.post('/disable', authenticateToken, (req, res) => {
