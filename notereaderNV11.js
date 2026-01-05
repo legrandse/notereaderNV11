@@ -29,9 +29,12 @@ logger.error("Erreur !");
 const NV11_PORT = '/dev/ttyACM0';
 const HOPPER_PORT = '/dev/ttyUSB0';
 //const SERVER_URL = 'http://smartcoins.local/cash/endpoint';
-const SERVER_URL = 'https://smartcoins.ngrok.app/api/cash/endpoint';
-const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/api/cash/get-levels';
-const SERVER_URL_NV11 = 'https://smartcoins.ngrok.app/api/cash/slot-status';
+const SERVER_URL = 'http://smartcoins.local/api/cash/endpoint';
+const SERVER_URL_HOPPER = 'http://smartcoins.local/api/cash/get-levels';
+const SERVER_URL_NV11 = 'http://smartcoins.local/api/cash/slot-status';
+//const SERVER_URL = 'https://smartcoins.ngrok.app/api/cash/endpoint';
+//const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/api/cash/get-levels';
+// SERVER_URL_NV11 = 'https://smartcoins.ngrok.app/api/cash/slot-status';
 const AUTH_TOKEN = '4GH59FD3KG9rtgijeoitvCE3440sllg';
 const EMAIL_TO = 'legrandse@gmail.com';
 
@@ -198,6 +201,8 @@ Hopper.on('OPEN', async () => {
     NV11.on('DISPENSING', result => {
         if (!noteInProcessing) {
             noteInProcessing = true; // Marquer que la note est en traitement
+            logger.info("DISPENSING event data:", result);
+
             postWithRetry({ 'status': { 'message': 'Rendu de monnaie en cours...', 'value': 'process' } },SERVER_URL)
                 .then(() => {
                     console.log("Data successfully sent for 'Note in processing'");
@@ -249,7 +254,7 @@ NV11.on('CREDIT_NOTE', result => {
 
       // === Vérifie si le montant dû est atteint ===
       if (totalPaid >= amountValue) {
-        const rendu = +(totalPaid - amountValue).toFixed(2);
+          const rendu = +(totalPaid - amountValue).toFixed(2);
 
         if (rendu > 0) {
           console.log(`💶 Rendu à effectuer: ${rendu}€`);
@@ -352,7 +357,7 @@ Hopper.on('COIN_CREDIT', async (event) => {
 /**
  * Fonction pour faire une requête POST avec retry et timeout
  */
-function postWithRetry(data, url, retries = 3, timeout = 5000) {
+function postWithRetry(data, url, retries = 1, timeout = 5000) {
     return new Promise((resolve, reject) => {
         const attemptPost = (retryCount) => {
             axios.post(url, data, {
@@ -369,7 +374,7 @@ function postWithRetry(data, url, retries = 3, timeout = 5000) {
                         setTimeout(() => attemptPost(retryCount - 1), 1000);
                     } else {
                         console.error(`Failed after ${retries} attempts: ${error.message}`);
-                        sendEmail(EMAIL_SUBJECT, `Error: Failed to send data to server after retries.\n\nException: ${error}`);
+                        //sendEmail(EMAIL_SUBJECT, `Error: Failed to send data to server after retries.\n\nException: ${error}`);
                         reject(error);
                     }
                 });
@@ -570,6 +575,7 @@ function handlePayoutRequest(count) {
                 // Attendre 1 seconde avant la prochaine commande
                 setTimeout(() => {
                     NV11.command('PAYOUT_NOTE').catch(console.error);
+                    
                 }, 1000);
 
                 
@@ -597,6 +603,7 @@ function handlePayoutRequest(count) {
             // Failsafe timeout
             setTimeout(() => {
                 NV11.off('DISPENSED', onDispensed);
+                checkNoteSlotsStatus();
                 console.warn('⏱ Listener DISPENSED retiré après timeout (failsafe)');
             }, count * 30000);
         }
