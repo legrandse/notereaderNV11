@@ -432,7 +432,7 @@ function calculerRenduMixte(montant) {
 /**
  * Gère le rendu via NV11 (billets) + Hopper (pièces)
  */
-async function handleRenduMixte(rendu) {
+async function handleRenduMixte(rendu, type = null) {
   const { billets10, reste } = calculerRenduMixte(rendu);
   console.log(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
   logger.info(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
@@ -476,7 +476,7 @@ async function handleRenduMixte(rendu) {
 
             // --- Envoi au serveur principal (post-rendu) ---
             await postWithRetry(
-              { status: { note: reste, value: 'debited' } },
+              { status: { note: reste, value: 'debited', type:type } },
               SERVER_URL
             );
             console.log('📨 Statut de débit envoyé à Laravel');
@@ -487,6 +487,7 @@ async function handleRenduMixte(rendu) {
                 status: {
                   message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
                   value: 'info',
+                  type: type,
                 },
               },
               SERVER_URL_HOPPER
@@ -889,6 +890,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
