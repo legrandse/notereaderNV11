@@ -825,7 +825,20 @@ try {
     }
 });
 
-
+app.post('/cancel', authenticateToken, async (req, res) => {
+try {
+       const { amount } = req.body;
+       
+       await handleRenduMixte(amount); 
+    
+    } catch (error) {
+        console.error('❌ Collect error:', error);
+        res.status(500).json({
+            error: 'Failed to process cashbox collection',
+            details: error.message || error
+        });
+    }
+});
 
 
 app.post('/reset', authenticateToken, (req, res) => {
@@ -876,6 +889,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
