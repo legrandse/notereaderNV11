@@ -830,7 +830,7 @@ app.post('/cancel', authenticateToken, async (req, res) => {
 try {
        const { amount } = req.body;
        
-       await handleRenduMixte(amount); 
+       await handleRenduMixte(amount,'cancelled'); 
     
     } catch (error) {
         console.error('❌ Collect error:', error);
@@ -890,6 +890,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
