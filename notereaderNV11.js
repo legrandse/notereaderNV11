@@ -432,7 +432,7 @@ function calculerRenduMixte(montant) {
 /**
  * Gère le rendu via NV11 (billets) + Hopper (pièces)
  */
-async function handleRenduMixte(rendu, type = null) {
+async function handleRenduMixte(rendu) {
   const { billets10, reste } = calculerRenduMixte(rendu);
   console.log(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
   logger.info(`💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
@@ -476,7 +476,7 @@ async function handleRenduMixte(rendu, type = null) {
 
             // --- Envoi au serveur principal (post-rendu) ---
             await postWithRetry(
-              { status: { note: reste, value: 'debited', type:type } },
+              { status: { note: reste, value: 'debited' } },
               SERVER_URL
             );
             console.log('📨 Statut de débit envoyé à Laravel');
@@ -487,7 +487,7 @@ async function handleRenduMixte(rendu, type = null) {
                 status: {
                   message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
                   value: 'info',
-                  type: type,
+                  
                 },
               },
               SERVER_URL_HOPPER
@@ -830,12 +830,12 @@ app.post('/cancel', authenticateToken, async (req, res) => {
 try {
        const { amount } = req.body;
        
-       await handleRenduMixte(amount,'cancelled'); 
+       await handleRenduMixte(amount); 
     
     } catch (error) {
         console.error('❌ Collect error:', error);
         res.status(500).json({
-            error: 'Failed to process cashbox collection',
+            error: 'Failed to process refund',
             details: error.message || error
         });
     }
@@ -890,6 +890,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
