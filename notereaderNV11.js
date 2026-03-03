@@ -66,7 +66,7 @@ const NV11 = new sspLib({
 
 const Hopper = new sspLib({
   id: 16,
-  debug: true,
+  debug: false,
   timeout: 5000,
   fixedKey: '0123456701234567',
   port: HOPPER_PORT,
@@ -890,6 +890,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
