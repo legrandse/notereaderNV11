@@ -43,6 +43,7 @@ const NOTE_VALUES = { 1: 5, 2: 10, 3: 20, 4: 50, 5: 100, 6: 200, 7: 500 };
 // === Variables d’état ===
 let isStacking = false;
 let noteInProcessing = false;
+let transactionId = 0;
 let amountValue = null;
 //let amountValueHopper = null;
 let isPayoutInProgress = false;
@@ -246,7 +247,7 @@ NV11.on('CREDIT_NOTE', result => {
       console.log(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
       logger.info(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
       // ✅ On notifie le serveur (optionnel)
-      await postWithRetry({ status: { note: noteValue, value: 'credited' } },SERVER_URL);
+      await postWithRetry({ status: { transaction: transactionId, note: noteValue, value: 'credited' } },SERVER_URL);
 
       // ✅ Vérification de l’état du validateur
       const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
@@ -288,6 +289,7 @@ function handleCoinInserted(amount, currency) {
   try {
     postWithRetry({ 
       status: { 
+        transaction: transactionId,
         note: amount, 
         value: 'credited',
         //currency: currency,
@@ -476,7 +478,7 @@ async function handleRenduMixte(rendu) {
 
             // --- Envoi au serveur principal (post-rendu) ---
             await postWithRetry(
-              { status: { note: reste, value: 'debited' } },
+              { status: { transaction: transactionId, note: reste, value: 'debited' } },
               SERVER_URL
             );
             console.log('📨 Statut de débit envoyé à Laravel');
@@ -554,7 +556,7 @@ function handlePayoutRequest(count) {
                 console.log(`✅ Note ${dispensed}/${count} dispensed`);
                 logger.info(`✅ Note ${dispensed}/${count} dispensed`);
                 // 👇 Ajout ici : on loggue chaque note rendue
-                postWithRetry({ status: { note: 10, value: 'debited' } },SERVER_URL)
+                postWithRetry({ status: { transaction: transactionId, note: 10, value: 'debited' } },SERVER_URL)
                     .then(() => {
                         console.log('📨 Débit enregistré dans le serveur');
                     })
@@ -651,9 +653,11 @@ function resetTransaction() {
 app.post('/enable', authenticateToken, (req, res) => {
     const { amount } = req.body;
     const { stacking } = req.body;
+    const { transaction_id } = req.body;
     amountValue = Number(
     parseFloat(amount.toString().replace(',', '.')).toFixed(2)
     );
+    transactionId = transaction_id;
     noteInProcessing = false;
     isStacking = stacking;
     NV11.enable()
@@ -890,6 +894,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
