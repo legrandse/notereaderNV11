@@ -528,7 +528,9 @@ async function handleRenduMixte(rendu) {
     }
     console.log('🎉 Rendu mixte terminé');
     //resetTransaction();
-
+    // 🔄 Réinitialise l’état pour la prochaine transaction
+        totalPaid = 0;
+        amountValue = null;
 
   } catch (error) {
           console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
@@ -894,6 +896,7 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
+
 
 
 
