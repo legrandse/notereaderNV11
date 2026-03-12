@@ -43,7 +43,6 @@ const NOTE_VALUES = { 1: 5, 2: 10, 3: 20, 4: 50, 5: 100, 6: 200, 7: 500 };
 // === Variables d’état ===
 let isStacking = false;
 let noteInProcessing = false;
-let transactionId = 0;
 let amountValue = null;
 //let amountValueHopper = null;
 let isPayoutInProgress = false;
@@ -67,7 +66,7 @@ const NV11 = new sspLib({
 
 const Hopper = new sspLib({
   id: 16,
-  debug: false,
+  debug: true,
   timeout: 5000,
   fixedKey: '0123456701234567',
   port: HOPPER_PORT,
@@ -124,6 +123,9 @@ Hopper.on('OPEN', async () => {
     }
   */
     // --- Envoi au serveur ---
+    logger.info(
+      `Stored levels: ${JSON.stringify(levels.info.counter)}`
+    );
     await postWithRetry({
       status: {
         message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
@@ -247,7 +249,7 @@ NV11.on('CREDIT_NOTE', result => {
       console.log(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
       logger.info(`💵 Billet inséré: ${noteValue}€ | Total payé: ${totalPaid}€ / dû: ${amountValue}€`);
       // ✅ On notifie le serveur (optionnel)
-      await postWithRetry({ status: { transaction: transactionId, note: noteValue, value: 'credited' } },SERVER_URL);
+      await postWithRetry({ status: { note: noteValue, value: 'credited' } },SERVER_URL);
 
       // ✅ Vérification de l’état du validateur
       const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
@@ -289,7 +291,6 @@ function handleCoinInserted(amount, currency) {
   try {
     postWithRetry({ 
       status: { 
-        transaction: transactionId,
         note: amount, 
         value: 'credited',
         //currency: currency,
@@ -478,18 +479,17 @@ async function handleRenduMixte(rendu) {
 
             // --- Envoi au serveur principal (post-rendu) ---
             await postWithRetry(
-              { status: { transaction: transactionId, note: reste, value: 'debited' } },
+              { status: { note: reste, value: 'debited' } },
               SERVER_URL
             );
             console.log('📨 Statut de débit envoyé à Laravel');
-            logger.info('📨 Statut de débit envoyé à Laravel');
+
             // --- Envoi d’un rapport détaillé au serveur Hopper ---
             await postWithRetry(
               {
                 status: {
                   message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
                   value: 'info',
-                  
                 },
               },
               SERVER_URL_HOPPER
@@ -507,7 +507,6 @@ async function handleRenduMixte(rendu) {
           Hopper.off('DISPENSED', onDispensed);
           Hopper.off('ERROR', onError);
           console.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
-          logger.error('❌ Erreur Hopper pendant PAYOUT:', err.message);
           reject(err);
         };
 
@@ -528,11 +527,8 @@ async function handleRenduMixte(rendu) {
       //noteInProcessing = false;
     }
     console.log('🎉 Rendu mixte terminé');
-    logger.info('🎉 Rendu mixte terminé');
     //resetTransaction();
-    // 🔄 Réinitialise l’état pour la prochaine transaction
-        totalPaid = 0;
-        amountValue = null;
+
 
   } catch (error) {
           console.error('❌ Erreur lors de l\'envoi à Laravel :', error.message);
@@ -560,7 +556,7 @@ function handlePayoutRequest(count) {
                 console.log(`✅ Note ${dispensed}/${count} dispensed`);
                 logger.info(`✅ Note ${dispensed}/${count} dispensed`);
                 // 👇 Ajout ici : on loggue chaque note rendue
-                postWithRetry({ status: { transaction: transactionId, note: 10, value: 'debited' } },SERVER_URL)
+                postWithRetry({ status: { note: 10, value: 'debited' } },SERVER_URL)
                     .then(() => {
                         console.log('📨 Débit enregistré dans le serveur');
                     })
@@ -657,11 +653,9 @@ function resetTransaction() {
 app.post('/enable', authenticateToken, (req, res) => {
     const { amount } = req.body;
     const { stacking } = req.body;
-    const { transaction_id } = req.body;
     amountValue = Number(
     parseFloat(amount.toString().replace(',', '.')).toFixed(2)
     );
-    transactionId = transaction_id;
     noteInProcessing = false;
     isStacking = stacking;
     NV11.enable()
@@ -834,31 +828,7 @@ try {
     }
 });
 
-app.post('/cancel', authenticateToken, async (req, res) => {
-  try {
 
-    const { amount } = req.body;
-
-    // réponse immédiate
-    res.json({
-      status: "processing",
-      message: "Refund started"
-    });
-
-    // traitement async
-    handleRenduMixte(amount).catch(err => {
-      console.error("❌ Erreur rendu:", err);
-    });
-
-  } catch (error) {
-    console.error('❌ Cancel error:', error);
-
-    res.status(500).json({
-      error: 'Failed to process refund',
-      details: error.message || error
-    });
-  }
-});
 
 
 app.post('/reset', authenticateToken, (req, res) => {
@@ -909,13 +879,6 @@ process.on('SIGINT', async () => {
 app.listen(8002, () => {
   console.log('🚀 Serveur NV11 démarré sur le port 8002');
 });
-
-
-
-
-
-
-
 
 
 

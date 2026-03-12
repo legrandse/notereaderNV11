@@ -1582,3 +1582,133 @@
 {"level":"error","message":"Erreur !"}
 {"level":"info","message":"Serveur démarré"}
 {"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 5€ -> 0x10€ + 5€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 5€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 5€ -> 0x10€ + 5€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 4.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 6.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 8.50€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 8.5€ -> 0x10€ + 8.5€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 8.5€ (850 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 5€ -> 0x10€ + 5€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 1€"}
+{"level":"info","message":"💶 Rendu total 0.5€ -> 0x10€ + 0.5€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 0.5€ (50 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 2€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 5.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 4€ -> 0x10€ + 4€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 4€ (400 cts) en pièces..."}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 4€ -> 0x10€ + 4€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 4€ (400 cts) en pièces..."}
+{"level":"info","message":"💶 Rendu total undefined€ -> NaNx10€ + NaN€ en pièces"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu total 2€ -> 0x10€ + 2€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"level":"info","message":"📨 Statut de débit envoyé à Laravel"}
+{"level":"info","message":"🎉 Rendu mixte terminé"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 7.00€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu total 7€ -> 0x10€ + 7€ en pièces"}
+{"level":"info","message":"🪙 Hopper : rendu 7€ (700 cts) en pièces..."}
+{"level":"info","message":"📨 Statut de débit envoyé à Laravel"}
+{"level":"info","message":"🎉 Rendu mixte terminé"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 5.00€ / dû: 5€"}
