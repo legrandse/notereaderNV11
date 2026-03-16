@@ -577,17 +577,19 @@ function handlePayoutRequest(count) {
                 // 👇 Ajout ici : on loggue chaque note rendue
                 postWithRetry({ status: { transaction: transactionId, note: 10, value: 'debited' } },SERVER_URL)
                     .then(() => {
-                        console.log('📨 Débit enregistré dans le serveur');
+                        console.log('Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur');
+                        logger.info('Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur');
                     })
                     .catch((err) => {
-                        console.error('⚠️ Échec de l’envoi du débit:', err.message);
+                        console.error('Fonction handlePayoutRequest : ⚠️ Échec de l’envoi du débit:', err.message);
                     });
             
                 if (dispensed >= count) {
                     NV11.off('DISPENSED', onDispensed);
                     NV11.disable()
                         .then(() => {
-                            console.log('✅ Payout terminé. Validator désactivé');
+                            console.log('Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé');
+                            logger.info('Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé');
                         })
                         .catch(console.error);
                     return;
@@ -614,7 +616,8 @@ function handlePayoutRequest(count) {
                     NO_HOLD_NOTE_ON_PAYOUT: false,
                 }))
                 .then(() => {
-                    console.log(`⏳ Début du rendu de ${count} billet(s)...`);
+                    console.log(`Fonction handlePayoutRequest : ⏳ Début du rendu de ${count} billet(s)...`);
+                    logger.info(`Fonction handlePayoutRequest :⏳ Début du rendu de ${count} billet(s)...`);
                     return NV11.command('PAYOUT_NOTE'); // premier billet
                 })
                 .catch(err => {
@@ -783,7 +786,7 @@ app.post('/collectHopper', authenticateToken, async (req, res) => {
 
         try {
             const { usedSlotCount, remainingSlots } = await checkNoteSlotsStatus();
-            console.log(`📊 Slots après collect: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
+            console.log(`📊 Coins après collect: utilisés=${usedSlotCount}, restants=${remainingSlots}`);
         } catch (err) {
             console.error(`⚠️ Impossible de lire l’état des slots: ${err.message}`);
         }
