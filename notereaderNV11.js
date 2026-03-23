@@ -105,7 +105,7 @@ Hopper.on('OPEN', async () => {
     await Hopper.initEncryption();
     await Hopper.command('COIN_MECH_OPTIONS', { ccTalk: false });
     await Hopper.command('SET_COIN_MECH_GLOBAL_INHIBIT', { enable: true });
-
+    await Hopper.command('SETUP_REQUEST');
     // --- Récupération des niveaux ---
     const levels = await Hopper.command('GET_ALL_LEVELS');
 
