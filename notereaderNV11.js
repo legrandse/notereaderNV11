@@ -67,7 +67,7 @@ const NV11 = new sspLib({
 
 const Hopper = new sspLib({
   id: 16,
-  debug: false,
+  debug: true,
   timeout: 5000,
   fixedKey: '0123456701234567',
   port: HOPPER_PORT,

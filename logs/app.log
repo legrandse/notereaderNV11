@@ -2665,3 +2665,106 @@
 {"level":"info","message":"💰 Total payé: 13.00€ / dû: 13€"}
 {"level":"info","message":"Serveur démarré"}
 {"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 11€"}
+{"level":"info","message":"💶 Rendu à effectuer: 39€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 39€ -> 3x10€ + 9€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 9€ (900 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":900,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":93,"value":50},"7":{"country_code":"EUR","denomination_level":1,"value":100},"8":{"country_code":"EUR","denomination_level":32,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"error","message":"Erreur !"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu à effectuer: 5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 5€ -> 0x10€ + 5€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":500,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":93,"value":50},"7":{"country_code":"EUR","denomination_level":1,"value":100},"8":{"country_code":"EUR","denomination_level":33,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 1.00€ / dû: 1€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 4€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1€"}
+{"level":"info","message":"💶 Rendu à effectuer: 9€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 9€ -> 0x10€ + 9€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 9€ (900 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":900,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":93,"value":50},"7":{"country_code":"EUR","denomination_level":1,"value":100},"8":{"country_code":"EUR","denomination_level":31,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1€"}
+{"level":"info","message":"💶 Rendu à effectuer: 9€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 9€ -> 0x10€ + 9€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 9€ (900 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":900,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":93,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":27,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 6.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 8.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 10.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 12.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 14.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 15.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 2.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 2 EUR"}
+{"level":"info","message":"💰 Total payé: 17.00€ / dû: 18€"}
+{"level":"info","message":"🪙 Pièce détectée: 1.00 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 1 EUR"}
+{"level":"info","message":"💰 Total payé: 18.00€ / dû: 18€"}
