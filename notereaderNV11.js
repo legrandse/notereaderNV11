@@ -106,6 +106,16 @@ Hopper.on('OPEN', async () => {
     await Hopper.command('COIN_MECH_OPTIONS', { ccTalk: false });
     await Hopper.command('SET_COIN_MECH_GLOBAL_INHIBIT', { enable: true });
     await Hopper.command('SETUP_REQUEST');
+    await Hopper.command('SET_HOPPER_OPTIONS', {
+      payMode: false,
+      levelCheck: true,
+      motorSpeed: true,
+      cashBoxPayActive: false,
+      route0LevelToCashbox: false,
+      highEfficiencySplit: true,
+      unknownToPayout: false,
+      valueAddedEvent: false  // false = COIN_CREDIT (0xDF)
+    });
     // --- Récupération des niveaux ---
     const levels = await Hopper.command('GET_ALL_LEVELS');
 
