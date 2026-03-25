@@ -102,10 +102,12 @@ Hopper.on('OPEN', async () => {
   try {
     await Hopper.command('SYNC');
     await Hopper.command('HOST_PROTOCOL_VERSION', { version: 6 });
+    const setup = await Hopper.command('SETUP_REQUEST');  // ← AJOUTER CECI
+    console.log('Protocol version:', setup.info.protocol_version);
     await Hopper.initEncryption();
     await Hopper.command('COIN_MECH_OPTIONS', { ccTalk: false });
     await Hopper.command('SET_COIN_MECH_GLOBAL_INHIBIT', { enable: true });
-    await Hopper.command('SETUP_REQUEST');
+    
     await Hopper.command('SET_HOPPER_OPTIONS', {
       payMode: false,
       levelCheck: true,
