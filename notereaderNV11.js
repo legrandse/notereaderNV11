@@ -111,7 +111,7 @@ Hopper.on('OPEN', async () => {
     await Hopper.command('SET_HOPPER_OPTIONS', {
       payMode: false,
       levelCheck: true,
-      motorSpeed: true,
+      motorSpeed: false,
       cashBoxPayActive: false,
       route0LevelToCashbox: false,
       highEfficiencySplit: true,
