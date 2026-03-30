@@ -32,6 +32,10 @@ const HOPPER_PORT = '/dev/ttyUSB0';
 const SERVER_URL = 'http://smartcoins.local/api/cash/endpoint';
 const SERVER_URL_HOPPER = 'http://smartcoins.local/api/cash/get-levels';
 const SERVER_URL_NV11 = 'http://smartcoins.local/api/cash/slot-status';
+const LEDSTRIPSTANDBY = 'http://localhost:8004/led_standby';
+//const LEDSTRIPSUCCESS = 'http://localhost:8004/led_success';
+//const LEDSTRIPWARNING = 'http://localhost:8004/led_warning';
+//const LEDSTRIPERROR = 'http://localhost:8004/led_error';
 //const SERVER_URL = 'https://smartcoins.ngrok.app/api/cash/endpoint';
 //const SERVER_URL_HOPPER = 'https://smartcoins.ngrok.app/api/cash/get-levels';
 // SERVER_URL_NV11 = 'https://smartcoins.ngrok.app/api/cash/slot-status';
@@ -142,6 +146,15 @@ Hopper.on('OPEN', async () => {
         value: 'info'
       }
     }, SERVER_URL_HOPPER).catch(error => {
+      console.error(`Erreur lors de l'envoi: ${error.message}`);
+    });
+
+    await postWithRetry({
+      status: {
+        message: '',
+        value: 'info'
+      }
+    }, LEDSTRIPSTANDBY).catch(error => {
       console.error(`Erreur lors de l'envoi: ${error.message}`);
     });
 
@@ -868,13 +881,16 @@ app.post('/cancel', authenticateToken, async (req, res) => {
   try {
 
     const { amount } = req.body;
+    const { transaction_id } = req.body;
 
+    transactionId = transaction_id;
     // réponse immédiate
     res.json({
       status: "processing",
       message: "Refund started"
     });
-
+    await NV11.enable();
+    await Hopper.enable();
     // traitement async
     handleRenduMixte(amount).catch(err => {
       console.error("❌ Erreur rendu:", err);
