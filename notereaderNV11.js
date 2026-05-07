@@ -20,7 +20,7 @@ const logger = winston.createLogger({
 });
 
 logger.info("Serveur démarré");
-logger.error("Erreur !");
+//logger.error("Erreur !");
 
 
 
@@ -32,7 +32,7 @@ const HOPPER_PORT = '/dev/ttyUSB0';
 const SERVER_URL = 'http://smartcoins.local/api/cash/endpoint';
 const SERVER_URL_HOPPER = 'http://smartcoins.local/api/cash/get-levels';
 const SERVER_URL_NV11 = 'http://smartcoins.local/api/cash/slot-status';
-const LEDSTRIPSTANDBY = 'http://localhost:8004/led_standby';
+//const LEDSTRIPINACTION = 'http://localhost:8004/led_';
 //const LEDSTRIPSUCCESS = 'http://localhost:8004/led_success';
 //const LEDSTRIPWARNING = 'http://localhost:8004/led_warning';
 //const LEDSTRIPERROR = 'http://localhost:8004/led_error';
@@ -118,9 +118,9 @@ Hopper.on('OPEN', async () => {
       motorSpeed: false,
       cashBoxPayActive: false,
       route0LevelToCashbox: false,
-      highEfficiencySplit: true,
+      highEfficiencySplit: false,
       unknownToPayout: false,
-      valueAddedEvent: false  // false = COIN_CREDIT (0xDF)
+      valueAddedEvent: true  // false = COIN_CREDIT (0xDF)
     });
     // --- Récupération des niveaux ---
     const levels = await Hopper.command('GET_ALL_LEVELS');
@@ -149,14 +149,7 @@ Hopper.on('OPEN', async () => {
       console.error(`Erreur lors de l'envoi: ${error.message}`);
     });
 
-    await postWithRetry({
-      status: {
-        message: '',
-        value: 'info'
-      }
-    }, LEDSTRIPSTANDBY).catch(error => {
-      console.error(`Erreur lors de l'envoi: ${error.message}`);
-    });
+    
 
     await Hopper.disable();
     console.log('✅ Hopper prêt');
@@ -711,17 +704,32 @@ app.post('/enable', authenticateToken, (req, res) => {
         .then(result => res.json({ status: 'NV11 enabled', result }))
         .catch(error => res.status(500).json({ error: 'Failed to enable validator', details: error }));
     Hopper.enable();
+    logger.info(`Lecteurs activés`);
     
 });
 
-app.post('/disable', authenticateToken, (req, res) => {
-    /*if (isPayoutInProgress) {
-        return res.status(403).json({ error: 'Cannot disable while payout in progress' });
-    }*/
-    NV11.disable()
-        .then(result => res.json({ status: 'Validator disabled', result }))
-        .catch(error => res.status(500).json({ error: 'Failed to disable validator', details: error }));
-    Hopper.disable();
+app.post('/disable', authenticateToken, async (req, res) => {
+    try {
+        // Désactiver les deux périphériques en parallèle
+        const [nv11Result, hopperResult] = await Promise.all([
+            NV11.disable(),
+            Hopper.disable()
+        ]);
+        
+        logger.info(`Lecteurs désactivés`);
+        res.json({ 
+            status: 'Both readers disabled', 
+            nv11: nv11Result, 
+            hopper: hopperResult 
+        });
+        
+    } catch (error) {
+        console.error('❌ Erreur lors de la désactivation:', error);
+        res.status(500).json({ 
+            error: 'Failed to disable devices', 
+            details: error.message 
+        });
+    }
 });
 
 /*function waitForEvent(emitter, eventName, timeoutMs = 10000) {
@@ -938,6 +946,7 @@ app.post('/reset', authenticateToken, (req, res) => {
 
 process.on('SIGINT', async () => {
   console.log('\n🧹 Fermeture propre...');
+  logger.info('\n🧹 Fermeture propre...');
   try {
     await NV11.disable();
     await Hopper.disable();
