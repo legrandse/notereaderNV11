@@ -465,111 +465,117 @@ function calculerRenduMixte(montant) {
 /**
  * Gère le rendu via NV11 (billets) + Hopper (pièces)
  */
+/**
+ * Gère le rendu via NV11 (billets) + Hopper (pièces) avec fallback automatique
+ */
+/**
+ * Gère le rendu via NV11 (billets) + Hopper (pièces) avec fallback universel
+ */
+/**
+ * Gère le rendu via NV11 (billets) + Hopper (pièces) avec fallback universel et immédiat
+ */
 async function handleRenduMixte(rendu) {
-  const { billets10, reste } = calculerRenduMixte(rendu);
-  console.log(`Fonction handleRenduMixte 1:💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
-  logger.info(`Fonction handleRenduMixte 1: 💶 Rendu total ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
-  /*if (isPayoutInProgress) {
-    console.warn('⚠️ Rendu déjà en cours, commande ignorée.');
-    return;
-  }*/
+  let { billets10, reste } = calculerRenduMixte(rendu);
+  console.log(`Fonction handleRenduMixte 1: 💶 Rendu initial demandé ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
+  logger.info(`Fonction handleRenduMixte 1: 💶 Rendu initial demandé ${rendu}€ -> ${billets10}x10€ + ${reste}€ en pièces`);
 
   isPayoutInProgress = true;
 
   try {
-    // === 1️⃣ Rendu billets ===
+    // === 1️⃣ Tentative de distribution des pièces par le Hopper ===
+    if (reste > 0) {
+      const hopperAmount = Math.round(reste * 100);
+      
+      console.log(`🔌 Ré-activation préventive du Hopper...`);
+      await Hopper.enable().catch(() => console.log("Hopper déjà activé ou occupé"));
+      await new Promise(r => setTimeout(r, 100)); // Court délai pour le port série
+
+      console.log(`Fonction handleRenduMixte 4: 🪙 Hopper : tentative de rendu de ${reste}€ (${hopperAmount} cts)...`);
+      
+      // On encapsule l'exécution complète du Hopper
+      try {
+        await new Promise(async (resolve, reject) => {
+          
+          // En cas d'événement DISPENSED réussi
+          const onDispensed = async (data) => {
+            console.log(`Fonction handleRenduMixte 5: ✅ Event DISPENSED reçu du Hopper: ${JSON.stringify(data)}`);
+            cleanup();
+            try {
+              await postWithRetry({ status: { transaction: transactionId, note: reste, value: 'debited' } }, SERVER_URL);
+              const levels = await Hopper.command('GET_ALL_LEVELS').catch(() => null);
+              if (levels) {
+                await postWithRetry({ status: { message: `Stored levels: ${JSON.stringify(levels.info.counter)}`, value: 'info' } }, SERVER_URL_HOPPER);
+              }
+              resolve();
+            } catch (err) {
+              reject(err);
+            }
+          };
+
+          // En cas d'erreur levée par l'événement du Hopper
+          const onError = (err) => {
+            cleanup();
+            reject(err);
+          };
+
+          // Nettoyage des listeners
+          const cleanup = () => {
+            Hopper.off('DISPENSED', onDispensed);
+            Hopper.off('ERROR', onError);
+          };
+
+          Hopper.on('DISPENSED', onDispensed);
+          Hopper.on('ERROR', onError);
+
+          // Envoi physique de la commande
+          try {
+            const response = await Hopper.command('PAYOUT_AMOUNT', {
+              amount: hopperAmount,
+              country_code: 'EUR',
+              test: false,
+            });
+
+            // Si la commande répond mais indique un échec dans son body JSON (votre cas précis)
+            if (response && response.success === false) {
+              cleanup();
+              reject(response); // On force le passage dans le bloc catch inférieur
+            }
+          } catch (cmdErr) {
+            cleanup();
+            reject(cmdErr);
+          }
+        });
+
+      } catch (hopperError) {
+        // 🚨 FALLBACK : Le Hopper a échoué (Plus de pièces / Cannot pay exact amount / Distributeur désactivé...)
+        console.warn(`⚠️ Le Hopper a échoué ou n'a pas pu rendre l'appoint. Détails:`, JSON.stringify(hopperError));
+        logger.warn(`⚠️ Le Hopper a échoué ou n'a pas pu rendre l'appoint.`);
+        
+        // On convertit le reste en 1 billet de 10€ supplémentaire à distribuer par le NV11
+        billets10 += 1;
+        console.log(`🔄 Reste converti. Nouveau total de billets de 10€ à distribuer par le NV11 : ${billets10}`);
+      }
+    }
+    
+    // === 2️⃣ Distribution des billets par le NV11 (Montant initial + Ajustement si Hopper vide) ===
     if (billets10 > 0) {
-      console.log(`Fonction handleRenduMixte 2:🧾 NV11 : rendu ${billets10} billet(s) de 10€`);
-      console.log('Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...');
-      logger.info(`Fonction handleRenduMixte 2:🧾 NV11 : rendu ${billets10} billet(s) de 10€`);
-      logger.info('Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...');
+      console.log(`Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour ${billets10} billet(s) de 10€`);
+      logger.info(`Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour ${billets10} billet(s) de 10€`);
+      
       setTimeout(() => {
         handlePayoutRequest(billets10);
       }, 1000);
+    } else {
+      console.log('Fonction handleRenduMixte 9: 🎉 Rendu de monnaie terminé (pièces uniquement)');
+      totalPaid = 0;
+      amountValue = null;
+      isPayoutInProgress = false;
     }
-    
-    // === 2️⃣ Rendu pièces ===
-    if (reste > 0) {
-      const hopperAmount = Math.round(reste * 100);
-      console.log(`Fonction handleRenduMixte 4:🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
-      logger.info(`Fonction handleRenduMixte 4:🪙 Hopper : rendu ${reste}€ (${hopperAmount} cts) en pièces...`);
-      // Crée une promesse qui se résout quand l'événement DISPENSED est reçu
-      const dispensePromise = new Promise((resolve, reject) => {
-        const onDispensed = async (data) => {
-          console.log(`Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
-          logger.info(`Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: ${JSON.stringify(data)}`);
-          // Nettoyage des listeners
-          Hopper.off('DISPENSED', onDispensed);
-          Hopper.off('ERROR', onError);
-
-          try {
-            
-            // --- Envoi au serveur principal (post-rendu) ---
-            await postWithRetry(
-              { status: { transaction: transactionId, note: reste, value: 'debited' } },
-              SERVER_URL
-            );
-            console.log('Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel');
-            logger.info('Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel');
-            // --- Récupération des niveaux ---
-            const levels = await Hopper.command('GET_ALL_LEVELS');
-            console.log('Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:', levels.info.counter);
-            logger.info('Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:', levels.info.counter);
-            // --- Envoi d’un rapport détaillé au serveur Hopper ---
-            await postWithRetry(
-              {
-                status: {
-                  message: `Stored levels: ${JSON.stringify(levels.info.counter)}`,
-                  value: 'info',
-                  
-                },
-              },
-              SERVER_URL_HOPPER
-            );
-            console.log('Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire');
-            logger.info('Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire');
-            resolve();
-          } catch (err) {
-            console.error('Fonction handleRenduMixte :⚠️ Erreur dans onDispensed:', err.message);
-            logger.error('Fonction handleRenduMixte :⚠️ Erreur dans onDispensed:', err.message);
-            reject(err);
-          }
-        };
-
-        const onError = (err) => {
-          Hopper.off('DISPENSED', onDispensed);
-          Hopper.off('ERROR', onError);
-          console.error('Fonction handleRenduMixte :❌ Erreur Hopper pendant PAYOUT:', err.message);
-          logger.error('Fonction handleRenduMixte :❌ Erreur Hopper pendant PAYOUT:', err.message);
-          reject(err);
-        };
-
-        Hopper.on('DISPENSED', onDispensed);
-        Hopper.on('ERROR', onError);
-        
-      });
-
-      // --- Lancement du payout ---
-      await Hopper.command('PAYOUT_AMOUNT', {
-        amount: hopperAmount,
-        country_code: 'EUR',
-        test: false,
-      });
-
-      // --- Attente de la fin réelle du payout ---
-      await dispensePromise;
-      //noteInProcessing = false;
-    }
-    console.log('Fonction handleRenduMixte 9:🎉 Rendu mixte terminé');
-    logger.info('Fonction handleRenduMixte 9:🎉 Rendu mixte terminé');
-    //resetTransaction();
-    // 🔄 Réinitialise l’état pour la prochaine transaction
-        totalPaid = 0;
-        amountValue = null;
 
   } catch (error) {
-          console.error('Fonction handleRenduMixte :❌ Erreur lors de l\'envoi à Laravel :', error.message);
-      }
+    console.error('Fonction handleRenduMixte : ❌ Erreur critique globale :', error.message);
+    isPayoutInProgress = false;
+  }
 }
 
 

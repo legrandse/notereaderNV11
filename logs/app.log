@@ -5684,3 +5684,849 @@
 {"level":"info","message":"Lecteurs désactivés"}
 {"level":"info","message":"Serveur démarré"}
 {"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 6€"}
+{"level":"info","message":"💶 Rendu à effectuer: 4€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 4€ -> 0x10€ + 4€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 4€ (400 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":400,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":32,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.00€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.50€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.50€ / dû: 4€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 4€"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 10€ -> 1x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 40€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 40€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 30€ / dû: 40€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 40€ / dû: 40€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 2€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 0.5€ -> 0x10€ + 0.5€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 0.5€ (50 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":50,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":40,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":800,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":40,"value":50},"7":{"country_code":"EUR","denomination_level":17,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu à effectuer: 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 10€ -> 1x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 15€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 20€ | Total payé: 20€ / dû: 10€"}
+{"level":"info","message":"💶 Rendu à effectuer: 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 10€ -> 1x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 5€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 5€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu à effectuer: 5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 5€ -> 0x10€ + 5€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu à effectuer: 15€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 15€ -> 1x10€ + 5€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":500,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":500,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":30,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":30,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 5.00€ / dû: 5€"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu à effectuer: 5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 5€ -> 0x10€ + 5€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 5€ (500 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":500,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":30,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 5.00€ / dû: 5€"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 10€ -> 1x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1.25€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8.75€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 8.75€ -> 0x10€ + 8.75€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 8.75€ (875 cts) en pièces..."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1.25€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8.75€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 8.75€ -> 0x10€ + 8.75€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 8.75€ (875 cts) en pièces..."}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2: 🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 5€"}
+{"level":"info","message":"💶 Rendu à effectuer: 5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 5€ -> 0x10€ + 5€ en pièces"}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.50€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.50€ / dû: 5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 4.5€ -> 0x10€ + 4.5€ en pièces"}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1.25€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8.75€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 8.75€ -> 0x10€ + 8.75€ en pièces"}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1.25€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8.75€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 8.75€ -> 0x10€ + 8.75€ en pièces"}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1.25€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8.75€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 8.75€ -> 0x10€ + 8.75€ en pièces"}
+{"level":"warn","message":"⚠️ Le Hopper a échoué ou n'a pas pu rendre l'appoint."}
+{"level":"info","message":"Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 1.25€"}
+{"level":"info","message":"💶 Rendu à effectuer: 8.75€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 8.75€ -> 0x10€ + 8.75€ en pièces"}
+{"level":"warn","message":"⚠️ Le Hopper a échoué ou n'a pas pu rendre l'appoint."}
+{"level":"info","message":"Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2.5€"}
+{"level":"info","message":"💶 Rendu à effectuer: 7.5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 7.5€ -> 0x10€ + 7.5€ en pièces"}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 0.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 1.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 2.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 3.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 4.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 5.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 5.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 6.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 6.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 7.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 7.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 8.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 8.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 9.00€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 9.50€ / dû: 10€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 10.00€ / dû: 10€"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 10€ -> 1x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: null€"}
+{"level":"info","message":"💶 Rendu à effectuer: 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu initial demandé 10€ -> 1x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2: 🧾 NV11 : Envoi de la commande pour 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs activés"}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":65536474}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 12.5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 10.50€ / dû: 12.5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 11.00€ / dû: 12.5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 11.50€ / dû: 12.5€"}
+{"level":"info","message":"🪙 Pièce détectée: 0.50 EUR"}
+{"level":"info","message":"💰 Traitement pièce: 0.5 EUR"}
+{"level":"info","message":"💰 Total payé: 12.00€ / dû: 12.5€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 12€ -> 1x10€ + 2€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 4:🪙 Hopper : rendu 2€ (200 cts) en pièces..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":[{"country_code":"EUR","value":0}]}
+{"level":"info","message":"Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {\"code\":210,\"name\":\"DISPENSED\",\"description\":\"The device has completed its pay-out request.\",\"amount\":200,\"currency\":\"EUR\"}"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)..."}
+{"level":"info","message":"Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel"}
+{"1":{"country_code":"EUR","denomination_level":0,"value":1},"2":{"country_code":"EUR","denomination_level":0,"value":2},"3":{"country_code":"EUR","denomination_level":0,"value":5},"4":{"country_code":"EUR","denomination_level":0,"value":10},"5":{"country_code":"EUR","denomination_level":0,"value":20},"6":{"country_code":"EUR","denomination_level":35,"value":50},"7":{"country_code":"EUR","denomination_level":0,"value":100},"8":{"country_code":"EUR","denomination_level":0,"value":200},"level":"info","message":"Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu:"}
+{"level":"info","message":"Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire"}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"✅ Note 1/1 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"\n🧹 Fermeture propre..."}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Serveur démarré"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€"}
+{"level":"info","message":"💶 Rendu à effectuer: 30€"}
+{"level":"info","message":"Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces"}
+{"level":"info","message":"Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€"}
+{"level":"info","message":"Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s..."}
+{"level":"info","message":"Fonction handleRenduMixte 9:🎉 Rendu mixte terminé"}
+{"level":"info","message":"Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)..."}
+{"code":218,"description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","level":"info","message":"DISPENSING event data:","name":"DISPENSING","value":474}
+{"level":"info","message":"✅ Note 1/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 2/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"✅ Note 3/3 dispensed"}
+{"level":"info","message":"Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé"}
+{"level":"info","message":"Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur"}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
+{"level":"info","message":"Lecteurs activés"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€"}
+{"level":"info","message":"💵 Billet inséré: 10€ | Total payé: 20€ / dû: 20€"}
+{"level":"info","message":"✅ Paiement exact, aucun rendu."}
+{"level":"info","message":"Lecteurs désactivés"}
