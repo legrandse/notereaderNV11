@@ -12596,3 +12596,1760 @@
 2026-09-03T10:35:23.358Z [INFO] Lecteurs désactivés
 2026-09-03T11:33:52.261Z [INFO] Lecteurs désactivés
 2026-09-03T11:34:59.093Z [INFO] Lecteurs désactivés
+2026-09-03T13:38:52.218Z [INFO] Serveur démarré
+2026-09-03T13:38:52.261Z [ERROR] Unhandled Rejection: Error: No such file or directory, cannot open /dev/ttyACM0
+2026-09-03T13:52:16.158Z [INFO] Serveur démarré
+2026-09-03T13:52:16.171Z [ERROR] Unhandled Rejection: Error: No such file or directory, cannot open /dev/ttyACM0
+2026-09-03T13:52:16.172Z [ERROR] Unhandled Rejection: Error: No such file or directory, cannot open /dev/ttyACM0
+2026-09-03T13:53:16.162Z [INFO] Fermeture propre...
+2026-09-03T13:53:21.155Z [INFO] Fermeture propre...
+2026-09-03T13:53:21.692Z [INFO] Fermeture propre...
+2026-09-03T13:53:22.127Z [INFO] Fermeture propre...
+2026-09-03T13:53:40.468Z [INFO] Fermeture propre...
+2026-09-03T13:53:41.268Z [INFO] Fermeture propre...
+2026-09-03T13:53:41.825Z [INFO] Fermeture propre...
+2026-09-03T13:53:42.193Z [INFO] Fermeture propre...
+2026-09-03T13:53:42.555Z [INFO] Fermeture propre...
+2026-09-03T13:53:44.439Z [INFO] Fermeture propre...
+2026-09-03T13:53:45.017Z [INFO] Fermeture propre...
+2026-09-03T13:54:13.921Z [INFO] Serveur démarré
+2026-09-03T13:54:13.946Z [ERROR] Unhandled Rejection: Error Resource temporarily unavailable Cannot lock port
+2026-09-03T13:54:55.602Z [INFO] Fermeture propre...
+2026-09-03T14:08:55.532Z [INFO] Serveur démarré
+2026-09-03T14:08:55.560Z [ERROR] Unhandled Rejection: Error Resource temporarily unavailable Cannot lock port
+2026-09-03T14:08:55.561Z [ERROR] Unhandled Rejection: Error Resource temporarily unavailable Cannot lock port
+2026-09-03T14:09:16.372Z [INFO] Fermeture propre...
+2026-09-03T14:10:15.234Z [INFO] Fermeture propre...
+2026-09-03T14:10:35.423Z [INFO] Serveur démarré
+2026-09-03T14:11:30.115Z [INFO] Fermeture propre...
+2026-09-03T14:14:24.299Z [INFO] Fermeture propre...
+2026-09-03T14:14:45.121Z [INFO] Serveur démarré
+2026-09-03T14:16:10.541Z [INFO] Fermeture propre...
+2026-09-03T14:17:44.243Z [INFO] Fermeture propre...
+2026-09-03T14:18:42.793Z [INFO] Serveur démarré
+2026-09-03T14:18:42.802Z [ERROR] Erreur init IF17: Cannot read properties of undefined (reading 'write')
+2026-09-03T14:19:00.568Z [INFO] Fermeture propre...
+2026-09-03T14:20:09.330Z [INFO] Serveur démarré
+2026-09-03T14:20:28.307Z [INFO] Fermeture propre...
+2026-09-03T14:22:02.564Z [INFO] Fermeture propre...
+2026-09-03T14:22:02.733Z [INFO] Fermeture propre...
+2026-09-03T14:22:02.888Z [INFO] Fermeture propre...
+2026-09-03T14:22:03.033Z [INFO] Fermeture propre...
+2026-09-03T14:22:23.637Z [INFO] Serveur démarré
+2026-09-03T14:22:38.315Z [INFO] Fermeture propre...
+2026-09-03T14:24:36.657Z [INFO] Fermeture propre...
+2026-09-03T14:24:37.636Z [INFO] Fermeture propre...
+2026-09-03T14:26:00.937Z [INFO] Serveur démarré
+2026-09-03T14:26:18.360Z [INFO] Fermeture propre...
+2026-09-03T14:26:27.394Z [INFO] Fermeture propre...
+2026-09-03T14:26:32.218Z [INFO] Fermeture propre...
+2026-09-03T14:26:32.620Z [INFO] Fermeture propre...
+2026-09-03T14:26:32.820Z [INFO] Fermeture propre...
+2026-09-03T14:29:52.937Z [INFO] Serveur démarré
+2026-09-03T14:30:08.125Z [INFO] Fermeture propre...
+2026-09-03T14:48:10.852Z [INFO] Fermeture propre...
+2026-09-03T14:48:13.453Z [INFO] Fermeture propre...
+2026-09-03T14:48:13.609Z [INFO] Fermeture propre...
+2026-09-03T14:48:13.759Z [INFO] Fermeture propre...
+2026-09-03T14:48:13.896Z [INFO] Fermeture propre...
+2026-09-03T14:48:14.021Z [INFO] Fermeture propre...
+2026-09-03T14:53:05.862Z [INFO] Serveur démarré
+2026-09-03T14:53:19.585Z [INFO] Fermeture propre...
+2026-09-03T14:55:19.590Z [INFO] Fermeture propre...
+2026-09-03T14:55:19.796Z [INFO] Fermeture propre...
+2026-09-03T14:55:19.963Z [INFO] Fermeture propre...
+2026-09-03T14:55:20.226Z [INFO] Fermeture propre...
+2026-09-03T14:55:20.395Z [INFO] Fermeture propre...
+2026-09-03T14:55:20.896Z [INFO] Fermeture propre...
+2026-09-03T14:55:20.943Z [INFO] Fermeture propre...
+2026-09-03T14:55:20.972Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.003Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.036Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.066Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.098Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.138Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.162Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.196Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.227Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.259Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.291Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.323Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.355Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.405Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.434Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.476Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.501Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.532Z [INFO] Fermeture propre...
+2026-09-03T14:55:21.565Z [INFO] Fermeture propre...
+2026-09-03T14:55:41.501Z [INFO] Serveur démarré
+2026-09-03T14:56:17.328Z [INFO] Fermeture propre...
+2026-09-03T15:12:48.812Z [INFO] Serveur démarré
+2026-09-03T16:12:56.291Z [INFO] Serveur démarré
+2026-09-03T16:16:22.053Z [INFO] Serveur démarré
+2026-09-03T16:55:45.582Z [INFO] Serveur démarré
+2026-09-03T16:58:05.012Z [INFO] Serveur démarré
+2026-09-03T17:04:10.548Z [INFO] Serveur démarré
+2026-09-03T17:04:54.500Z [INFO] Serveur démarré
+2026-09-03T17:45:29.789Z [INFO] Serveur démarré
+2026-09-03T17:47:49.026Z [INFO] Serveur démarré
+2026-09-03T17:47:49.568Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:16.502Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:16.504Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:16.508Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:16.512Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:16.517Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:27.267Z [INFO] Lecteurs activés
+2026-09-03T17:48:32.066Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:36.768Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:38.399Z [INFO] Lecteurs désactivés
+2026-09-03T17:48:54.428Z [INFO] Lecteurs activés
+2026-09-04T17:46:39.324Z [INFO] Serveur démarré
+2026-09-04T17:46:56.186Z [INFO] Lecteurs désactivés
+2026-09-07T16:07:27.533Z [INFO] Serveur démarré
+2026-09-07T16:07:49.918Z [INFO] Lecteurs désactivés
+2026-09-07T16:08:05.642Z [INFO] Lecteurs désactivés
+2026-09-07T16:08:58.174Z [INFO] Lecteurs activés
+2026-09-07T16:09:04.943Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-07T16:09:05.484Z [INFO] Rendu à effectuer: 8€
+2026-09-07T16:09:05.485Z [INFO] Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-07T16:09:05.485Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T16:09:05.867Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T16:09:07.626Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T16:09:09.257Z [INFO] Rendu mixte terminé
+2026-09-07T16:09:14.280Z [INFO] Lecteurs désactivés
+2026-09-07T16:10:11.321Z [INFO] Lecteurs activés
+2026-09-07T16:10:14.040Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:14.040Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:14.043Z [INFO] Total payé: 2.00€ / dû: 8€
+2026-09-07T16:10:15.800Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:15.800Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:15.801Z [INFO] Total payé: 4.00€ / dû: 8€
+2026-09-07T16:10:17.559Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:17.559Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:17.561Z [INFO] Total payé: 6.00€ / dû: 8€
+2026-09-07T16:10:26.837Z [INFO] Rendu total 6€ -> 0x10€ + 6€ en pièces
+2026-09-07T16:10:26.838Z [INFO] Hopper : rendu 6€ (600 cts) en pièces...
+2026-09-07T16:10:27.333Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T16:10:28.213Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":600,"currency":"EUR"}}
+2026-09-07T16:10:28.693Z [INFO] Lecteurs désactivés
+2026-09-07T16:10:29.348Z [INFO] Rendu mixte terminé
+2026-09-07T16:10:41.649Z [INFO] Lecteurs activés
+2026-09-07T16:10:44.049Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:44.050Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:44.051Z [INFO] Total payé: 2.00€ / dû: 8€
+2026-09-07T16:10:45.648Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:45.649Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:45.650Z [INFO] Total payé: 4.00€ / dû: 8€
+2026-09-07T16:10:47.567Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:47.567Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:47.568Z [INFO] Total payé: 6.00€ / dû: 8€
+2026-09-07T16:10:49.647Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:10:49.647Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:10:49.648Z [INFO] Total payé: 8.00€ / dû: 8€
+2026-09-07T16:10:49.649Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T16:10:56.366Z [INFO] Lecteurs désactivés
+2026-09-07T16:11:24.662Z [INFO] Lecteurs activés
+2026-09-07T16:11:36.350Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 5€
+2026-09-07T16:11:36.891Z [INFO] Rendu à effectuer: 45€
+2026-09-07T16:11:36.891Z [INFO] Rendu total 45€ -> 4x10€ + 5€ en pièces
+2026-09-07T16:11:36.891Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T16:11:37.494Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-07T16:11:37.804Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T16:11:39.639Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:11:39.640Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:11:43.444Z [INFO] Note 1/4 dispensed
+2026-09-07T16:11:44.745Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:11:48.470Z [INFO] Note 2/4 dispensed
+2026-09-07T16:11:49.713Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:11:53.567Z [INFO] Note 3/4 dispensed
+2026-09-07T16:11:54.829Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:11:58.681Z [INFO] Note 4/4 dispensed
+2026-09-07T16:11:58.892Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T16:13:29.910Z [INFO] Lecteurs désactivés
+2026-09-07T16:20:33.908Z [INFO] Lecteurs désactivés
+2026-09-07T16:20:37.619Z [INFO] Lecteurs activés
+2026-09-07T16:20:44.318Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 5€
+2026-09-07T16:22:42.865Z [INFO] Lecteurs désactivés
+2026-09-07T16:23:08.372Z [INFO] Serveur démarré
+2026-09-07T16:23:24.196Z [INFO] Lecteurs désactivés
+2026-09-07T16:24:14.261Z [INFO] Lecteurs activés
+2026-09-07T16:24:46.093Z [INFO] Lecteurs désactivés
+2026-09-07T16:25:34.542Z [INFO] Lecteurs activés
+2026-09-07T16:25:47.459Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 15€
+2026-09-07T16:25:48.004Z [INFO] Rendu à effectuer: 35€
+2026-09-07T16:25:48.006Z [INFO] Rendu total 35€ -> 3x10€ + 5€ en pièces
+2026-09-07T16:25:48.007Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T16:25:48.602Z [INFO] Début du rendu de 3 billet(s)...
+2026-09-07T16:25:48.913Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T16:25:50.772Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:25:50.775Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:25:54.732Z [INFO] Note 1/3 dispensed
+2026-09-07T16:25:55.993Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:25:59.765Z [INFO] Note 2/3 dispensed
+2026-09-07T16:26:01.034Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:26:04.802Z [INFO] Note 3/3 dispensed
+2026-09-07T16:26:05.012Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T16:26:13.391Z [INFO] Fermeture propre...
+2026-09-07T16:32:34.627Z [INFO] Serveur démarré
+2026-09-07T16:32:42.138Z [INFO] Lecteurs désactivés
+2026-09-07T16:32:44.808Z [INFO] Lecteurs désactivés
+2026-09-07T16:32:57.973Z [INFO] Lecteurs activés
+2026-09-07T16:33:15.730Z [INFO] Lecteurs désactivés
+2026-09-07T16:33:38.331Z [INFO] Lecteurs activés
+2026-09-07T16:33:50.024Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 20€
+2026-09-07T16:33:50.564Z [INFO] Rendu à effectuer: 30€
+2026-09-07T16:33:50.565Z [INFO] Rendu total 30€ -> 3x10€ + 0€ en pièces
+2026-09-07T16:33:51.172Z [INFO] Début du rendu de 3 billet(s)...
+2026-09-07T16:33:51.483Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T16:33:53.342Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:33:53.344Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:34:02.008Z [INFO] Note 1/3 dispensed
+2026-09-07T16:34:03.256Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:34:03.258Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:34:07.665Z [INFO] Note 2/3 dispensed
+2026-09-07T16:34:08.919Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:34:08.920Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:34:13.340Z [INFO] Note 3/3 dispensed
+2026-09-07T16:34:13.550Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T16:34:13.550Z [INFO] Rendu mixte terminé
+2026-09-07T16:35:27.189Z [INFO] Fermeture propre...
+2026-09-07T16:35:29.236Z [INFO] Serveur démarré
+2026-09-07T16:35:33.369Z [INFO] Lecteurs désactivés
+2026-09-07T16:35:35.385Z [INFO] Lecteurs désactivés
+2026-09-07T16:35:43.046Z [INFO] Lecteurs activés
+2026-09-07T16:36:01.761Z [INFO] Lecteurs désactivés
+2026-09-07T16:36:16.430Z [INFO] Lecteurs activés
+2026-09-07T16:36:26.110Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 30€
+2026-09-07T16:36:26.654Z [INFO] Rendu à effectuer: 20€
+2026-09-07T16:36:26.655Z [INFO] Rendu total 20€ -> 2x10€ + 0€ en pièces
+2026-09-07T16:36:27.258Z [INFO] Début du rendu de 2 billet(s)...
+2026-09-07T16:36:27.570Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T16:36:29.342Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:36:29.344Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:36:35.748Z [INFO] Note 1/2 dispensed
+2026-09-07T16:36:37.007Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T16:36:37.009Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:36:41.759Z [INFO] Note 2/2 dispensed
+2026-09-07T16:36:41.970Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T16:36:41.972Z [INFO] Rendu mixte terminé
+2026-09-07T16:36:48.437Z [INFO] Lecteurs désactivés
+2026-09-07T16:44:31.637Z [INFO] Lecteurs désactivés
+2026-09-07T16:44:41.124Z [INFO] Fermeture propre...
+2026-09-07T16:44:43.895Z [INFO] Serveur démarré
+2026-09-07T16:44:50.816Z [INFO] Lecteurs activés
+2026-09-07T16:44:53.056Z [INFO] Pièce détectée: 1.00 EUR
+2026-09-07T16:44:53.057Z [INFO] Traitement pièce: 1 EUR
+2026-09-07T16:44:53.059Z [INFO] Total payé: 1.00€ / dû: 2€
+2026-09-07T16:44:55.295Z [INFO] Pièce détectée: 1.00 EUR
+2026-09-07T16:44:55.295Z [INFO] Traitement pièce: 1 EUR
+2026-09-07T16:44:55.296Z [INFO] Total payé: 2.00€ / dû: 2€
+2026-09-07T16:44:55.297Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T16:45:01.852Z [INFO] Lecteurs désactivés
+2026-09-07T16:45:10.922Z [INFO] Lecteurs activés
+2026-09-07T16:45:23.617Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 20€
+2026-09-07T16:45:32.798Z [INFO] Billet inséré: 10€ | Total payé: 20€ / dû: 20€
+2026-09-07T16:45:33.451Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T16:45:39.395Z [INFO] Lecteurs désactivés
+2026-09-07T16:46:00.396Z [INFO] Lecteurs activés
+2026-09-07T16:46:16.371Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 35€
+2026-09-07T16:46:16.911Z [INFO] Rendu à effectuer: 15€
+2026-09-07T16:46:16.911Z [INFO] Rendu total 15€ -> 1x10€ + 5€ en pièces
+2026-09-07T16:46:16.912Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T16:46:17.369Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T16:46:17.513Z [INFO] Début du rendu de 1 billet(s)...
+2026-09-07T16:46:17.824Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T16:46:19.129Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":500,"currency":"EUR"}}
+2026-09-07T16:46:19.597Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T16:46:24.628Z [INFO] Note 1/1 dispensed
+2026-09-07T16:46:24.838Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T16:46:24.839Z [INFO] Rendu mixte terminé
+2026-09-07T16:46:31.219Z [INFO] Lecteurs désactivés
+2026-09-07T16:54:13.302Z [INFO] Lecteurs activés
+2026-09-07T16:54:15.380Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:54:15.380Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:54:15.382Z [INFO] Total payé: 2.00€ / dû: 3€
+2026-09-07T16:54:16.819Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T16:54:16.820Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T16:54:16.820Z [INFO] Total payé: 4.00€ / dû: 3€
+2026-09-07T16:54:16.821Z [INFO] Rendu à effectuer: 1€
+2026-09-07T16:54:16.821Z [INFO] Rendu total 1€ -> 0x10€ + 1€ en pièces
+2026-09-07T16:54:16.821Z [INFO] Hopper : rendu 1€ (100 cts) en pièces...
+2026-09-07T16:54:17.155Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T16:54:17.508Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":100,"currency":"EUR"}}
+2026-09-07T16:54:18.981Z [INFO] Rendu mixte terminé
+2026-09-07T16:54:24.321Z [INFO] Lecteurs désactivés
+2026-09-07T16:54:28.352Z [INFO] Lecteurs activés
+2026-09-07T16:54:34.823Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 5€
+2026-09-07T16:54:35.359Z [INFO] Rendu à effectuer: 5€
+2026-09-07T16:54:35.359Z [INFO] Rendu total 5€ -> 0x10€ + 5€ en pièces
+2026-09-07T16:54:35.359Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T16:55:18.400Z [INFO] Fermeture propre...
+2026-09-07T17:02:20.997Z [INFO] Serveur démarré
+2026-09-07T17:02:28.694Z [INFO] Lecteurs désactivés
+2026-09-07T17:02:31.077Z [INFO] Lecteurs désactivés
+2026-09-07T17:02:55.486Z [INFO] Lecteurs activés
+2026-09-07T17:03:03.286Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 35€
+2026-09-07T17:03:03.837Z [INFO] Rendu à effectuer: 15€
+2026-09-07T17:03:03.838Z [INFO] Rendu total 15€ -> 1x10€ + 5€ en pièces
+2026-09-07T17:03:03.839Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T17:03:04.284Z [ERROR] Échec du rendu pièces (PAYOUT_AMOUNT): PAYOUT_AMOUNT refusée par le Hopper: Cannot pay exact amount
+2026-09-07T17:03:04.441Z [INFO] Début du rendu de 1 billet(s)...
+2026-09-07T17:03:04.754Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T17:03:06.527Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T17:03:06.528Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T17:03:10.493Z [INFO] Note 1/1 dispensed
+2026-09-07T17:03:10.705Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T17:03:10.705Z [ERROR] Rendu partiellement échoué: PAYOUT_AMOUNT refusée par le Hopper: Cannot pay exact amount
+2026-09-07T17:05:44.399Z [INFO] Lecteurs désactivés
+2026-09-07T18:22:57.991Z [INFO] Serveur démarré
+2026-09-07T18:23:05.755Z [INFO] Lecteurs désactivés
+2026-09-07T18:23:21.479Z [INFO] Lecteurs désactivés
+2026-09-07T18:23:56.494Z [INFO] Lecteurs désactivés
+2026-09-07T18:24:04.379Z [INFO] Lecteurs activés
+2026-09-07T18:24:21.086Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 45€
+2026-09-07T18:24:21.729Z [INFO] Rendu à effectuer: 5€
+2026-09-07T18:24:21.729Z [INFO] Rendu total 5€ -> 0x10€ + 5€ en pièces
+2026-09-07T18:24:21.730Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T18:24:22.136Z [ERROR] Rendu partiellement échoué: onDispensed is not defined
+2026-09-07T18:26:09.625Z [INFO] Lecteurs désactivés
+2026-09-07T18:26:49.246Z [INFO] Lecteurs activés
+2026-09-07T18:27:18.997Z [INFO] Lecteurs désactivés
+2026-09-07T18:28:12.263Z [INFO] Lecteurs activés
+2026-09-07T18:28:22.642Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 32€
+2026-09-07T18:28:23.180Z [INFO] Rendu à effectuer: 18€
+2026-09-07T18:28:23.181Z [INFO] Rendu total 18€ -> 1x10€ + 8€ en pièces
+2026-09-07T18:28:23.181Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:28:23.635Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:28:23.787Z [INFO] Début du rendu de 1 billet(s)...
+2026-09-07T18:28:24.099Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:28:25.045Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:28:25.046Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:28:25.888Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:28:30.823Z [INFO] Note 1/1 dispensed
+2026-09-07T18:28:31.034Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:28:31.034Z [INFO] Rendu mixte terminé
+2026-09-07T18:28:58.122Z [INFO] Lecteurs désactivés
+2026-09-07T18:29:18.805Z [INFO] Lecteurs activés
+2026-09-07T18:29:20.883Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:29:20.884Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:29:20.886Z [INFO] Total payé: 2.00€ / dû: 2€
+2026-09-07T18:29:20.886Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:29:27.443Z [INFO] Lecteurs désactivés
+2026-09-07T18:29:57.481Z [INFO] Lecteurs activés
+2026-09-07T18:30:09.414Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 42€
+2026-09-07T18:30:09.951Z [INFO] Rendu à effectuer: 8€
+2026-09-07T18:30:09.951Z [INFO] Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-07T18:30:09.952Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:30:10.295Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:30:11.174Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:30:12.820Z [INFO] Rendu mixte terminé
+2026-09-07T18:30:17.829Z [INFO] Lecteurs désactivés
+2026-09-07T18:30:42.974Z [INFO] Lecteurs activés
+2026-09-07T18:30:45.853Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:30:45.853Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:30:45.854Z [INFO] Total payé: 2.00€ / dû: 3€
+2026-09-07T18:30:47.453Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:30:47.453Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:30:47.454Z [INFO] Total payé: 4.00€ / dû: 3€
+2026-09-07T18:30:47.454Z [INFO] Rendu à effectuer: 1€
+2026-09-07T18:30:47.454Z [INFO] Rendu total 1€ -> 0x10€ + 1€ en pièces
+2026-09-07T18:30:47.454Z [INFO] Hopper : rendu 1€ (100 cts) en pièces...
+2026-09-07T18:30:47.772Z [ERROR] Rendu partiellement échoué: onDispensed is not defined
+2026-09-07T18:31:33.680Z [INFO] Rendu total 2€ -> 0x10€ + 2€ en pièces
+2026-09-07T18:31:33.681Z [INFO] Hopper : rendu 2€ (200 cts) en pièces...
+2026-09-07T18:31:34.176Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:31:34.528Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}}
+2026-09-07T18:31:34.529Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}}
+2026-09-07T18:31:50.092Z [INFO] Lecteurs désactivés
+2026-09-07T18:31:50.253Z [INFO] Lecteurs désactivés
+2026-09-07T18:31:50.513Z [INFO] Rendu mixte terminé
+2026-09-07T18:31:50.572Z [INFO] Lecteurs désactivés
+2026-09-07T18:31:55.849Z [INFO] Lecteurs activés
+2026-09-07T18:31:57.768Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:31:57.768Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:31:57.770Z [INFO] Total payé: 2.00€ / dû: 2€
+2026-09-07T18:31:57.770Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:32:04.327Z [INFO] Lecteurs désactivés
+2026-09-07T18:32:10.118Z [INFO] Lecteurs activés
+2026-09-07T18:32:13.636Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:32:13.636Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:32:13.637Z [INFO] Total payé: 2.00€ / dû: 2€
+2026-09-07T18:32:13.637Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:32:20.196Z [INFO] Lecteurs désactivés
+2026-09-07T18:32:24.610Z [INFO] Lecteurs activés
+2026-09-07T18:32:27.008Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:32:27.009Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:32:27.009Z [INFO] Total payé: 2.00€ / dû: 2€
+2026-09-07T18:32:27.010Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:32:33.566Z [INFO] Lecteurs désactivés
+2026-09-07T18:32:45.516Z [INFO] Lecteurs désactivés
+2026-09-07T18:32:56.040Z [INFO] Lecteurs activés
+2026-09-07T18:33:35.225Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 12€
+2026-09-07T18:33:38.109Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:33:38.109Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:33:38.110Z [INFO] Total payé: 12.00€ / dû: 12€
+2026-09-07T18:33:38.110Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:33:44.828Z [INFO] Lecteurs désactivés
+2026-09-07T18:34:27.776Z [INFO] Lecteurs activés
+2026-09-07T18:34:38.067Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 2€
+2026-09-07T18:34:38.605Z [INFO] Rendu à effectuer: 48€
+2026-09-07T18:34:38.605Z [INFO] Rendu total 48€ -> 4x10€ + 8€ en pièces
+2026-09-07T18:34:38.605Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:34:38.988Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:34:39.215Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-07T18:34:39.528Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:34:40.747Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:34:41.304Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:34:51.606Z [INFO] Note 1/4 dispensed
+2026-09-07T18:34:52.856Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:34:52.857Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:34:57.346Z [INFO] Note 2/4 dispensed
+2026-09-07T18:34:58.647Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:34:58.648Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:35:02.628Z [INFO] Note 3/4 dispensed
+2026-09-07T18:35:03.877Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:35:03.878Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:35:07.921Z [INFO] Note 4/4 dispensed
+2026-09-07T18:35:08.132Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:35:08.132Z [INFO] Rendu mixte terminé
+2026-09-07T18:36:07.540Z [INFO] Lecteurs désactivés
+2026-09-07T18:38:47.720Z [INFO] Fermeture propre...
+2026-09-07T18:38:50.171Z [INFO] Serveur démarré
+2026-09-07T18:39:03.748Z [INFO] Lecteurs activés
+2026-09-07T18:39:06.147Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:39:06.147Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:39:06.150Z [INFO] Total payé: 2.00€ / dû: 10€
+2026-09-07T18:39:07.906Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:39:07.906Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:39:07.907Z [INFO] Total payé: 4.00€ / dû: 10€
+2026-09-07T18:39:09.506Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:39:09.506Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:39:09.509Z [INFO] Total payé: 6.00€ / dû: 10€
+2026-09-07T18:39:11.265Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:39:11.265Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:39:11.266Z [INFO] Total payé: 8.00€ / dû: 10€
+2026-09-07T18:39:13.504Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:39:13.504Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:39:13.506Z [INFO] Total payé: 10.00€ / dû: 10€
+2026-09-07T18:39:13.506Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:39:20.223Z [INFO] Lecteurs désactivés
+2026-09-07T18:39:27.470Z [INFO] Lecteurs activés
+2026-09-07T18:39:33.427Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 40€
+2026-09-07T18:39:38.850Z [INFO] Billet inséré: 10€ | Total payé: 20€ / dû: 40€
+2026-09-07T18:39:44.322Z [INFO] Billet inséré: 10€ | Total payé: 30€ / dû: 40€
+2026-09-07T18:39:49.530Z [INFO] Billet inséré: 10€ | Total payé: 40€ / dû: 40€
+2026-09-07T18:39:50.286Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:39:56.101Z [INFO] Lecteurs désactivés
+2026-09-07T18:42:02.131Z [INFO] Lecteurs activés
+2026-09-07T18:42:09.647Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:42:09.647Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:42:09.649Z [INFO] Total payé: 2.00€ / dû: 42€
+2026-09-07T18:42:20.816Z [INFO] Billet inséré: 50€ | Total payé: 52€ / dû: 42€
+2026-09-07T18:42:21.356Z [INFO] Rendu à effectuer: 10€
+2026-09-07T18:42:21.357Z [INFO] Rendu total 10€ -> 1x10€ + 0€ en pièces
+2026-09-07T18:42:21.965Z [INFO] Début du rendu de 1 billet(s)...
+2026-09-07T18:42:22.277Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:42:24.105Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:42:24.107Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:42:28.850Z [INFO] Note 1/1 dispensed
+2026-09-07T18:42:29.059Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:42:29.060Z [INFO] Rendu mixte terminé
+2026-09-07T18:42:35.561Z [INFO] Lecteurs désactivés
+2026-09-07T18:43:21.868Z [INFO] Lecteurs désactivés
+2026-09-07T18:43:40.041Z [INFO] Lecteurs activés
+2026-09-07T18:43:45.306Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-07T18:43:45.846Z [INFO] Rendu à effectuer: 8€
+2026-09-07T18:43:45.846Z [INFO] Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-07T18:43:45.846Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:43:46.293Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:43:47.527Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:43:49.148Z [INFO] Rendu mixte terminé
+2026-09-07T18:43:54.180Z [INFO] Lecteurs désactivés
+2026-09-07T18:44:24.315Z [INFO] Lecteurs activés
+2026-09-07T18:44:35.392Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 32€
+2026-09-07T18:44:35.936Z [INFO] Rendu à effectuer: 18€
+2026-09-07T18:44:35.937Z [INFO] Rendu total 18€ -> 1x10€ + 8€ en pièces
+2026-09-07T18:44:35.937Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:44:36.328Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:44:36.533Z [INFO] Début du rendu de 1 billet(s)...
+2026-09-07T18:44:36.845Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:44:37.383Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:44:38.677Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:44:47.335Z [INFO] Note 1/1 dispensed
+2026-09-07T18:44:47.548Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:44:47.548Z [INFO] Rendu mixte terminé
+2026-09-07T18:44:53.956Z [INFO] Lecteurs désactivés
+2026-09-07T18:45:18.188Z [INFO] Lecteurs activés
+2026-09-07T18:45:20.427Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:45:20.427Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:45:20.428Z [INFO] Total payé: 2.00€ / dû: 16€
+2026-09-07T18:45:22.826Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:45:22.826Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:45:22.827Z [INFO] Total payé: 4.00€ / dû: 16€
+2026-09-07T18:45:24.586Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:45:24.586Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:45:24.587Z [INFO] Total payé: 6.00€ / dû: 16€
+2026-09-07T18:45:26.345Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:45:26.345Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:45:26.346Z [INFO] Total payé: 8.00€ / dû: 16€
+2026-09-07T18:45:38.287Z [INFO] Fermeture propre...
+2026-09-07T18:46:10.210Z [INFO] Serveur démarré
+2026-09-07T18:46:14.490Z [INFO] Lecteurs désactivés
+2026-09-07T18:46:15.546Z [INFO] Lecteurs désactivés
+2026-09-07T18:46:35.333Z [INFO] Lecteurs activés
+2026-09-07T18:46:38.212Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:46:38.213Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:46:38.217Z [INFO] Total payé: 2.00€ / dû: 8€
+2026-09-07T18:46:40.291Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:46:40.291Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:46:40.293Z [INFO] Total payé: 4.00€ / dû: 8€
+2026-09-07T18:46:42.210Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:46:42.211Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:46:42.212Z [INFO] Total payé: 6.00€ / dû: 8€
+2026-09-07T18:46:44.130Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:46:44.130Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:46:44.132Z [INFO] Total payé: 8.00€ / dû: 8€
+2026-09-07T18:46:44.132Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:46:50.690Z [INFO] Lecteurs désactivés
+2026-09-07T18:47:02.254Z [INFO] Lecteurs activés
+2026-09-07T18:47:07.384Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-07T18:47:08.971Z [INFO] Rendu à effectuer: 8€
+2026-09-07T18:47:08.972Z [INFO] Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-07T18:47:08.972Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:47:09.308Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:47:11.244Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:47:13.000Z [INFO] Rendu mixte terminé
+2026-09-07T18:47:17.898Z [INFO] Lecteurs désactivés
+2026-09-07T18:48:04.688Z [INFO] Lecteurs activés
+2026-09-07T18:48:12.253Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 23€
+2026-09-07T18:48:12.796Z [INFO] Rendu à effectuer: 27€
+2026-09-07T18:48:12.796Z [INFO] Rendu total 27€ -> 2x10€ + 7€ en pièces
+2026-09-07T18:48:12.797Z [INFO] Hopper : rendu 7€ (700 cts) en pièces...
+2026-09-07T18:48:13.402Z [INFO] Début du rendu de 2 billet(s)...
+2026-09-07T18:48:13.712Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:48:15.526Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:48:15.528Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:48:19.934Z [INFO] Note 1/2 dispensed
+2026-09-07T18:48:21.249Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:48:21.250Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:48:25.233Z [INFO] Note 2/2 dispensed
+2026-09-07T18:48:25.445Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:50:09.928Z [INFO] Lecteurs désactivés
+2026-09-07T18:51:34.426Z [INFO] Fermeture propre...
+2026-09-07T18:51:36.575Z [INFO] Serveur démarré
+2026-09-07T18:51:54.733Z [INFO] Lecteurs désactivés
+2026-09-07T18:51:56.237Z [INFO] Lecteurs désactivés
+2026-09-07T18:52:20.056Z [INFO] Lecteurs activés
+2026-09-07T18:52:33.121Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 30€
+2026-09-07T18:52:33.670Z [INFO] Rendu à effectuer: 20€
+2026-09-07T18:52:33.671Z [INFO] Rendu total 20€ -> 2x10€ + 0€ en pièces
+2026-09-07T18:52:34.268Z [INFO] Début du rendu de 2 billet(s)...
+2026-09-07T18:52:34.579Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:52:36.395Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:52:36.397Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:52:41.121Z [INFO] Note 1/2 dispensed
+2026-09-07T18:52:42.381Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:52:42.383Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:52:46.788Z [INFO] Note 2/2 dispensed
+2026-09-07T18:52:47.014Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:52:47.014Z [INFO] Rendu mixte terminé
+2026-09-07T18:52:53.485Z [INFO] Lecteurs désactivés
+2026-09-07T18:53:22.694Z [INFO] Lecteurs désactivés
+2026-09-07T18:53:51.069Z [INFO] Lecteurs activés
+2026-09-07T18:53:54.268Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:53:54.268Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:53:54.269Z [INFO] Total payé: 2.00€ / dû: 32€
+2026-09-07T18:53:56.668Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:53:56.668Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:53:56.669Z [INFO] Total payé: 4.00€ / dû: 32€
+2026-09-07T18:54:07.032Z [INFO] Billet inséré: 10€ | Total payé: 14€ / dû: 32€
+2026-09-07T18:54:14.436Z [INFO] Billet inséré: 10€ | Total payé: 24€ / dû: 32€
+2026-09-07T18:54:22.559Z [INFO] Billet inséré: 10€ | Total payé: 34€ / dû: 32€
+2026-09-07T18:54:24.142Z [INFO] Rendu à effectuer: 2€
+2026-09-07T18:54:24.143Z [INFO] Rendu total 2€ -> 0x10€ + 2€ en pièces
+2026-09-07T18:54:24.143Z [INFO] Hopper : rendu 2€ (200 cts) en pièces...
+2026-09-07T18:54:24.516Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:54:25.044Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}}
+2026-09-07T18:54:30.862Z [INFO] Rendu mixte terminé
+2026-09-07T18:54:31.856Z [INFO] Lecteurs désactivés
+2026-09-07T18:56:22.276Z [INFO] Lecteurs activés
+2026-09-07T18:56:53.540Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 22€
+2026-09-07T18:56:54.079Z [INFO] Rendu à effectuer: 28€
+2026-09-07T18:56:54.080Z [INFO] Rendu total 28€ -> 2x10€ + 8€ en pièces
+2026-09-07T18:56:54.080Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-07T18:56:54.441Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-07T18:56:54.684Z [INFO] Début du rendu de 2 billet(s)...
+2026-09-07T18:56:54.995Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-07T18:56:55.323Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-07T18:56:56.855Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:57:01.896Z [INFO] Note 1/2 dispensed
+2026-09-07T18:57:03.163Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-07T18:57:03.164Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-07T18:57:07.369Z [INFO] Note 2/2 dispensed
+2026-09-07T18:57:07.582Z [INFO] Payout terminé. Validator désactivé
+2026-09-07T18:57:07.582Z [INFO] Rendu mixte terminé
+2026-09-07T18:57:14.133Z [INFO] Lecteurs désactivés
+2026-09-07T18:57:26.225Z [INFO] Lecteurs activés
+2026-09-07T18:57:28.945Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:57:28.945Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:57:28.947Z [INFO] Total payé: 2.00€ / dû: 10€
+2026-09-07T18:57:34.864Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:57:34.864Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:57:34.865Z [INFO] Total payé: 4.00€ / dû: 10€
+2026-09-07T18:57:38.063Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:57:38.063Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:57:38.064Z [INFO] Total payé: 6.00€ / dû: 10€
+2026-09-07T18:57:40.941Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:57:40.941Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:57:40.942Z [INFO] Total payé: 8.00€ / dû: 10€
+2026-09-07T18:57:43.500Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T18:57:43.500Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T18:57:43.501Z [INFO] Total payé: 10.00€ / dû: 10€
+2026-09-07T18:57:43.501Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T18:57:50.060Z [INFO] Lecteurs désactivés
+2026-09-07T18:58:04.086Z [INFO] Lecteurs activés
+2026-09-07T18:58:10.162Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 5€
+2026-09-07T18:58:10.708Z [INFO] Rendu à effectuer: 5€
+2026-09-07T18:58:10.708Z [INFO] Rendu total 5€ -> 0x10€ + 5€ en pièces
+2026-09-07T18:58:10.708Z [INFO] Hopper : rendu 5€ (500 cts) en pièces...
+2026-09-07T18:58:11.125Z [ERROR] Rendu partiellement échoué: onDispensed is not defined
+2026-09-07T19:00:09.333Z [INFO] Lecteurs désactivés
+2026-09-07T19:02:12.740Z [INFO] Lecteurs activés
+2026-09-07T19:02:18.616Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 24€
+2026-09-07T19:02:23.548Z [INFO] Billet inséré: 10€ | Total payé: 20€ / dû: 24€
+2026-09-07T19:02:25.695Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T19:02:25.695Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T19:02:25.696Z [INFO] Total payé: 22.00€ / dû: 24€
+2026-09-07T19:02:27.455Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-07T19:02:27.455Z [INFO] Traitement pièce: 2 EUR
+2026-09-07T19:02:27.456Z [INFO] Total payé: 24.00€ / dû: 24€
+2026-09-07T19:02:27.457Z [INFO] Paiement exact, aucun rendu.
+2026-09-07T19:02:34.174Z [INFO] Lecteurs désactivés
+2026-09-09T17:51:57.461Z [INFO] Serveur démarré
+2026-09-09T17:52:32.977Z [INFO] Lecteurs désactivés
+2026-09-09T17:58:16.936Z [INFO] Serveur démarré
+2026-09-09T17:58:47.285Z [INFO] Lecteurs désactivés
+2026-09-09T17:59:04.001Z [INFO] Lecteurs activés
+2026-09-09T17:59:15.614Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 20€
+2026-09-09T17:59:16.463Z [INFO] Rendu à effectuer: 30€
+2026-09-09T17:59:16.464Z [INFO] Rendu demandé 30€ -> 3x10€ + 0€ en pièces
+2026-09-09T17:59:16.756Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-09T17:59:16.757Z [INFO] Rendu effectif: 3x10€ + 0€ en pièces
+2026-09-09T17:59:17.379Z [INFO] Début du rendu de 3 billet(s)...
+2026-09-09T17:59:17.690Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-09T17:59:19.513Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-09T17:59:19.515Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T17:59:23.537Z [INFO] Note 1/3 dispensed
+2026-09-09T17:59:24.796Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T17:59:28.887Z [INFO] Note 2/3 dispensed
+2026-09-09T17:59:30.144Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T17:59:34.014Z [INFO] Note 3/3 dispensed
+2026-09-09T17:59:34.228Z [INFO] Payout terminé. Validator désactivé
+2026-09-09T17:59:34.228Z [INFO] Rendu mixte terminé
+2026-09-09T17:59:40.632Z [INFO] Lecteurs désactivés
+2026-09-09T17:59:46.471Z [INFO] Lecteurs activés
+2026-09-09T17:59:53.414Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-09T17:59:53.959Z [INFO] Rendu à effectuer: 8€
+2026-09-09T17:59:53.960Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-09T17:59:53.960Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-09T17:59:53.960Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-09T17:59:54.323Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-09T17:59:55.905Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-09T17:59:58.740Z [INFO] Rendu mixte terminé
+2026-09-09T18:00:02.558Z [INFO] Lecteurs désactivés
+2026-09-09T18:00:36.562Z [INFO] Lecteurs activés
+2026-09-09T18:00:39.121Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:00:39.122Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:00:39.123Z [INFO] Total payé: 2.00€ / dû: 8€
+2026-09-09T18:00:40.400Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:00:40.400Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:00:40.402Z [INFO] Total payé: 4.00€ / dû: 8€
+2026-09-09T18:00:42.639Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:00:42.639Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:00:42.641Z [INFO] Total payé: 6.00€ / dû: 8€
+2026-09-09T18:00:54.103Z [INFO] Fermeture propre...
+2026-09-09T18:01:38.829Z [INFO] Serveur démarré
+2026-09-09T18:01:43.569Z [INFO] Lecteurs désactivés
+2026-09-09T18:01:44.897Z [INFO] Lecteurs désactivés
+2026-09-09T18:01:58.316Z [INFO] Lecteurs activés
+2026-09-09T18:02:11.255Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-09T18:02:11.901Z [INFO] Rendu à effectuer: 8€
+2026-09-09T18:02:11.902Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-09T18:02:11.902Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-09T18:02:11.902Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-09T18:02:12.248Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-09T18:02:13.129Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-09T18:02:14.802Z [INFO] Rendu mixte terminé
+2026-09-09T18:02:19.782Z [INFO] Lecteurs désactivés
+2026-09-09T18:02:28.373Z [INFO] Lecteurs activés
+2026-09-09T18:02:31.570Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:02:31.570Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:02:31.572Z [INFO] Total payé: 2.00€ / dû: 10€
+2026-09-09T18:02:33.649Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:02:33.649Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:02:33.654Z [INFO] Total payé: 4.00€ / dû: 10€
+2026-09-09T18:02:35.584Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:02:35.584Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:02:35.586Z [INFO] Total payé: 6.00€ / dû: 10€
+2026-09-09T18:02:37.664Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:02:37.664Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:02:37.665Z [INFO] Total payé: 8.00€ / dû: 10€
+2026-09-09T18:02:39.743Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T18:02:39.743Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T18:02:39.744Z [INFO] Total payé: 10.00€ / dû: 10€
+2026-09-09T18:02:39.744Z [INFO] Paiement exact, aucun rendu.
+2026-09-09T18:02:46.300Z [INFO] Lecteurs désactivés
+2026-09-09T18:05:34.124Z [INFO] Lecteurs activés
+2026-09-09T18:05:44.231Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 2€
+2026-09-09T18:05:44.773Z [INFO] Rendu à effectuer: 48€
+2026-09-09T18:05:44.773Z [INFO] Rendu demandé 48€ -> 4x10€ + 8€ en pièces
+2026-09-09T18:05:45.065Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-09T18:05:45.065Z [INFO] Rendu effectif: 4x10€ + 8€ en pièces
+2026-09-09T18:05:45.066Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-09T18:05:45.499Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-09T18:05:45.685Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-09T18:05:45.995Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-09T18:05:46.552Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-09T18:05:47.757Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:05:53.421Z [INFO] Note 1/4 dispensed
+2026-09-09T18:05:54.727Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:05:59.445Z [INFO] Note 2/4 dispensed
+2026-09-09T18:06:00.704Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:06:09.655Z [INFO] Note 3/4 dispensed
+2026-09-09T18:06:10.907Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:06:15.541Z [INFO] Note 4/4 dispensed
+2026-09-09T18:06:15.752Z [INFO] Payout terminé. Validator désactivé
+2026-09-09T18:06:15.752Z [INFO] Rendu mixte terminé
+2026-09-09T18:06:16.239Z [INFO] Lecteurs désactivés
+2026-09-09T18:06:39.623Z [INFO] Lecteurs désactivés
+2026-09-09T18:06:40.855Z [INFO] Lecteurs désactivés
+2026-09-09T18:07:32.089Z [INFO] Lecteurs activés
+2026-09-09T18:07:57.837Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 2€
+2026-09-09T18:07:58.375Z [INFO] Rendu à effectuer: 48€
+2026-09-09T18:07:58.375Z [INFO] Rendu demandé 48€ -> 4x10€ + 8€ en pièces
+2026-09-09T18:07:58.671Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-09T18:07:58.671Z [INFO] Rendu effectif: 4x10€ + 8€ en pièces
+2026-09-09T18:07:58.671Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-09T18:07:59.137Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-09T18:07:59.295Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-09T18:07:59.609Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-09T18:08:00.193Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-09T18:08:01.389Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:08:08.257Z [INFO] Note 1/4 dispensed
+2026-09-09T18:08:09.558Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:08:13.522Z [INFO] Note 2/4 dispensed
+2026-09-09T18:08:14.782Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:08:18.957Z [INFO] Note 3/4 dispensed
+2026-09-09T18:08:20.214Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:08:24.307Z [INFO] Note 4/4 dispensed
+2026-09-09T18:08:24.520Z [INFO] Payout terminé. Validator désactivé
+2026-09-09T18:08:24.521Z [INFO] Rendu mixte terminé
+2026-09-09T18:08:31.161Z [INFO] Lecteurs désactivés
+2026-09-09T18:09:02.018Z [INFO] Lecteurs activés
+2026-09-09T18:09:12.657Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 10€
+2026-09-09T18:09:13.755Z [INFO] Rendu à effectuer: 40€
+2026-09-09T18:09:13.755Z [INFO] Rendu demandé 40€ -> 4x10€ + 0€ en pièces
+2026-09-09T18:09:14.012Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-09T18:09:14.012Z [INFO] Rendu effectif: 4x10€ + 0€ en pièces
+2026-09-09T18:09:14.639Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-09T18:09:14.953Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-09T18:09:16.727Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-09T18:09:16.729Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T18:09:21.334Z [INFO] Note 1/4 dispensed
+2026-09-09T18:09:22.585Z [ERROR] PAYOUT_NOTE définitivement refusée après 1 tentative(s): Note float empty
+2026-09-09T18:09:22.586Z [ERROR] Rendu partiellement échoué: PAYOUT_NOTE refusée: Note float empty
+2026-09-09T18:10:35.589Z [INFO] Lecteurs désactivés
+2026-09-09T18:11:48.575Z [INFO] Lecteurs désactivés
+2026-09-09T18:12:23.572Z [INFO] Lecteurs activés
+2026-09-09T18:12:47.405Z [INFO] Lecteurs désactivés
+2026-09-09T18:12:50.364Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:23.729Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:24.656Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:25.425Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:33.054Z [INFO] Lecteurs activés
+2026-09-09T18:14:41.851Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:43.707Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:45.258Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:46.618Z [INFO] Lecteurs désactivés
+2026-09-09T18:14:50.442Z [INFO] Lecteurs désactivés
+2026-09-09T19:23:21.561Z [INFO] Serveur démarré
+2026-09-09T19:23:30.694Z [INFO] Lecteurs désactivés
+2026-09-09T19:23:44.259Z [INFO] Lecteurs désactivés
+2026-09-09T19:23:45.890Z [INFO] Lecteurs désactivés
+2026-09-09T19:24:33.539Z [INFO] Lecteurs désactivés
+2026-09-09T19:25:04.714Z [INFO] Lecteurs désactivés
+2026-09-09T19:25:06.235Z [INFO] Lecteurs désactivés
+2026-09-09T19:26:06.372Z [INFO] Fermeture propre...
+2026-09-09T19:26:09.037Z [INFO] Serveur démarré
+2026-09-09T19:26:14.822Z [INFO] Lecteurs désactivés
+2026-09-09T19:26:16.052Z [INFO] Lecteurs désactivés
+2026-09-09T19:26:16.998Z [INFO] Lecteurs désactivés
+2026-09-09T19:47:59.682Z [INFO] Fermeture propre...
+2026-09-09T19:48:03.612Z [INFO] Fermeture propre...
+2026-09-09T19:48:04.253Z [INFO] Fermeture propre...
+2026-09-09T19:48:30.180Z [INFO] Serveur démarré
+2026-09-09T19:48:42.615Z [INFO] Lecteurs désactivés
+2026-09-09T19:49:02.385Z [INFO] Lecteurs activés
+2026-09-09T19:49:04.783Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T19:49:04.784Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T19:49:04.786Z [INFO] Total payé: 2.00€ / dû: 14€
+2026-09-09T19:49:06.863Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T19:49:06.864Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T19:49:06.865Z [INFO] Total payé: 4.00€ / dû: 14€
+2026-09-09T19:49:08.783Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T19:49:08.783Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T19:49:08.785Z [INFO] Total payé: 6.00€ / dû: 14€
+2026-09-09T19:49:10.702Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T19:49:10.703Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T19:49:10.704Z [INFO] Total payé: 8.00€ / dû: 14€
+2026-09-09T19:49:12.620Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T19:49:12.620Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T19:49:12.622Z [INFO] Total payé: 10.00€ / dû: 14€
+2026-09-09T19:49:14.540Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-09T19:49:14.541Z [INFO] Traitement pièce: 2 EUR
+2026-09-09T19:49:14.542Z [INFO] Total payé: 12.00€ / dû: 14€
+2026-09-09T19:49:18.541Z [INFO] Rendu demandé 12€ -> 1x10€ + 2€ en pièces
+2026-09-09T19:49:18.778Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-09T19:49:18.779Z [INFO] Rendu effectif: 1x10€ + 2€ en pièces
+2026-09-09T19:49:18.779Z [INFO] Hopper : rendu 2€ (200 cts) en pièces...
+2026-09-09T19:49:19.195Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-09T19:49:19.407Z [INFO] Début du rendu de 1 billet(s)...
+2026-09-09T19:49:19.778Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T19:49:19.901Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}}
+2026-09-09T19:49:24.289Z [INFO] Note 1/1 dispensed
+2026-09-09T19:49:24.501Z [INFO] Payout terminé. Validator désactivé
+2026-09-09T19:49:24.501Z [INFO] Rendu mixte terminé
+2026-09-09T19:49:24.921Z [INFO] Lecteurs désactivés
+2026-09-09T19:49:45.842Z [INFO] Lecteurs désactivés
+2026-09-09T19:50:47.426Z [INFO] Lecteurs activés
+2026-09-09T19:50:57.109Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 30€
+2026-09-09T19:50:57.655Z [INFO] Rendu à effectuer: 20€
+2026-09-09T19:50:57.655Z [INFO] Rendu demandé 20€ -> 2x10€ + 0€ en pièces
+2026-09-09T19:50:57.950Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-09T19:50:57.950Z [INFO] Rendu effectif: 2x10€ + 0€ en pièces
+2026-09-09T19:50:58.574Z [INFO] Début du rendu de 2 billet(s)...
+2026-09-09T19:50:58.887Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-09T19:51:00.715Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-09T19:51:00.717Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T19:51:04.676Z [INFO] Note 1/2 dispensed
+2026-09-09T19:51:05.934Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-09T19:51:09.936Z [INFO] Note 2/2 dispensed
+2026-09-09T19:51:10.148Z [INFO] Payout terminé. Validator désactivé
+2026-09-09T19:51:10.148Z [INFO] Rendu mixte terminé
+2026-09-09T19:51:16.536Z [INFO] Lecteurs désactivés
+2026-09-09T19:52:03.994Z [INFO] Lecteurs activés
+2026-09-09T19:52:13.750Z [INFO] Lecteurs désactivés
+2026-09-09T20:07:14.492Z [INFO] Fermeture propre...
+2026-09-09T20:07:17.107Z [INFO] Serveur démarré
+2026-09-09T20:07:34.891Z [INFO] Lecteurs activés
+2026-09-09T20:07:57.280Z [INFO] Lecteurs désactivés
+2026-09-09T20:08:50.183Z [INFO] 
+🧹 Fermeture propre...
+2026-09-09T20:09:18.432Z [INFO] Serveur démarré
+2026-09-09T20:20:56.524Z [INFO] Lecteurs activés
+2026-09-09T20:23:47.746Z [INFO] Lecteurs activés
+2026-09-10T13:38:53.103Z [INFO] Serveur démarré
+2026-09-10T14:08:46.969Z [INFO] Lecteurs désactivés
+2026-09-10T14:08:49.081Z [INFO] Lecteurs désactivés
+2026-09-10T14:08:50.393Z [INFO] Lecteurs désactivés
+2026-09-10T14:09:33.807Z [INFO] Lecteurs activés
+2026-09-10T14:10:03.718Z [INFO] Lecteurs désactivés
+2026-09-10T14:11:03.110Z [INFO] Lecteurs activés
+2026-09-10T14:11:19.222Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 10€
+2026-09-10T14:11:19.762Z [INFO] Rendu à effectuer: 40€
+2026-09-10T14:11:19.763Z [INFO] Rendu demandé 40€ -> 4x10€ + 0€ en pièces
+2026-09-10T14:11:20.056Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-10T14:11:20.057Z [INFO] Rendu effectif: 4x10€ + 0€ en pièces
+2026-09-10T14:11:20.683Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-10T14:11:20.994Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-10T14:11:22.768Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-10T14:11:22.770Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:11:26.650Z [INFO] Note 1/4 dispensed
+2026-09-10T14:11:27.913Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:11:31.813Z [INFO] Note 2/4 dispensed
+2026-09-10T14:11:33.067Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:11:37.024Z [INFO] Note 3/4 dispensed
+2026-09-10T14:11:38.333Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:11:42.618Z [INFO] Note 4/4 dispensed
+2026-09-10T14:11:42.829Z [INFO] Payout terminé. Validator désactivé
+2026-09-10T14:11:42.829Z [INFO] Rendu mixte terminé
+2026-09-10T14:12:08.211Z [INFO] Lecteurs désactivés
+2026-09-10T14:12:28.013Z [INFO] Lecteurs activés
+2026-09-10T14:12:39.018Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T14:12:40.585Z [INFO] Paiement exact, aucun rendu.
+2026-09-10T14:14:33.258Z [INFO] Lecteurs désactivés
+2026-09-10T14:15:33.512Z [INFO] Lecteurs désactivés
+2026-09-10T14:15:35.975Z [INFO] Lecteurs activés
+2026-09-10T14:15:41.304Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T14:15:42.376Z [INFO] Paiement exact, aucun rendu.
+2026-09-10T14:15:47.971Z [INFO] Lecteurs désactivés
+2026-09-10T14:16:13.373Z [INFO] Lecteurs activés
+2026-09-10T14:16:15.292Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-10T14:16:15.292Z [INFO] Traitement pièce: 2 EUR
+2026-09-10T14:16:15.293Z [INFO] Total payé: 2.00€ / dû: 6€
+2026-09-10T14:16:17.691Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-10T14:16:17.691Z [INFO] Traitement pièce: 2 EUR
+2026-09-10T14:16:17.692Z [INFO] Total payé: 4.00€ / dû: 6€
+2026-09-10T14:16:19.771Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-10T14:16:19.771Z [INFO] Traitement pièce: 2 EUR
+2026-09-10T14:16:19.772Z [INFO] Total payé: 6.00€ / dû: 6€
+2026-09-10T14:16:19.772Z [INFO] Paiement exact, aucun rendu.
+2026-09-10T14:16:26.331Z [INFO] Lecteurs désactivés
+2026-09-10T14:16:37.463Z [INFO] Lecteurs activés
+2026-09-10T14:16:48.875Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 20€
+2026-09-10T14:16:49.764Z [INFO] Rendu à effectuer: 30€
+2026-09-10T14:16:49.764Z [INFO] Rendu demandé 30€ -> 3x10€ + 0€ en pièces
+2026-09-10T14:16:50.017Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-10T14:16:50.017Z [INFO] Rendu effectif: 3x10€ + 0€ en pièces
+2026-09-10T14:16:50.644Z [INFO] Début du rendu de 3 billet(s)...
+2026-09-10T14:16:50.954Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-10T14:16:52.725Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-10T14:16:52.726Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:16:57.008Z [INFO] Note 1/3 dispensed
+2026-09-10T14:16:58.263Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:17:02.433Z [INFO] Note 2/3 dispensed
+2026-09-10T14:17:03.684Z [ERROR] PAYOUT_NOTE définitivement refusée après 1 tentative(s): Note float empty
+2026-09-10T14:17:03.684Z [ERROR] Rendu partiellement échoué: PAYOUT_NOTE refusée: Note float empty
+2026-09-10T14:18:42.706Z [INFO] Lecteurs désactivés
+2026-09-10T14:21:16.234Z [INFO] Serveur démarré
+2026-09-10T14:22:47.118Z [INFO] Lecteurs activés
+2026-09-10T14:22:59.496Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 20€
+2026-09-10T14:23:04.733Z [INFO] Billet inséré: 10€ | Total payé: 20€ / dû: 20€
+2026-09-10T14:23:05.827Z [INFO] Paiement exact, aucun rendu.
+2026-09-10T14:23:11.592Z [INFO] Lecteurs désactivés
+2026-09-10T14:23:42.767Z [INFO] Lecteurs activés
+2026-09-10T14:24:02.443Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 20€
+2026-09-10T14:24:03.325Z [INFO] Rendu à effectuer: 30€
+2026-09-10T14:24:03.326Z [INFO] Rendu demandé 30€ -> 3x10€ + 0€ en pièces
+2026-09-10T14:24:03.589Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-10T14:24:03.589Z [INFO] Rendu effectif: 3x10€ + 0€ en pièces
+2026-09-10T14:24:04.210Z [INFO] Début du rendu de 3 billet(s)...
+2026-09-10T14:24:04.521Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-10T14:24:06.289Z [INFO] DISPENSING event data {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}}
+2026-09-10T14:24:06.291Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:24:11.541Z [INFO] Note 1/3 dispensed
+2026-09-10T14:24:12.802Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-10T14:24:17.627Z [INFO] Note 2/3 dispensed
+2026-09-10T14:24:18.881Z [ERROR] PAYOUT_NOTE définitivement refusée après 1 tentative(s): Note float empty
+2026-09-10T14:24:18.882Z [ERROR] Rendu partiellement échoué: PAYOUT_NOTE refusée: Note float empty
+2026-09-10T14:24:22.815Z [INFO] Fermeture propre...
+2026-09-10T14:30:56.120Z [INFO] Serveur démarré
+2026-09-10T14:31:05.858Z [INFO] Lecteurs désactivés
+2026-09-10T14:31:07.922Z [INFO] Lecteurs désactivés
+2026-09-10T14:34:26.528Z [INFO] Lecteurs activés
+2026-09-10T14:34:46.838Z [INFO] Lecteurs désactivés
+2026-09-10T14:35:11.208Z [INFO] Lecteurs activés
+2026-09-10T14:35:28.329Z [INFO] Lecteurs désactivés
+2026-09-10T14:35:41.578Z [INFO] Lecteurs activés
+2026-09-10T14:35:48.079Z [INFO] 💵 Billet inséré: 50€ | Total payé: 50€ / dû: 10€
+2026-09-10T14:35:48.624Z [INFO] 💶 Rendu à effectuer: 40€
+2026-09-10T14:35:48.625Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 40€ -> 4x10€ + 0€ en pièces
+2026-09-10T14:35:48.626Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 4 billet(s) de 10€
+2026-09-10T14:35:48.626Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T14:35:48.626Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T14:35:50.168Z [INFO] Fonction handlePayoutRequest :⏳ Début du rendu de 4 billet(s)...
+2026-09-10T14:35:50.491Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T14:35:54.737Z [INFO] ✅ Note 1/4 dispensed
+2026-09-10T14:35:54.976Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:35:59.807Z [INFO] ✅ Note 2/4 dispensed
+2026-09-10T14:36:00.044Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:36:06.869Z [INFO] ✅ Note 3/4 dispensed
+2026-09-10T14:36:07.107Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:36:12.307Z [INFO] ✅ Note 4/4 dispensed
+2026-09-10T14:36:12.518Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T14:36:13.363Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:36:18.842Z [INFO] Lecteurs désactivés
+2026-09-10T14:36:37.175Z [INFO] Lecteurs désactivés
+2026-09-10T14:42:09.512Z [INFO] Lecteurs désactivés
+2026-09-10T14:42:12.168Z [INFO] Lecteurs désactivés
+2026-09-10T14:42:40.688Z [INFO] Lecteurs désactivés
+2026-09-10T14:43:35.110Z [INFO] Lecteurs activés
+2026-09-10T14:44:18.613Z [INFO] Lecteurs désactivés
+2026-09-10T14:45:21.678Z [INFO] Lecteurs activés
+2026-09-10T14:45:27.587Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T14:45:28.552Z [INFO] ✅ Paiement exact, aucun rendu.
+2026-09-10T14:45:34.160Z [INFO] Lecteurs désactivés
+2026-09-10T14:46:35.626Z [INFO] Lecteurs activés
+2026-09-10T14:46:41.616Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T14:46:42.479Z [INFO] ✅ Paiement exact, aucun rendu.
+2026-09-10T14:46:48.267Z [INFO] Lecteurs désactivés
+2026-09-10T14:47:37.400Z [INFO] Lecteurs activés
+2026-09-10T14:47:46.452Z [INFO] 💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€
+2026-09-10T14:47:47.091Z [INFO] 💶 Rendu à effectuer: 30€
+2026-09-10T14:47:47.091Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces
+2026-09-10T14:47:47.091Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€
+2026-09-10T14:47:47.091Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T14:47:47.091Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T14:47:48.636Z [INFO] Fonction handlePayoutRequest :⏳ Début du rendu de 3 billet(s)...
+2026-09-10T14:47:48.960Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T14:47:53.378Z [INFO] ✅ Note 1/3 dispensed
+2026-09-10T14:47:53.748Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:47:58.649Z [INFO] ✅ Note 2/3 dispensed
+2026-09-10T14:47:59.089Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:48:03.812Z [INFO] ✅ Note 3/3 dispensed
+2026-09-10T14:48:04.023Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T14:48:04.453Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T14:48:10.516Z [INFO] Lecteurs désactivés
+2026-09-10T14:54:41.688Z [INFO] Lecteurs activés
+2026-09-10T14:54:47.754Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T14:54:48.513Z [INFO] ✅ Paiement exact, aucun rendu.
+2026-09-10T14:54:54.643Z [INFO] Lecteurs désactivés
+2026-09-10T14:55:27.699Z [INFO] Lecteurs activés
+2026-09-10T14:55:34.517Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T14:55:35.480Z [INFO] ✅ Paiement exact, aucun rendu.
+2026-09-10T14:55:41.141Z [INFO] Lecteurs désactivés
+2026-09-10T14:57:15.077Z [INFO] Lecteurs activés
+2026-09-10T14:57:17.803Z [INFO] Lecteurs désactivés
+2026-09-10T14:57:19.113Z [INFO] Lecteurs désactivés
+2026-09-10T14:57:22.420Z [INFO] Lecteurs activés
+2026-09-10T14:57:27.672Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T14:57:28.943Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T14:57:28.943Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T14:57:28.943Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T14:57:29.319Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-10T14:57:30.391Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-10T14:57:30.783Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-10T14:57:31.256Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":4,"value":200,"country_code":"EUR"}}
+2026-09-10T14:57:32.049Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-10T14:57:32.049Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T14:57:37.173Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:08.143Z [INFO] 
+🧹 Fermeture propre...
+2026-09-10T15:18:10.699Z [INFO] Serveur démarré
+2026-09-10T15:18:30.600Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:31.799Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:32.950Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:35.478Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:36.442Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:37.367Z [INFO] Lecteurs désactivés
+2026-09-10T15:18:51.873Z [INFO] Lecteurs activés
+2026-09-10T15:18:59.033Z [INFO] 💵 Billet inséré: 50€ | Total payé: 50€ / dû: 20€
+2026-09-10T15:18:59.786Z [INFO] 💶 Rendu à effectuer: 30€
+2026-09-10T15:18:59.787Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces
+2026-09-10T15:18:59.787Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€
+2026-09-10T15:18:59.787Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T15:18:59.788Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T15:19:01.323Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 3 billet(s)...
+2026-09-10T15:19:01.641Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T15:19:05.924Z [INFO] ✅ Note 1/3 dispensed
+2026-09-10T15:19:06.516Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T15:19:11.753Z [INFO] ✅ Note 2/3 dispensed
+2026-09-10T15:19:11.998Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T15:19:17.106Z [INFO] ✅ Note 3/3 dispensed
+2026-09-10T15:19:17.528Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T15:19:17.867Z [INFO] 📦 Slots NV11 après rendu : utilisés=3, restants=27
+2026-09-10T15:19:18.157Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T15:19:23.866Z [INFO] Lecteurs désactivés
+2026-09-10T15:20:12.769Z [INFO] Lecteurs activés
+2026-09-10T15:20:22.849Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 22€
+2026-09-10T15:20:30.841Z [INFO] 💵 Billet inséré: 10€ | Total payé: 20€ / dû: 22€
+2026-09-10T15:20:36.004Z [INFO] 💵 Billet inséré: 10€ | Total payé: 30€ / dû: 22€
+2026-09-10T15:20:36.546Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T15:20:36.547Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T15:20:36.547Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T15:20:36.931Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-10T15:20:37.988Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-10T15:20:38.378Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-10T15:20:38.853Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":0,"value":200,"country_code":"EUR"}}
+2026-09-10T15:20:39.079Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-10T15:20:39.080Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T15:20:44.770Z [INFO] Lecteurs désactivés
+2026-09-10T15:21:12.821Z [INFO] Lecteurs activés
+2026-09-10T15:21:15.705Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T15:21:15.706Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T15:21:15.708Z [INFO] 💰 Total payé: 2.00€ / dû: 10€
+2026-09-10T15:21:17.624Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T15:21:17.624Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T15:21:17.625Z [INFO] 💰 Total payé: 4.00€ / dû: 10€
+2026-09-10T15:21:19.383Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T15:21:19.383Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T15:21:19.384Z [INFO] 💰 Total payé: 6.00€ / dû: 10€
+2026-09-10T15:21:21.303Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T15:21:21.304Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T15:21:21.305Z [INFO] 💰 Total payé: 8.00€ / dû: 10€
+2026-09-10T15:21:23.223Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T15:21:23.223Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T15:21:23.224Z [INFO] 💰 Total payé: 10.00€ / dû: 10€
+2026-09-10T15:21:29.782Z [INFO] Lecteurs désactivés
+2026-09-10T17:02:06.173Z [INFO] Serveur démarré
+2026-09-10T17:02:12.525Z [INFO] Lecteurs désactivés
+2026-09-10T17:03:04.497Z [INFO] Lecteurs activés
+2026-09-10T17:03:10.403Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 20€
+2026-09-10T17:03:15.051Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 10€ -> 1x10€ + 0€ en pièces
+2026-09-10T17:03:15.051Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€
+2026-09-10T17:03:15.051Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T17:03:15.052Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T17:03:16.671Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 1 billet(s)...
+2026-09-10T17:03:16.989Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T17:03:21.325Z [INFO] ✅ Note 1/1 dispensed
+2026-09-10T17:03:21.854Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:03:21.930Z [INFO] Lecteurs désactivés
+2026-09-10T17:03:21.981Z [INFO] 📦 Slots NV11 après rendu : utilisés=6, restants=24
+2026-09-10T17:03:22.086Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T17:04:32.581Z [INFO] Lecteurs désactivés
+2026-09-10T17:08:26.259Z [INFO] 
+🧹 Fermeture propre...
+2026-09-10T17:26:26.447Z [INFO] Serveur démarré
+2026-09-10T17:51:57.122Z [INFO] Lecteurs désactivés
+2026-09-10T17:54:57.282Z [INFO] Lecteurs désactivés
+2026-09-10T17:55:04.223Z [INFO] Lecteurs désactivés
+2026-09-10T17:55:05.487Z [INFO] Lecteurs désactivés
+2026-09-10T17:55:55.635Z [INFO] Lecteurs désactivés
+2026-09-10T17:56:41.641Z [INFO] Lecteurs activés
+2026-09-10T17:56:47.091Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T17:56:47.638Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T17:56:47.639Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T17:56:47.639Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T17:56:48.054Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-10T17:56:49.286Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-10T17:56:49.687Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-10T17:56:50.150Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":1,"value":200,"country_code":"EUR"}}
+2026-09-10T17:56:50.699Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-10T17:56:50.700Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T17:56:56.067Z [INFO] Lecteurs désactivés
+2026-09-10T17:57:03.996Z [INFO] Lecteurs activés
+2026-09-10T17:57:06.855Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T17:57:07.399Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T17:57:07.400Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T17:57:07.400Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T17:57:15.988Z [INFO] 💵 Billet inséré: 10€ | Total payé: 20€ / dû: 2€
+2026-09-10T17:57:17.052Z [INFO] 💶 Rendu à effectuer: 18€
+2026-09-10T17:57:17.052Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 18€ -> 1x10€ + 8€ en pièces
+2026-09-10T17:57:17.052Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€
+2026-09-10T17:57:17.053Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T17:57:17.053Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T17:57:18.590Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 1 billet(s)...
+2026-09-10T17:57:18.909Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T17:57:22.882Z [INFO] ✅ Note 1/1 dispensed
+2026-09-10T17:57:23.127Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:57:23.427Z [INFO] 📦 Slots NV11 après rendu : utilisés=8, restants=22
+2026-09-10T17:57:23.720Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T17:57:50.549Z [INFO] Lecteurs désactivés
+2026-09-10T17:57:53.606Z [INFO] Lecteurs activés
+2026-09-10T17:57:56.483Z [INFO] Lecteurs désactivés
+2026-09-10T17:57:57.970Z [INFO] Lecteurs désactivés
+2026-09-10T17:58:00.662Z [INFO] Lecteurs activés
+2026-09-10T17:58:06.188Z [INFO] 💵 Billet inséré: 10€ | Total payé: 30€ / dû: 2€
+2026-09-10T17:58:06.729Z [INFO] 💶 Rendu à effectuer: 28€
+2026-09-10T17:58:06.729Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 28€ -> 2x10€ + 8€ en pièces
+2026-09-10T17:58:06.729Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 2 billet(s) de 10€
+2026-09-10T17:58:06.729Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T17:58:06.730Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T17:58:08.280Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 2 billet(s)...
+2026-09-10T17:58:08.600Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T17:58:12.455Z [INFO] ✅ Note 1/2 dispensed
+2026-09-10T17:58:12.746Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:58:17.876Z [INFO] ✅ Note 2/2 dispensed
+2026-09-10T17:58:18.128Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:58:18.419Z [INFO] 📦 Slots NV11 après rendu : utilisés=7, restants=23
+2026-09-10T17:58:18.709Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T17:58:51.203Z [INFO] Lecteurs désactivés
+2026-09-10T17:58:52.274Z [INFO] Lecteurs désactivés
+2026-09-10T17:58:57.419Z [INFO] Lecteurs activés
+2026-09-10T17:59:00.944Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T17:59:00.945Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T17:59:00.948Z [INFO] 💰 Total payé: 32.00€ / dû: 2€
+2026-09-10T17:59:00.948Z [INFO] 💶 Rendu à effectuer: 30€
+2026-09-10T17:59:00.948Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 30€ -> 3x10€ + 0€ en pièces
+2026-09-10T17:59:00.948Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 3 billet(s) de 10€
+2026-09-10T17:59:00.948Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T17:59:00.949Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T17:59:02.527Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 3 billet(s)...
+2026-09-10T17:59:02.895Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T17:59:06.655Z [INFO] ✅ Note 1/3 dispensed
+2026-09-10T17:59:06.879Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:59:07.661Z [INFO] Lecteurs désactivés
+2026-09-10T17:59:24.041Z [INFO] Lecteurs désactivés
+2026-09-10T17:59:25.704Z [INFO] Lecteurs désactivés
+2026-09-10T17:59:26.376Z [INFO] Lecteurs désactivés
+2026-09-10T17:59:49.073Z [INFO] Lecteurs désactivés
+2026-09-10T17:59:51.818Z [INFO] Lecteurs activés
+2026-09-10T17:59:52.031Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":65536474}
+2026-09-10T17:59:52.032Z [INFO] ✅ Note 2/3 dispensed
+2026-09-10T17:59:52.256Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:59:57.452Z [INFO] ✅ Note 3/3 dispensed
+2026-09-10T17:59:57.694Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T17:59:57.998Z [INFO] 📦 Slots NV11 après rendu : utilisés=4, restants=26
+2026-09-10T17:59:58.285Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T18:00:12.139Z [INFO] Lecteurs désactivés
+2026-09-10T18:00:13.273Z [INFO] Lecteurs activés
+2026-09-10T18:00:24.262Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T18:00:24.910Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T18:00:24.910Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T18:00:24.910Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T18:00:36.626Z [INFO] Lecteurs désactivés
+2026-09-10T18:00:37.410Z [INFO] Lecteurs désactivés
+2026-09-10T18:05:09.669Z [INFO] Serveur démarré
+2026-09-10T18:07:26.557Z [INFO] Serveur démarré
+2026-09-10T18:07:36.400Z [INFO] Lecteurs désactivés
+2026-09-10T18:07:37.953Z [INFO] Lecteurs désactivés
+2026-09-10T18:07:46.560Z [INFO] Lecteurs activés
+2026-09-10T18:07:54.552Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-10T18:07:55.230Z [INFO] ✅ Paiement exact, aucun rendu.
+2026-09-10T18:08:01.118Z [INFO] Lecteurs désactivés
+2026-09-10T18:10:29.437Z [INFO] Serveur démarré
+2026-09-10T18:10:36.671Z [INFO] Lecteurs désactivés
+2026-09-10T18:10:38.349Z [INFO] Lecteurs désactivés
+2026-09-10T18:15:18.541Z [INFO] Serveur démarré
+2026-09-10T18:18:12.471Z [INFO] Lecteurs désactivés
+2026-09-10T18:18:14.151Z [INFO] Lecteurs désactivés
+2026-09-10T18:18:40.256Z [INFO] Lecteurs désactivés
+2026-09-10T18:18:41.552Z [INFO] Lecteurs désactivés
+2026-09-10T18:18:42.463Z [INFO] Lecteurs désactivés
+2026-09-10T18:24:48.015Z [INFO] Serveur démarré
+2026-09-10T18:24:50.565Z [INFO] Lecteurs désactivés
+2026-09-10T18:24:51.232Z [INFO] Lecteurs désactivés
+2026-09-10T18:29:12.123Z [INFO] Serveur démarré
+2026-09-10T18:29:15.192Z [INFO] Lecteurs désactivés
+2026-09-10T18:29:31.977Z [INFO] Lecteurs activés
+2026-09-10T18:29:42.688Z [INFO] Lecteurs désactivés
+2026-09-10T18:30:55.948Z [INFO] Lecteurs activés
+2026-09-10T18:30:58.989Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T18:30:58.990Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T18:30:58.993Z [INFO] 💰 Total payé: 2.00€ / dû: 13€
+2026-09-10T18:31:00.908Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T18:31:00.908Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T18:31:00.910Z [INFO] 💰 Total payé: 4.00€ / dû: 13€
+2026-09-10T18:31:02.508Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T18:31:02.509Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T18:31:02.510Z [INFO] 💰 Total payé: 6.00€ / dû: 13€
+2026-09-10T18:31:04.268Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T18:31:04.268Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T18:31:04.269Z [INFO] 💰 Total payé: 8.00€ / dû: 13€
+2026-09-10T18:31:08.267Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T18:31:08.267Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T18:31:08.268Z [INFO] 💰 Total payé: 10.00€ / dû: 13€
+2026-09-10T18:31:11.626Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-10T18:31:11.627Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-10T18:31:11.628Z [INFO] 💰 Total payé: 12.00€ / dû: 13€
+2026-09-10T18:31:18.985Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 12€ -> 1x10€ + 2€ en pièces
+2026-09-10T18:31:18.985Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€
+2026-09-10T18:31:18.985Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T18:31:18.985Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 2€ (200 cts) en pièces...
+2026-09-10T18:31:19.480Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-10T18:31:20.184Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}
+2026-09-10T18:31:20.413Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-10T18:31:20.601Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 1 billet(s)...
+2026-09-10T18:31:20.872Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":7,"value":200,"country_code":"EUR"}}
+2026-09-10T18:31:21.103Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-10T18:31:21.104Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T18:31:25.412Z [INFO] ✅ Note 1/1 dispensed
+2026-09-10T18:31:25.674Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T18:31:25.800Z [INFO] 📦 Slots NV11 après rendu : utilisés=4, restants=26
+2026-09-10T18:31:25.991Z [INFO] Lecteurs désactivés
+2026-09-10T18:31:26.038Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T18:31:53.593Z [INFO] Lecteurs activés
+2026-09-10T18:31:59.299Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T18:31:59.841Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T18:31:59.841Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T18:31:59.841Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T18:32:00.333Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-10T18:32:01.388Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-10T18:32:01.819Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-10T18:32:02.253Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":3,"value":200,"country_code":"EUR"}}
+2026-09-10T18:32:02.812Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-10T18:32:02.812Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-10T18:32:08.011Z [INFO] Lecteurs désactivés
+2026-09-10T18:36:20.559Z [INFO] Lecteurs activés
+2026-09-10T18:36:26.012Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T18:36:26.558Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T18:36:26.558Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T18:36:26.558Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T18:38:00.057Z [INFO] Lecteurs désactivés
+2026-09-10T18:38:06.086Z [INFO] Lecteurs désactivés
+2026-09-10T18:38:07.861Z [INFO] Lecteurs désactivés
+2026-09-10T18:38:17.095Z [INFO] Lecteurs activés
+2026-09-10T18:38:22.578Z [INFO] 💵 Billet inséré: 10€ | Total payé: 20€ / dû: 2€
+2026-09-10T18:38:23.121Z [INFO] 💶 Rendu à effectuer: 18€
+2026-09-10T18:38:23.121Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 18€ -> 1x10€ + 8€ en pièces
+2026-09-10T18:38:23.121Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€
+2026-09-10T18:38:23.121Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-10T18:38:23.121Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T18:38:24.669Z [INFO] Fonction handlePayoutRequest : ⏳ Début du rendu de 1 billet(s)...
+2026-09-10T18:38:24.986Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-10T18:38:28.956Z [INFO] ✅ Note 1/1 dispensed
+2026-09-10T18:38:29.380Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-10T18:38:29.709Z [INFO] 📦 Slots NV11 après rendu : utilisés=6, restants=24
+2026-09-10T18:38:29.999Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-10T18:38:37.725Z [INFO] Lecteurs désactivés
+2026-09-10T18:39:35.128Z [INFO] Serveur démarré
+2026-09-10T18:39:37.996Z [INFO] Lecteurs désactivés
+2026-09-10T18:39:52.509Z [INFO] Lecteurs activés
+2026-09-10T18:40:01.309Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-10T18:40:01.851Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-10T18:40:01.851Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-10T18:40:01.852Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-10T18:40:29.220Z [INFO] Lecteurs désactivés
+2026-09-10T18:41:22.185Z [INFO] Lecteurs activés
+2026-09-10T18:43:02.102Z [INFO] Serveur démarré
+2026-09-10T18:43:04.905Z [INFO] Lecteurs désactivés
+2026-09-12T07:06:50.338Z [INFO] Serveur démarré
+2026-09-12T07:06:59.122Z [INFO] Lecteurs désactivés
+2026-09-12T07:07:01.971Z [INFO] Lecteurs désactivés
+2026-09-12T07:07:12.464Z [INFO] Lecteurs activés
+2026-09-12T07:07:20.679Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 10€
+2026-09-12T07:07:21.439Z [INFO] ✅ Paiement exact, aucun rendu.
+2026-09-12T07:07:27.364Z [INFO] Lecteurs désactivés
+2026-09-12T07:29:23.071Z [INFO] Serveur démarré
+2026-09-12T07:29:43.796Z [INFO] Lecteurs désactivés
+2026-09-12T07:29:45.284Z [INFO] Lecteurs désactivés
+2026-09-12T07:29:55.311Z [INFO] Lecteurs activés
+2026-09-12T07:29:57.394Z [INFO] Lecteurs désactivés
+2026-09-12T07:29:58.464Z [INFO] Lecteurs désactivés
+2026-09-12T07:30:01.170Z [INFO] Lecteurs activés
+2026-09-12T07:30:06.790Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-12T07:30:07.331Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-12T07:30:07.332Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-12T07:30:07.332Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-12T07:30:31.747Z [INFO] 
+🧹 Fermeture propre...
+2026-09-12T07:47:17.355Z [INFO] Serveur démarré
+2026-09-12T07:47:58.311Z [INFO] Lecteurs désactivés
+2026-09-12T07:47:59.669Z [INFO] Lecteurs désactivés
+2026-09-12T07:48:07.829Z [INFO] Lecteurs activés
+2026-09-12T07:48:13.096Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-12T07:48:13.834Z [INFO] Rendu à effectuer: 8€
+2026-09-12T07:48:13.835Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-12T07:48:13.835Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-12T07:48:14.289Z [ERROR] Stock pièces insuffisant: 600/800 cts dispo, manque 200 cts
+2026-09-12T07:48:14.291Z [INFO] Hopper : rendu 6€ (600 cts) en pièces...
+2026-09-12T07:48:14.786Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-12T07:48:16.194Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":600,"currency":"EUR"}}
+2026-09-12T07:48:17.702Z [INFO] Rendu mixte terminé
+2026-09-12T07:48:42.971Z [INFO] Lecteurs désactivés
+2026-09-12T15:59:16.139Z [INFO] Serveur démarré
+2026-09-12T15:59:21.855Z [INFO] Lecteurs désactivés
+2026-09-12T16:02:06.127Z [INFO] Lecteurs activés
+2026-09-12T16:02:08.526Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:08.527Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:08.530Z [INFO] Total payé: 2.00€ / dû: 20€
+2026-09-12T16:02:10.444Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:10.444Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:10.446Z [INFO] Total payé: 4.00€ / dû: 20€
+2026-09-12T16:02:12.045Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:12.045Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:12.046Z [INFO] Total payé: 6.00€ / dû: 20€
+2026-09-12T16:02:14.603Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:14.603Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:14.604Z [INFO] Total payé: 8.00€ / dû: 20€
+2026-09-12T16:02:16.683Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:16.683Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:16.684Z [INFO] Total payé: 10.00€ / dû: 20€
+2026-09-12T16:02:19.083Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:19.083Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:19.085Z [INFO] Total payé: 12.00€ / dû: 20€
+2026-09-12T16:02:21.162Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:21.162Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:21.163Z [INFO] Total payé: 14.00€ / dû: 20€
+2026-09-12T16:02:28.040Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:28.041Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:28.042Z [INFO] Total payé: 16.00€ / dû: 20€
+2026-09-12T16:02:35.559Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:02:35.560Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:02:35.561Z [INFO] Total payé: 18.00€ / dû: 20€
+2026-09-12T16:02:42.437Z [INFO] Lecteurs désactivés
+2026-09-12T16:02:55.938Z [INFO] Lecteurs activés
+2026-09-12T16:03:03.513Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-12T16:03:04.036Z [INFO] Rendu à effectuer: 8€
+2026-09-12T16:03:04.036Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-12T16:03:04.037Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-12T16:03:04.464Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-12T16:03:04.961Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-12T16:03:07.775Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-12T16:03:10.042Z [INFO] Rendu mixte terminé
+2026-09-12T16:03:14.397Z [INFO] Lecteurs désactivés
+2026-09-12T16:03:43.397Z [INFO] Lecteurs activés
+2026-09-12T16:03:45.956Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:45.956Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:45.958Z [INFO] Total payé: 2.00€ / dû: 30€
+2026-09-12T16:03:48.515Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:48.515Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:48.516Z [INFO] Total payé: 4.00€ / dû: 30€
+2026-09-12T16:03:50.914Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:50.914Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:50.915Z [INFO] Total payé: 6.00€ / dû: 30€
+2026-09-12T16:03:52.994Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:52.994Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:52.995Z [INFO] Total payé: 8.00€ / dû: 30€
+2026-09-12T16:03:55.075Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:55.075Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:55.077Z [INFO] Total payé: 10.00€ / dû: 30€
+2026-09-12T16:03:57.152Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:57.152Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:57.153Z [INFO] Total payé: 12.00€ / dû: 30€
+2026-09-12T16:03:59.392Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:03:59.392Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:03:59.392Z [INFO] Total payé: 14.00€ / dû: 30€
+2026-09-12T16:04:01.632Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:01.632Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:01.633Z [INFO] Total payé: 16.00€ / dû: 30€
+2026-09-12T16:04:03.711Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:03.711Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:03.712Z [INFO] Total payé: 18.00€ / dû: 30€
+2026-09-12T16:04:05.789Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:05.789Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:05.790Z [INFO] Total payé: 20.00€ / dû: 30€
+2026-09-12T16:04:07.710Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:07.710Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:07.710Z [INFO] Total payé: 22.00€ / dû: 30€
+2026-09-12T16:04:09.789Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:09.789Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:09.790Z [INFO] Total payé: 24.00€ / dû: 30€
+2026-09-12T16:04:11.868Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:11.868Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:11.869Z [INFO] Total payé: 26.00€ / dû: 30€
+2026-09-12T16:04:14.748Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:04:14.748Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:04:14.749Z [INFO] Total payé: 28.00€ / dû: 30€
+2026-09-12T16:04:25.626Z [INFO] Rendu demandé 28€ -> 2x10€ + 8€ en pièces
+2026-09-12T16:04:25.857Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-12T16:04:25.857Z [INFO] Rendu effectif: 2x10€ + 8€ en pièces
+2026-09-12T16:04:26.329Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-12T16:04:26.483Z [INFO] Début du rendu de 2 billet(s)...
+2026-09-12T16:04:26.801Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-12T16:04:26.803Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-12T16:04:28.760Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-12T16:04:31.501Z [INFO] Note 1/2 dispensed
+2026-09-12T16:04:32.763Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-12T16:04:36.874Z [INFO] Note 2/2 dispensed
+2026-09-12T16:04:37.086Z [INFO] Payout terminé. Validator désactivé
+2026-09-12T16:04:37.086Z [INFO] Rendu mixte terminé
+2026-09-12T16:04:37.446Z [INFO] Lecteurs désactivés
+2026-09-12T16:05:07.104Z [INFO] Lecteurs activés
+2026-09-12T16:05:12.596Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-12T16:05:13.118Z [INFO] Rendu à effectuer: 8€
+2026-09-12T16:05:13.118Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-12T16:05:13.118Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-12T16:05:13.547Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-12T16:05:14.043Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-12T16:05:15.277Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-12T16:05:16.884Z [INFO] Rendu mixte terminé
+2026-09-12T16:05:21.882Z [INFO] Lecteurs désactivés
+2026-09-12T16:05:27.242Z [INFO] Lecteurs activés
+2026-09-12T16:05:32.833Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-12T16:05:33.357Z [INFO] Rendu à effectuer: 8€
+2026-09-12T16:05:33.358Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-12T16:05:33.358Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-12T16:05:33.847Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-12T16:05:34.343Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-12T16:05:36.279Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-12T16:05:37.834Z [INFO] Rendu mixte terminé
+2026-09-12T16:05:42.885Z [INFO] Lecteurs désactivés
+2026-09-12T16:06:11.518Z [INFO] Lecteurs activés
+2026-09-12T16:06:13.916Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:13.916Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:13.918Z [INFO] Total payé: 2.00€ / dû: 20€
+2026-09-12T16:06:15.835Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:15.835Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:15.836Z [INFO] Total payé: 4.00€ / dû: 20€
+2026-09-12T16:06:18.875Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:18.875Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:18.876Z [INFO] Total payé: 6.00€ / dû: 20€
+2026-09-12T16:06:21.115Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:21.115Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:21.116Z [INFO] Total payé: 8.00€ / dû: 20€
+2026-09-12T16:06:23.355Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:23.355Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:23.358Z [INFO] Total payé: 10.00€ / dû: 20€
+2026-09-12T16:06:24.794Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:24.794Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:24.795Z [INFO] Total payé: 12.00€ / dû: 20€
+2026-09-12T16:06:37.750Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:37.750Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:37.751Z [INFO] Total payé: 14.00€ / dû: 20€
+2026-09-12T16:06:41.588Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:41.588Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:41.589Z [INFO] Total payé: 16.00€ / dû: 20€
+2026-09-12T16:06:44.148Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:44.148Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:44.149Z [INFO] Total payé: 18.00€ / dû: 20€
+2026-09-12T16:06:46.708Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T16:06:46.708Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T16:06:46.708Z [INFO] Total payé: 20.00€ / dû: 20€
+2026-09-12T16:06:46.708Z [INFO] Paiement exact, aucun rendu.
+2026-09-12T16:06:53.266Z [INFO] Lecteurs désactivés
+2026-09-12T18:45:47.308Z [INFO] Lecteurs désactivés
+2026-09-12T18:45:54.027Z [INFO] Lecteurs activés
+2026-09-12T18:45:56.586Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T18:45:56.586Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T18:45:56.587Z [INFO] Total payé: 2.00€ / dû: 4€
+2026-09-12T18:45:59.145Z [INFO] Pièce détectée: 2.00 EUR
+2026-09-12T18:45:59.145Z [INFO] Traitement pièce: 2 EUR
+2026-09-12T18:45:59.146Z [INFO] Total payé: 4.00€ / dû: 4€
+2026-09-12T18:45:59.146Z [INFO] Paiement exact, aucun rendu.
+2026-09-12T18:46:05.864Z [INFO] Lecteurs désactivés
+2026-09-12T18:47:05.345Z [INFO] Serveur démarré
+2026-09-12T18:47:11.331Z [INFO] Lecteurs désactivés
+2026-09-13T12:53:18.629Z [INFO] Lecteurs désactivés
+2026-09-13T12:53:25.414Z [INFO] Lecteurs activés
+2026-09-13T12:53:33.360Z [INFO] Billet inséré: 50€ | Total payé: 50€ / dû: 10€
+2026-09-13T12:53:33.888Z [INFO] Rendu à effectuer: 40€
+2026-09-13T12:53:33.889Z [INFO] Rendu demandé 40€ -> 4x10€ + 0€ en pièces
+2026-09-13T12:53:34.201Z [ERROR] Stock de billets 10€ indéterminable avant rendu — tentative sans plafonnement
+2026-09-13T12:53:34.201Z [INFO] Rendu effectif: 4x10€ + 0€ en pièces
+2026-09-13T12:53:34.825Z [INFO] Début du rendu de 4 billet(s)...
+2026-09-13T12:53:35.172Z [ERROR] PAYOUT_NOTE refusée (Note float busy), retry 1/6
+2026-09-13T12:53:36.958Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-13T12:53:36.961Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":2,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-13T12:53:40.573Z [INFO] Note 1/4 dispensed
+2026-09-13T12:53:41.826Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-13T12:53:46.222Z [INFO] Note 2/4 dispensed
+2026-09-13T12:53:47.484Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-13T12:53:51.550Z [INFO] Note 3/4 dispensed
+2026-09-13T12:53:52.813Z [INFO] PAYOUT_NOTE acquittée par le NV11 {"attempt":1,"result":{"success":true,"status":"OK","command":"PAYOUT_NOTE","info":{}}}
+2026-09-13T12:53:56.783Z [INFO] Note 4/4 dispensed
+2026-09-13T12:53:56.995Z [INFO] Payout terminé. Validator désactivé
+2026-09-13T12:53:56.996Z [INFO] Rendu mixte terminé
+2026-09-13T12:54:03.426Z [INFO] Lecteurs désactivés
+2026-09-13T12:55:01.956Z [INFO] Lecteurs activés
+2026-09-13T12:55:07.744Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 12€
+2026-09-13T12:55:13.005Z [INFO] Billet inséré: 10€ | Total payé: 20€ / dû: 12€
+2026-09-13T12:55:13.531Z [INFO] Rendu à effectuer: 8€
+2026-09-13T12:55:13.531Z [INFO] Rendu demandé 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T12:55:13.531Z [INFO] Rendu effectif: 0x10€ + 8€ en pièces
+2026-09-13T12:55:14.016Z [INFO] Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T12:55:14.512Z [INFO] DISPENSING event data (Hopper) {"result":{"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}}
+2026-09-13T12:55:15.743Z [INFO] Event DISPENSED reçu (Hopper) {"data":{"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}}
+2026-09-13T12:55:17.336Z [INFO] Rendu mixte terminé
+2026-09-13T12:55:22.524Z [INFO] Lecteurs désactivés
+2026-09-13T12:55:34.905Z [INFO] Lecteurs activés
+2026-09-13T12:55:41.028Z [INFO] Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T12:55:52.034Z [ERROR] Erreur processCreditNote: timeout of 5000ms exceeded
+2026-09-13T12:57:40.153Z [INFO] Lecteurs désactivés
+2026-09-13T13:24:35.902Z [INFO] Serveur démarré
+2026-09-13T13:24:42.531Z [INFO] Lecteurs désactivés
+2026-09-13T13:25:11.301Z [INFO] Lecteurs activés
+2026-09-13T13:25:18.866Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T13:25:19.420Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-13T13:25:19.421Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T13:25:19.421Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T13:25:19.765Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T13:25:21.526Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-13T13:25:21.954Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T13:25:22.372Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":11,"value":200,"country_code":"EUR"}}
+2026-09-13T13:25:22.617Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T13:25:22.617Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T13:25:28.130Z [INFO] Lecteurs désactivés
+2026-09-13T13:25:46.144Z [INFO] Lecteurs activés
+2026-09-13T13:25:49.501Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:25:49.501Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:25:49.502Z [INFO] 💰 Total payé: 2.00€ / dû: 16€
+2026-09-13T13:25:51.581Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:25:51.581Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:25:51.583Z [INFO] 💰 Total payé: 4.00€ / dû: 16€
+2026-09-13T13:25:53.978Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:25:53.979Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:25:53.980Z [INFO] 💰 Total payé: 6.00€ / dû: 16€
+2026-09-13T13:25:56.698Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:25:56.698Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:25:56.699Z [INFO] 💰 Total payé: 8.00€ / dû: 16€
+2026-09-13T13:25:59.097Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:25:59.097Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:25:59.098Z [INFO] 💰 Total payé: 10.00€ / dû: 16€
+2026-09-13T13:26:25.958Z [INFO] Serveur démarré
+2026-09-13T13:26:51.616Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 14€ -> 1x10€ + 4€ en pièces
+2026-09-13T13:26:51.616Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€
+2026-09-13T13:26:51.616Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-13T13:26:51.617Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 4€ (400 cts) en pièces...
+2026-09-13T13:26:51.792Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:26:51.792Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:26:51.795Z [INFO] 💰 Total payé: 2.00€ / dû: null€
+2026-09-13T13:26:51.795Z [INFO] 💶 Rendu à effectuer: 2€
+2026-09-13T13:26:51.795Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 2€ -> 0x10€ + 2€ en pièces
+2026-09-13T13:26:51.795Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 2€ (200 cts) en pièces...
+2026-09-13T13:26:51.796Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:26:51.796Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:26:51.797Z [INFO] 💰 Total payé: 4.00€ / dû: null€
+2026-09-13T13:26:51.797Z [INFO] 💶 Rendu à effectuer: 4€
+2026-09-13T13:26:51.797Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 4€ -> 0x10€ + 4€ en pièces
+2026-09-13T13:26:51.797Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 4€ (400 cts) en pièces...
+2026-09-13T13:26:52.128Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T13:26:53.008Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}
+2026-09-13T13:26:53.010Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}
+2026-09-13T13:26:53.011Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":200,"currency":"EUR"}
+2026-09-13T13:26:53.246Z [INFO] Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)...
+2026-09-13T13:26:53.252Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T13:26:53.317Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T13:26:53.522Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T13:26:53.535Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":17,"value":200,"country_code":"EUR"}}
+2026-09-13T13:26:53.752Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T13:26:53.752Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T13:26:58.845Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":17,"value":200,"country_code":"EUR"}}
+2026-09-13T13:26:59.092Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T13:26:59.092Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T13:27:05.160Z [INFO] ✅ Note 1/1 dispensed
+2026-09-13T13:27:05.372Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-13T13:27:36.401Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":17,"value":200,"country_code":"EUR"}}
+2026-09-13T13:27:36.403Z [INFO] Lecteurs désactivés
+2026-09-13T13:27:36.881Z [INFO] Lecteurs désactivés
+2026-09-13T13:27:37.436Z [ERROR] Fonction handleRenduMixte :⚠️ Erreur dans onDispensed:
+2026-09-13T13:28:41.893Z [INFO] Lecteurs activés
+2026-09-13T13:28:44.764Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:28:44.765Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:28:44.766Z [INFO] 💰 Total payé: 2.00€ / dû: 2€
+2026-09-13T13:28:51.324Z [INFO] Lecteurs désactivés
+2026-09-13T13:29:10.382Z [INFO] Lecteurs activés
+2026-09-13T13:29:22.150Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T13:29:57.573Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T13:29:57.574Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T13:29:57.575Z [INFO] 💰 Total payé: 12.00€ / dû: 2€
+2026-09-13T13:29:57.575Z [INFO] 💶 Rendu à effectuer: 10€
+2026-09-13T13:29:57.575Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 10€ -> 1x10€ + 0€ en pièces
+2026-09-13T13:29:57.575Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 1 billet(s) de 10€
+2026-09-13T13:29:57.575Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-13T13:29:57.575Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T13:29:59.106Z [INFO] Fonction handlePayoutRequest :⏳ Début du rendu de 1 billet(s)...
+2026-09-13T13:29:59.423Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-13T13:30:03.442Z [INFO] ✅ Note 1/1 dispensed
+2026-09-13T13:30:03.652Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-13T13:30:03.670Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-13T13:31:15.792Z [INFO] Lecteurs désactivés
+2026-09-13T14:41:03.430Z [INFO] Lecteurs désactivés
+2026-09-13T14:41:23.635Z [INFO] Lecteurs activés
+2026-09-13T14:41:29.318Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T14:41:29.964Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-13T14:41:29.964Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T14:41:29.964Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T14:41:30.366Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T14:41:31.773Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-13T14:41:32.530Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T14:41:32.958Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":15,"value":200,"country_code":"EUR"}}
+2026-09-13T14:41:33.332Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T14:41:33.332Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T14:41:38.396Z [INFO] Lecteurs désactivés
+2026-09-13T14:42:02.355Z [INFO] Lecteurs activés
+2026-09-13T14:42:13.216Z [INFO] 💵 Billet inséré: 50€ | Total payé: 50€ / dû: 10€
+2026-09-13T14:42:13.964Z [INFO] 💶 Rendu à effectuer: 40€
+2026-09-13T14:42:13.964Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 40€ -> 4x10€ + 0€ en pièces
+2026-09-13T14:42:13.964Z [INFO] Fonction handleRenduMixte 2:🧾 NV11 : rendu 4 billet(s) de 10€
+2026-09-13T14:42:13.964Z [INFO] Fonction handleRenduMixte 3:⌛ Commande de rendu billets programmée dans 1s...
+2026-09-13T14:42:13.964Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T14:42:15.505Z [INFO] Fonction handlePayoutRequest :⏳ Début du rendu de 4 billet(s)...
+2026-09-13T14:42:15.880Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-13T14:42:19.849Z [INFO] ✅ Note 1/4 dispensed
+2026-09-13T14:42:20.260Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-13T14:42:21.163Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-13T14:42:25.065Z [INFO] ✅ Note 2/4 dispensed
+2026-09-13T14:42:25.619Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-13T14:42:26.373Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-13T14:42:30.337Z [INFO] ✅ Note 3/4 dispensed
+2026-09-13T14:42:30.870Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-13T14:42:31.596Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":474}
+2026-09-13T14:42:35.482Z [INFO] ✅ Note 4/4 dispensed
+2026-09-13T14:42:35.692Z [INFO] Fonction handlePayoutRequest : ✅ Payout terminé. Validator désactivé
+2026-09-13T14:42:36.218Z [INFO] Fonction handlePayoutRequest : 📨 Débit enregistré dans le serveur
+2026-09-13T14:42:42.506Z [INFO] Lecteurs désactivés
+2026-09-13T14:42:54.427Z [INFO] Lecteurs activés
+2026-09-13T14:43:02.068Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T14:43:02.716Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-13T14:43:02.716Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T14:43:02.716Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T14:43:03.074Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T14:43:04.306Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-13T14:43:05.041Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T14:43:05.474Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":11,"value":200,"country_code":"EUR"}}
+2026-09-13T14:43:05.921Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T14:43:05.921Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T14:43:10.912Z [INFO] Lecteurs désactivés
+2026-09-13T14:43:39.351Z [INFO] Lecteurs activés
+2026-09-13T14:43:42.230Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:42.230Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:42.231Z [INFO] 💰 Total payé: 2.00€ / dû: 16€
+2026-09-13T14:43:44.470Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:44.470Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:44.471Z [INFO] 💰 Total payé: 4.00€ / dû: 16€
+2026-09-13T14:43:46.549Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:46.549Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:46.549Z [INFO] 💰 Total payé: 6.00€ / dû: 16€
+2026-09-13T14:43:48.469Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:48.469Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:48.469Z [INFO] 💰 Total payé: 8.00€ / dû: 16€
+2026-09-13T14:43:50.388Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:50.388Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:50.388Z [INFO] 💰 Total payé: 10.00€ / dû: 16€
+2026-09-13T14:43:52.467Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:52.467Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:52.468Z [INFO] 💰 Total payé: 12.00€ / dû: 16€
+2026-09-13T14:43:55.510Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:55.510Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:55.511Z [INFO] 💰 Total payé: 14.00€ / dû: 16€
+2026-09-13T14:43:57.746Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:43:57.747Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:43:57.747Z [INFO] 💰 Total payé: 16.00€ / dû: 16€
+2026-09-13T14:44:04.304Z [INFO] Lecteurs désactivés
+2026-09-13T14:44:36.721Z [INFO] Lecteurs activés
+2026-09-13T14:44:42.591Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T14:44:43.336Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-13T14:44:43.337Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T14:44:43.337Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T14:44:43.779Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T14:44:45.203Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-13T14:44:46.008Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T14:44:46.532Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":15,"value":200,"country_code":"EUR"}}
+2026-09-13T14:44:46.929Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T14:44:46.930Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T14:44:51.810Z [INFO] Lecteurs désactivés
+2026-09-13T14:44:54.382Z [INFO] Lecteurs activés
+2026-09-13T14:45:07.453Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T14:45:08.205Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-13T14:45:08.205Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T14:45:08.205Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T14:45:08.636Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T14:45:10.572Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-13T14:45:11.451Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T14:45:11.916Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":11,"value":200,"country_code":"EUR"}}
+2026-09-13T14:45:12.369Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T14:45:12.369Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T14:45:17.354Z [INFO] Lecteurs désactivés
+2026-09-13T14:45:20.009Z [INFO] Lecteurs activés
+2026-09-13T14:45:25.747Z [INFO] 💵 Billet inséré: 10€ | Total payé: 10€ / dû: 2€
+2026-09-13T14:45:26.522Z [INFO] 💶 Rendu à effectuer: 8€
+2026-09-13T14:45:26.522Z [INFO] Fonction handleRenduMixte 1: 💶 Rendu total 8€ -> 0x10€ + 8€ en pièces
+2026-09-13T14:45:26.522Z [INFO] Fonction handleRenduMixte 4:🪙 Hopper : rendu 8€ (800 cts) en pièces...
+2026-09-13T14:45:26.902Z [INFO] DISPENSING event data: {"code":218,"name":"DISPENSING","description":"The device is in the process of paying out a requested value. The value paid at the poll is given in the vent data.","value":[{"value":0,"country_code":"EUR"}]}
+2026-09-13T14:45:28.311Z [INFO] Fonction handleRenduMixte 5:✅ Event DISPENSED reçu: {"code":210,"name":"DISPENSED","description":"The device has completed its pay-out request.","amount":800,"currency":"EUR"}
+2026-09-13T14:45:29.052Z [INFO] Fonction handleRenduMixte 7:📨 Statut de débit envoyé à Laravel
+2026-09-13T14:45:29.494Z [INFO] Fonction handleRenduMixte 6: 📊 Niveaux Hopper après rendu: {"1":{"denomination_level":0,"value":5,"country_code":"EUR"},"2":{"denomination_level":0,"value":10,"country_code":"EUR"},"3":{"denomination_level":0,"value":20,"country_code":"EUR"},"4":{"denomination_level":0,"value":50,"country_code":"EUR"},"5":{"denomination_level":0,"value":100,"country_code":"EUR"},"6":{"denomination_level":7,"value":200,"country_code":"EUR"}}
+2026-09-13T14:45:29.905Z [INFO] Fonction handleRenduMixte 8:📊 Niveaux Hopper envoyés au serveur secondaire
+2026-09-13T14:45:29.905Z [INFO] Fonction handleRenduMixte 9:🎉 Rendu mixte terminé
+2026-09-13T14:45:34.931Z [INFO] Lecteurs désactivés
+2026-09-13T14:46:04.932Z [INFO] Lecteurs activés
+2026-09-13T14:46:07.818Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:07.818Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:07.819Z [INFO] 💰 Total payé: 2.00€ / dû: 24€
+2026-09-13T14:46:09.737Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:09.737Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:09.738Z [INFO] 💰 Total payé: 4.00€ / dû: 24€
+2026-09-13T14:46:11.337Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:11.337Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:11.339Z [INFO] 💰 Total payé: 6.00€ / dû: 24€
+2026-09-13T14:46:13.256Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:13.257Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:13.257Z [INFO] 💰 Total payé: 8.00€ / dû: 24€
+2026-09-13T14:46:15.336Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:15.336Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:15.337Z [INFO] 💰 Total payé: 10.00€ / dû: 24€
+2026-09-13T14:46:17.256Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:17.256Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:17.257Z [INFO] 💰 Total payé: 12.00€ / dû: 24€
+2026-09-13T14:46:19.175Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:19.175Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:19.175Z [INFO] 💰 Total payé: 14.00€ / dû: 24€
+2026-09-13T14:46:21.094Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:21.094Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:21.095Z [INFO] 💰 Total payé: 16.00€ / dû: 24€
+2026-09-13T14:46:22.853Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:22.853Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:22.854Z [INFO] 💰 Total payé: 18.00€ / dû: 24€
+2026-09-13T14:46:24.612Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:24.612Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:24.613Z [INFO] 💰 Total payé: 20.00€ / dû: 24€
+2026-09-13T14:46:26.372Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:26.372Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:26.373Z [INFO] 💰 Total payé: 22.00€ / dû: 24€
+2026-09-13T14:46:28.452Z [INFO] 🪙 Pièce détectée: 2.00 EUR
+2026-09-13T14:46:28.453Z [INFO] 💰 Traitement pièce: 2 EUR
+2026-09-13T14:46:28.454Z [INFO] 💰 Total payé: 24.00€ / dû: 24€
+2026-09-13T14:46:35.010Z [INFO] Lecteurs désactivés
+2026-09-13T14:47:15.766Z [INFO] Lecteurs désactivés
+2026-09-13T18:08:49.477Z [INFO] Lecteurs désactivés
